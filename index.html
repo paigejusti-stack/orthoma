@@ -5,17 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Orthoma — Clinic Operations &amp; Revenue Analytics</title>
 <meta name="description" content="A source-controlled Power BI solution for a three-site orthopedic practice: Azure SQL warehouse, TMDL semantic model, eight-page executive report.">
+<link rel="icon" href="assets/branding/icon%20only.png">
 <style>
 :root{
-  --ink:#141E19; --panel:#1E2C25; --panel2:#22322A; --line:#33463C;
+  --ink:#0F1714; --ink2:#141E19; --panel:#1E2C25; --panel2:#22322A; --line:#33463C;
   --text:#EAF3EE; --muted:#93A89C; --dim:#6E837A;
   --mint:#4CD787; --teal:#33C5B5; --amber:#F0A93B; --coral:#F2705B;
-  --maxw:1180px;
+  --maxw:1180px; --nav:64px;
   --sans:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
   --serif:Georgia,"Times New Roman",serif;
+  --shadow:0 18px 50px rgba(0,0,0,.42);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth; scroll-padding-top:calc(var(--nav) + 16px)}
 body{
   margin:0; background:var(--ink); color:var(--text);
   font-family:var(--sans); font-size:17px; line-height:1.65;
@@ -25,103 +27,185 @@ body{
 a{color:var(--mint); text-decoration:none}
 a:hover{text-decoration:underline}
 h1,h2,h3{line-height:1.2; margin:0}
-h2{font-family:var(--serif); font-size:clamp(28px,4vw,40px); font-weight:400; letter-spacing:.2px}
+h2{font-family:var(--serif); font-size:clamp(30px,4.4vw,44px); font-weight:400; letter-spacing:-.3px}
 h3{font-size:20px; font-weight:600; margin-bottom:8px}
 p{margin:0 0 18px}
 strong{color:#fff; font-weight:600}
+code{font-size:.92em}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky; top:0; z-index:50; height:var(--nav);
+  background:rgba(15,23,20,.82); backdrop-filter:blur(14px) saturate(150%);
+  border-bottom:1px solid var(--line);
+}
+.nav .wrap{display:flex; align-items:center; gap:26px; height:100%}
+.brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.02em; color:var(--text)}
+.brand:hover{text-decoration:none; color:#fff}
+.brand img{height:26px; width:auto; display:block}
+.navlinks{display:flex; gap:22px; margin-left:auto; align-items:center}
+.navlinks a{color:var(--muted); font-size:14.5px; font-weight:600; position:relative; padding:4px 0}
+.navlinks a:hover{color:var(--text); text-decoration:none}
+.navlinks a::after{
+  content:""; position:absolute; left:0; right:100%; bottom:0; height:2px;
+  background:var(--mint); border-radius:2px; transition:right .22s ease;
+}
+.navlinks a:hover::after{right:0}
+.navlinks .icon{display:grid; place-items:center; width:34px; height:34px; border-radius:8px;
+  border:1px solid var(--line); background:var(--panel); color:var(--muted); padding:0}
+.navlinks .icon:hover{border-color:var(--mint); color:var(--mint)}
+.navlinks .icon::after{display:none}
+.navlinks .icon svg{width:17px; height:17px; fill:currentColor; display:block}
+@media (max-width:800px){ .navlinks .hide-sm{display:none} .nav .wrap{gap:14px} }
 
 /* ---------- hero ---------- */
 .hero{
-  border-bottom:1px solid var(--line);
+  position:relative; overflow:hidden; border-bottom:1px solid var(--line);
   background:
-    radial-gradient(900px 380px at 12% -10%, rgba(51,197,181,.16), transparent 60%),
-    radial-gradient(900px 420px at 88% 0%, rgba(76,215,135,.14), transparent 62%),
+    radial-gradient(1000px 460px at 10% -12%, rgba(51,197,181,.20), transparent 62%),
+    radial-gradient(1000px 500px at 92% -4%, rgba(76,215,135,.17), transparent 64%),
     var(--ink);
-  padding:64px 0 52px;
+  padding:76px 0 60px;
 }
+.hero::after{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.4;
+  background-image:linear-gradient(rgba(51,70,60,.30) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(51,70,60,.30) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(760px 420px at 50% 0%, #000 20%, transparent 78%);
+  -webkit-mask-image:radial-gradient(760px 420px at 50% 0%, #000 20%, transparent 78%);
+}
+.hero .wrap{position:relative; z-index:1}
+.hero-logo{height:74px; width:auto; display:block; margin-bottom:26px}
 .eyebrow{
-  color:var(--mint); font-size:12px; font-weight:700;
-  letter-spacing:.18em; text-transform:uppercase; margin-bottom:18px;
+  display:inline-flex; align-items:center; gap:9px; color:var(--mint); font-size:12px;
+  font-weight:700; letter-spacing:.18em; text-transform:uppercase; margin-bottom:20px;
 }
+.eyebrow::before{content:""; width:26px; height:2px; background:var(--mint); border-radius:2px}
 .hero h1{
   font-family:var(--serif); font-weight:400;
-  font-size:clamp(38px,6vw,68px); letter-spacing:-.5px; margin-bottom:18px;
+  font-size:clamp(40px,6.6vw,74px); letter-spacing:-1px; margin-bottom:20px;
+  background:linear-gradient(180deg,#fff 30%, #A9C6B6);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
 }
-.lede{font-size:clamp(17px,2.1vw,21px); color:var(--muted); max-width:74ch; margin-bottom:30px}
-.cta{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:38px}
+.lede{font-size:clamp(17px,2.1vw,21px); color:var(--muted); max-width:70ch; margin-bottom:26px}
+
+.byline{display:flex; align-items:center; gap:12px; margin-bottom:32px; flex-wrap:wrap}
+.byline .who{font-size:14.5px; color:var(--muted)}
+.byline .who b{color:var(--text); font-weight:600}
+.byline .sep{color:var(--line)}
+.byline a{font-size:14.5px; font-weight:600; display:inline-flex; align-items:center; gap:6px}
+.byline a svg{width:15px; height:15px; fill:currentColor}
+
+.cta{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:40px}
 .btn{
-  display:inline-block; padding:11px 20px; border-radius:8px;
+  display:inline-flex; align-items:center; gap:8px; padding:12px 21px; border-radius:9px;
   border:1px solid var(--line); background:var(--panel); color:var(--text);
-  font-size:14.5px; font-weight:600;
+  font-size:14.5px; font-weight:600; transition:transform .16s ease, border-color .16s ease, background .16s ease;
 }
-.btn:hover{border-color:var(--mint); text-decoration:none}
+.btn:hover{border-color:var(--mint); text-decoration:none; transform:translateY(-2px)}
 .btn.primary{background:var(--mint); border-color:var(--mint); color:#0d1a13}
 .btn.primary:hover{filter:brightness(1.08)}
+.btn svg{width:16px; height:16px; fill:currentColor}
 
 .stats{
   display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden;
+  gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  box-shadow:var(--shadow);
 }
-.stat{background:var(--panel); padding:16px 18px}
-.stat b{display:block; font-size:clamp(22px,3vw,29px); font-weight:700; letter-spacing:-.5px}
-.stat span{display:block; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.09em; margin-top:3px}
+.stat{background:var(--panel); padding:20px 20px 18px; position:relative; transition:background .2s ease}
+.stat::before{content:""; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--mint),var(--teal)); opacity:0; transition:opacity .2s ease}
+.stat:hover{background:var(--panel2)}
+.stat:hover::before{opacity:1}
+.stat b{display:block; font-size:clamp(24px,3.1vw,31px); font-weight:700; letter-spacing:-.6px}
+.stat span{display:block; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.09em; margin-top:4px}
 
 /* ---------- sections ---------- */
-section{padding:64px 0; border-bottom:1px solid rgba(51,70,60,.55)}
-.kicker{color:var(--teal); font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; margin-bottom:12px}
-.sub{color:var(--muted); max-width:74ch; margin-top:14px}
+section{padding:82px 0; border-bottom:1px solid rgba(51,70,60,.55); counter-increment:sec}
+section.alt{background:linear-gradient(180deg, var(--ink2), var(--ink))}
+.kicker{
+  display:flex; align-items:center; gap:10px;
+  color:var(--teal); font-size:12px; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; margin-bottom:14px;
+}
+.kicker::before{
+  content:counter(sec,decimal-leading-zero); color:var(--dim); font-family:var(--serif);
+  font-size:15px; letter-spacing:0; padding-right:10px; border-right:1px solid var(--line);
+}
+.sub{color:var(--muted); max-width:74ch; margin-top:16px}
 
-figure{margin:26px 0 0}
+figure{margin:30px 0 0}
 figure img{
   width:100%; height:auto; display:block;
-  border:1px solid var(--line); border-radius:10px; background:var(--panel);
+  border:1px solid var(--line); border-radius:12px; background:var(--panel);
+  box-shadow:var(--shadow); transition:transform .3s ease, border-color .3s ease;
 }
-figcaption{color:var(--dim); font-size:13.5px; margin-top:9px}
+figure img:hover{transform:translateY(-3px); border-color:var(--dim)}
+figcaption{color:var(--dim); font-size:13.5px; margin-top:11px}
 
-.qs{list-style:none; padding:0; margin:22px 0 0; counter-reset:q}
+.qs{list-style:none; padding:0; margin:26px 0 0; counter-reset:q}
 .qs li{
-  counter-increment:q; position:relative; padding:12px 0 12px 46px;
-  border-top:1px solid rgba(51,70,60,.55); color:var(--muted);
+  counter-increment:q; position:relative; padding:14px 0 14px 48px;
+  border-top:1px solid rgba(51,70,60,.55); color:var(--muted); transition:color .2s ease;
 }
+.qs li:hover{color:var(--text)}
 .qs li::before{
-  content:counter(q); position:absolute; left:0; top:12px;
-  width:28px; height:28px; border-radius:50%; display:grid; place-items:center;
+  content:counter(q); position:absolute; left:0; top:13px;
+  width:29px; height:29px; border-radius:50%; display:grid; place-items:center;
   background:var(--panel); border:1px solid var(--line);
-  color:var(--mint); font-size:13px; font-weight:700;
+  color:var(--mint); font-size:13px; font-weight:700; transition:border-color .2s ease;
 }
+.qs li:hover::before{border-color:var(--mint)}
 
-.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; margin-top:26px}
-.card{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px 22px}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; margin-top:30px}
+.card{
+  background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:22px 24px;
+  transition:transform .18s ease, border-color .18s ease;
+}
+.card:hover{transform:translateY(-3px); border-color:var(--dim)}
 .card p{margin:0; color:var(--muted); font-size:15.5px}
-.card .tag{font-size:11.5px; color:var(--dim); text-transform:uppercase; letter-spacing:.1em; margin-bottom:8px}
+.card code{background:var(--ink); border:1px solid var(--line); border-radius:4px;
+  padding:1px 5px; font-size:13px; color:var(--text)}
+.card .tag{font-size:11.5px; color:var(--mint); text-transform:uppercase; letter-spacing:.1em; margin-bottom:9px; font-weight:700}
 
-.finding{padding:34px 0; border-top:1px solid rgba(51,70,60,.55)}
+.finding{padding:40px 0; border-top:1px solid rgba(51,70,60,.55)}
 .finding:first-of-type{border-top:0}
-.finding h3{font-family:var(--serif); font-weight:400; font-size:clamp(22px,3vw,30px); margin-bottom:12px}
+.finding h3{font-family:var(--serif); font-weight:400; font-size:clamp(23px,3.2vw,32px); margin-bottom:14px}
 .finding p{color:var(--muted)}
 .num{color:var(--mint); font-weight:700}
 .num.bad{color:var(--coral)}
 .num.warn{color:var(--amber)}
 
-.flow{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:26px 0 0}
-.node{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:11px 15px; font-size:14px}
+.flow{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:30px 0 0}
+.node{
+  background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 16px;
+  font-size:14px; transition:transform .18s ease, border-color .18s ease;
+}
+.node:hover{transform:translateY(-3px); border-color:var(--mint)}
 .node b{display:block; font-size:12px; color:var(--mint); letter-spacing:.06em; text-transform:uppercase}
 .arrow{color:var(--dim)}
 
-table{width:100%; border-collapse:collapse; margin-top:22px; font-size:15px}
-th,td{text-align:left; padding:11px 14px; border-bottom:1px solid rgba(51,70,60,.55)}
+table{width:100%; border-collapse:collapse; margin-top:26px; font-size:15px}
+th,td{text-align:left; padding:13px 15px; border-bottom:1px solid rgba(51,70,60,.55)}
 th{background:var(--panel); color:var(--text); font-size:12.5px; text-transform:uppercase; letter-spacing:.08em}
+tbody tr{transition:background .16s ease}
+tbody tr:hover{background:rgba(30,44,37,.55)}
 td{color:var(--muted)}
 td:first-child{color:var(--text); font-weight:600; white-space:nowrap}
 
-.note{border-left:3px solid var(--amber); background:rgba(240,169,59,.07); padding:16px 20px; border-radius:0 8px 8px 0; margin-top:24px}
+.note{border-left:3px solid var(--amber); background:rgba(240,169,59,.07); padding:18px 22px; border-radius:0 10px 10px 0; margin-top:28px}
 .note p{margin:0; color:var(--muted); font-size:15.5px}
 
-.rec{background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--mint);
-     border-radius:0 10px 10px 0; padding:22px 26px; margin-top:18px}
+.rec{
+  background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--mint);
+  border-radius:0 12px 12px 0; padding:24px 28px; margin-top:18px;
+  transition:transform .18s ease, border-color .18s ease;
+}
+.rec:hover{transform:translateX(3px)}
 .rec h3{display:flex; align-items:center; gap:12px; font-size:19px; margin-bottom:14px}
 .rec .rn{
-  flex:0 0 auto; width:26px; height:26px; border-radius:50%;
+  flex:0 0 auto; width:27px; height:27px; border-radius:50%;
   display:grid; place-items:center; background:var(--mint); color:#0d1a13;
   font-size:13px; font-weight:800;
 }
@@ -129,30 +213,88 @@ td:first-child{color:var(--text); font-weight:600; white-space:nowrap}
 .rec p:last-child{margin-bottom:0}
 .rec .meas{
   color:var(--dim); font-size:14px; border-top:1px solid rgba(51,70,60,.7);
-  padding-top:11px; margin-top:14px;
+  padding-top:12px; margin-top:15px;
 }
 
-.embed{margin-top:26px; border:1px dashed var(--line); border-radius:10px; padding:26px; text-align:center; color:var(--dim)}
-.embed iframe{width:100%; aspect-ratio:16/9; height:auto; border:0; border-radius:8px; display:block}
+.embed{margin-top:28px; border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:var(--shadow)}
+.embed iframe{width:100%; aspect-ratio:16/9; height:auto; border:0; display:block}
 
-footer{padding:46px 0 60px; color:var(--dim); font-size:14px}
+/* ---------- about ---------- */
+.about{display:grid; grid-template-columns:1.35fr 1fr; gap:28px; align-items:start; margin-top:30px}
+@media (max-width:820px){ .about{grid-template-columns:1fr} }
+.about .bio p{color:var(--muted)}
+.contact{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:24px; box-shadow:var(--shadow)}
+.contact .tag{font-size:11.5px; color:var(--mint); text-transform:uppercase; letter-spacing:.1em; font-weight:700; margin-bottom:14px}
+.contact a{
+  display:flex; align-items:center; gap:11px; padding:11px 13px; margin:0 -13px;
+  border-radius:9px; color:var(--text); font-size:15px; font-weight:600; transition:background .16s ease;
+}
+.contact a:hover{background:var(--panel2); text-decoration:none}
+.contact a svg{width:18px; height:18px; fill:var(--muted); flex:0 0 auto}
+.contact a:hover svg{fill:var(--mint)}
+.contact a small{display:block; font-weight:400; font-size:13px; color:var(--dim)}
+
+footer{padding:52px 0 66px; color:var(--dim); font-size:14px; background:var(--ink2); border-top:1px solid var(--line)}
 footer a{color:var(--muted)}
-@media (max-width:640px){ body{font-size:16px} section{padding:48px 0} }
+footer .frow{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; margin-top:14px}
+
+@media (max-width:640px){
+  body{font-size:16px} section{padding:56px 0} .hero{padding:52px 0 44px}
+  .hero-logo{height:56px}
+}
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .finding, .card, .rec, .stats, figure, .flow, table, .about{
+      animation:rise .7s both; animation-timeline:view(); animation-range:entry 0% entry 46%;
+    }
+    @keyframes rise{from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none}}
+  }
+}
 </style>
 </head>
 <body>
 
-<header class="hero">
+<nav class="nav">
   <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="assets/branding/icon%20only.png" alt="">
+      Orthoma
+    </a>
+    <div class="navlinks">
+      <a class="hide-sm" href="#findings">Findings</a>
+      <a class="hide-sm" href="#recs">Recommendations</a>
+      <a class="hide-sm" href="#demo">Get the report</a>
+      <a class="icon" href="https://www.linkedin.com/in/paige-justice/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.12V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9z"/></svg>
+      </a>
+      <a class="icon" href="https://github.com/paigejusti-stack/orthoma" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <img class="hero-logo" src="assets/branding/logo.png" alt="Orthoma">
     <div class="eyebrow">Power BI · Azure SQL · DAX · TMDL</div>
-    <h1>Orthoma</h1>
+    <h1>Access is the product.<br>Revenue is the constraint.</h1>
     <p class="lede">Clinic operations and revenue-cycle analytics for a three-site orthopedic
-      walk-in practice — from an Azure SQL warehouse, through a TMDL semantic model, to a
+      walk-in practice — from an Azure SQL warehouse, through a TMDL semantic model, to an
       eight-page executive report.</p>
+
+    <div class="byline">
+      <span class="who">A portfolio project by <b>Paige Justice</b></span>
+      <span class="sep">·</span>
+      <a href="https://www.linkedin.com/in/paige-justice/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.12V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9z"/></svg>
+        Connect on LinkedIn
+      </a>
+    </div>
 
     <div class="cta">
       <a class="btn primary" href="https://github.com/paigejusti-stack/orthoma">View on GitHub</a>
-      <a class="btn" href="#demo">Live demo</a>
+      <a class="btn" href="#demo">Get the report</a>
       <a class="btn" href="docs/reference/orthoma-portfolio-data-dictionary.xlsx">Data dictionary</a>
     </div>
 
@@ -169,7 +311,7 @@ footer a{color:var(--muted)}
 <section>
   <div class="wrap">
     <div class="kicker">The problem</div>
-    <h2>Access is the product. Revenue is the constraint.</h2>
+    <h2>Five questions the report has to answer</h2>
     <p class="sub">A walk-in orthopedic practice competes on access. If a patient waits too long
       they leave — and the visit, the imaging and the downstream procedure leave with them. But
       access is only half the story: two clinics can see identical volume and convert it into very
@@ -190,7 +332,7 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
-<section>
+<section class="alt">
   <div class="wrap">
     <div class="kicker">Architecture</div>
     <h2>A warehouse, not a spreadsheet</h2>
@@ -223,7 +365,7 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
-<section>
+<section id="findings">
   <div class="wrap">
     <div class="kicker">What the data said</div>
     <h2>Findings</h2>
@@ -286,7 +428,7 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
-<section>
+<section class="alt" id="recs">
   <div class="wrap">
     <div class="kicker">Recommendations</div>
     <h2>What to do about it</h2>
@@ -391,21 +533,85 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
-<section id="demo">
+<section class="alt" id="demo">
   <div class="wrap">
     <div class="kicker">Try it</div>
-    <h2>Live report</h2>
-    <p class="sub">All data is synthetic. Row-level security is present in the source project but
-      removed from this public copy, because Power BI's Publish to web does not support RLS datasets.</p>
+    <h2>Explore the report</h2>
+    <p class="sub">All data is synthetic — no real patient, provider or payer information. The dataset
+      carries row-level security across three location roles, and the tenant it is published to does not
+      permit anonymous embedding, so rather than a cut-down public iframe the full report is here to
+      download and open yourself.</p>
 
-    <div class="embed">
-      <!--
-        Replace this whole block with the iframe from
-        Power BI Service → File → Embed report → Publish to web (public):
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/paigejusti-stack/orthoma/releases/latest">Download the report (.pbix)</a>
+      <a class="btn" href="#findings">See the findings</a>
+      <a class="btn" href="https://github.com/paigejusti-stack/orthoma">Browse the source</a>
+    </div>
 
-        <iframe title="Orthoma" src="PASTE_URL_HERE" allowfullscreen></iframe>
-      -->
-      Interactive demo coming soon — the report is published from the RLS-free copy.
+    <div class="grid2">
+      <div class="card">
+        <div class="tag">Fully interactive</div>
+        <p>The <code>.pbix</code> opens in Power BI Desktop, which is free. Every slicer, cross-filter
+          and drillthrough works, and the data travels with the file — no database or account needed.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Inspect the model</div>
+        <p>Desktop also opens the model itself: 12 tables, 15 relationships, 83 measures, and the DAX
+          behind every figure quoted on this page.</p>
+      </div>
+    </div>
+
+    <!--
+      WALKTHROUGH GIFs — drop recordings in and delete this comment.
+      Suggested: (1) slicers cross-filtering the Access page,
+                 (2) right-click → Drill through → Claim Details.
+      <figure><img src="artifacts/walkthrough-drillthrough.gif" alt="Drillthrough from a payer bar to claim detail"><figcaption>Drillthrough to claim detail</figcaption></figure>
+    -->
+
+    <!--
+      If Publish to web is ever enabled on the tenant, add the public iframe here.
+      It must be the "Publish to web (public)" URL (app.powerbi.com/view?r=...),
+      NOT "Website or portal" (reportEmbed?...autoAuth=true&ctid=...), which
+      forces a Microsoft sign-in and only works for accounts inside the tenant.
+
+      <div class="embed"><iframe title="Orthoma" src="PASTE_PUBLIC_URL" allowfullscreen></iframe></div>
+    -->
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="kicker">Who built this</div>
+    <h2>Paige Justice</h2>
+
+    <div class="about">
+      <div class="bio">
+        <p>I build analytics that hold up under questioning — where every number on a page can be
+          traced back through a measure, a view and a table to the row that produced it.</p>
+        <p>Orthoma is a complete vertical slice of that: a synthetic Azure SQL warehouse, a curated
+          view layer that doubles as the security boundary, a TMDL semantic model kept in source
+          control as plain text, and an eight-page report that ends with recommendations rather
+          than charts. The modelling decisions are documented — including the one that costs the
+          report an extra drillthrough page — because the reasoning is the part worth reviewing.</p>
+        <p>I'm open to conversations about business intelligence and analytics engineering roles,
+          particularly in healthcare.</p>
+      </div>
+
+      <div class="contact">
+        <div class="tag">Get in touch</div>
+        <a href="https://www.linkedin.com/in/paige-justice/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.12V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9z"/></svg>
+          <span>LinkedIn<small>in/paige-justice</small></span>
+        </a>
+        <a href="https://github.com/paigejusti-stack/orthoma" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+          <span>GitHub<small>Source for this project</small></span>
+        </a>
+        <a href="docs/reference/orthoma-portfolio-data-dictionary.xlsx">
+          <svg viewBox="0 0 24 24"><path d="M6 2h8l6 6v14a0 0 0 0 1 0 0H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5zM8 13h8v1.6H8zm0 3.4h8V18H8z"/></svg>
+          <span>Data dictionary<small>85 columns, fully defined</small></span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -415,8 +621,11 @@ footer a{color:var(--muted)}
     <p>Built with Power BI Desktop, Azure SQL and TMDL. All data is synthetic — no real patient,
       provider or payer information is used. DAX measure development and final assembly were done
       with AI assistance.</p>
-    <p><a href="https://github.com/paigejusti-stack/orthoma">Source on GitHub</a> ·
-       <a href="docs/reference/orthoma-portfolio-data-dictionary.xlsx">Data dictionary</a></p>
+    <div class="frow">
+      <a href="https://www.linkedin.com/in/paige-justice/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/paigejusti-stack/orthoma">Source on GitHub</a>
+      <a href="docs/reference/orthoma-portfolio-data-dictionary.xlsx">Data dictionary</a>
+    </div>
   </div>
 </footer>
 

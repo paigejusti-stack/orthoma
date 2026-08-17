@@ -11,6 +11,11 @@
 *.sql text eol=lf
 *.csv text eol=lf
 
+# Keep the real SQL hostname in the working copy, out of committed history.
+# Requires the local filter config in docs/dev-setup.md — without it the file
+# commits verbatim, so run the two git config commands before your first push.
+power-bi/Orthoma.SemanticModel/definition/expressions.tmdl filter=scrubhost
+
 *.png binary
 *.jpg binary
 *.jpeg binary
