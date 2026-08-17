@@ -1,0 +1,312 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "7ca429e21c89f6ef509d",
+  "position": {
+    "x": 30,
+    "y": 96,
+    "z": 400,
+    "height": 296,
+    "width": 600,
+    "tabOrder": 400
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "1   ",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#4CD787",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Fix intake throughput, not provider behaviour",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#EAF3EE",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontSize": "4pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "DO   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#4CD787",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Re-sequence rooming and intake rather than coaching individual clinicians. Staff Saturday like a weekday.",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#EAF3EE",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontSize": "4pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "BECAUSE   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#4CD787",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "P90 runs ",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": "48\u201353 min Mon\u2013Fri and 80 min Saturday",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#4CD787",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": " \u2014 a 60% jump on one day. Yet the slowest-to-fastest provider gap is only 76 vs 48 min, and ",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": "96.8%",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#F2705B",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": " of visits breach target. When nearly every visit is late but no provider is an outlier, the constraint is the shared process.",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontSize": "4pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "MEASURE   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#6E837A",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Median door-to-provider under 30, and Saturday P90 within 10 min of weekdays.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#6E837A",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1E2C25'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#33463C'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

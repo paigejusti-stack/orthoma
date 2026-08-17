@@ -1,6 +1,6 @@
 # Orthoma — Clinic Operations & Revenue Analytics
 
-**A source-controlled Power BI solution for a three-site orthopedic walk-in practice — from an Azure SQL warehouse, through a TMDL semantic model, to a seven-page executive report.**
+**A source-controlled Power BI solution for a three-site orthopedic walk-in practice — from an Azure SQL warehouse, through a TMDL semantic model, to an eight-page executive report.**
 
 ![Orthoma Clinic Overview — KPI strip, visits and door-to-provider trend, location scorecard and payer mix](artifacts/01-clinic-overview.png)
 
@@ -29,7 +29,7 @@ Leaders needed one place to answer five connected questions:
 | **Domain** | Orthopedic clinic operations and revenue-cycle analytics |
 | **Warehouse** | Azure SQL — staging → dimensional model → curated `rpt.*` reporting views |
 | **Semantic model** | TMDL · 12 tables · 85 columns · **83 DAX measures** · 15 relationships |
-| **Report** | PBIR · 5 analysis pages + 2 drillthrough pages · 1280 × 720 dark executive theme |
+| **Report** | PBIR · 6 analysis pages + 2 drillthrough pages · 1280 × 720 dark executive theme |
 | **Scale** | 220,979 visits · ~194K claims · 3 locations · 9 providers · data through 31 Dec 2026 |
 | **Source control** | PBIP / PBIR / TMDL — every visual, measure and relationship reviewable as text |
 
@@ -44,7 +44,7 @@ flowchart LR
         DIM --> RPT["rpt.*<br/>curated reporting views"]
     end
     RPT -->|Import| SM["TMDL semantic model<br/>83 measures"]
-    SM --> REP["PBIR report<br/>7 pages"]
+    SM --> REP["PBIR report<br/>8 pages"]
     REP --> DEC["Access · payer · receivable decisions"]
 ```
 
@@ -63,6 +63,7 @@ Power BI binds **only** to the `rpt.*` view layer. Renaming a physical column or
 | **Payer Mix & Revenue** | Which payers convert visits into expected revenue most effectively? |
 | **MVA Aging & Follow-Up** | Where is unresolved MVA exposure aging, and which location needs action first? |
 | **Clinical Services & Imaging** | Where is imaging captured in-house, and which sites refer revenue out? |
+| **Recommendations** | What to do about it — action, evidence and success metric |
 | **Visit Details** *(drillthrough)* | 23-column visit-level detail, export-ready |
 | **Claim Details** *(drillthrough)* | 14-column claim-level detail, export-ready |
 
@@ -108,7 +109,9 @@ That is a concrete, quantified capital question — the kind a volume-only dashb
 
 ## What to do about it
 
-Findings are only worth the decisions they change. Each recommendation below names the action, the number that justifies it, and how you would know it worked.
+Findings are only worth the decisions they change. Each recommendation below names the action, the number that justifies it, and how you would know it worked — and they ship **inside the report**, not just in this readme.
+
+![Recommendations page: four recommendations, each with the action, the evidence and the metric that would prove it worked](artifacts/08-recommendations.png)
 
 ### 1. Fix intake throughput, not provider behaviour
 

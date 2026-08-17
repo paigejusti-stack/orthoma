@@ -1,0 +1,312 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "75185ec8d9078f649747",
+  "position": {
+    "x": 30,
+    "y": 408,
+    "z": 400,
+    "height": 296,
+    "width": 600,
+    "tabOrder": 400
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "3   ",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#4CD787",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Treat the receivable as one process, not three sites",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#EAF3EE",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontSize": "4pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "DO   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#4CD787",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Run one central follow-up workflow, sequenced by dollars \u2014 OKC $3.5M, Edmond $3.0M, Ardmore $1.9M.",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#EAF3EE",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontSize": "4pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "BECAUSE   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#4CD787",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "The 90+ share is ",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": "91.4% / 91.5% / 91.6%",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#4CD787",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": " across the three sites \u2014 identical to two-tenths of a point. Nothing about a location explains the aging. ",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": "88%",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#F2705B",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": " of the $8.45M already sits past 120 days, where recovery falls off hardest, so speed matters more than effort.",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontSize": "4pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "MEASURE   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#6E837A",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Median days outstanding, currently 595.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#6E837A",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1E2C25'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#33463C'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

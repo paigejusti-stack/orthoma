@@ -1,0 +1,312 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "31fdde369b3ac5960f99",
+  "position": {
+    "x": 650,
+    "y": 408,
+    "z": 400,
+    "height": 296,
+    "width": 614,
+    "tabOrder": 400
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "4   ",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#4CD787",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Put a scanner in Ardmore \u2014 or find out why not",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#EAF3EE",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontSize": "4pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "DO   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#4CD787",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Model in-house MRI capacity at Ardmore against lease, staffing and read costs.",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#EAF3EE",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontSize": "4pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "BECAUSE   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#4CD787",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Ardmore refers out ",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": "5,995 of 5,995",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#F2705B",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": " MRI orders because it has no scanner. Edmond captures 84.7%, Oklahoma City 84.9%. Matching them would retain roughly ",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": "5,100 studies a year",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#4CD787",
+                      "fontWeight": "normal"
+                    }
+                  },
+                  {
+                    "value": " that currently walk out the door.",
+                    "textStyle": {
+                      "fontSize": "10.5pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
+                    "textStyle": {
+                      "fontSize": "4pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#93A89C",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "MEASURE   ",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "fontFamily": "Segoe UI Semibold",
+                      "color": "#6E837A",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Ardmore in-house capture, currently 0%, against the ~85% its sister sites achieve.",
+                    "textStyle": {
+                      "fontSize": "10pt",
+                      "fontFamily": "Segoe UI",
+                      "color": "#6E837A",
+                      "fontWeight": "normal"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1E2C25'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#33463C'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

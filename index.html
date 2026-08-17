@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Orthoma — Clinic Operations &amp; Revenue Analytics</title>
-<meta name="description" content="A source-controlled Power BI solution for a three-site orthopedic practice: Azure SQL warehouse, TMDL semantic model, seven-page executive report.">
+<meta name="description" content="A source-controlled Power BI solution for a three-site orthopedic practice: Azure SQL warehouse, TMDL semantic model, eight-page executive report.">
 <style>
 :root{
   --ink:#141E19; --panel:#1E2C25; --panel2:#22322A; --line:#33463C;
@@ -148,7 +148,7 @@ footer a{color:var(--muted)}
     <h1>Orthoma</h1>
     <p class="lede">Clinic operations and revenue-cycle analytics for a three-site orthopedic
       walk-in practice — from an Azure SQL warehouse, through a TMDL semantic model, to a
-      seven-page executive report.</p>
+      eight-page executive report.</p>
 
     <div class="cta">
       <a class="btn primary" href="https://github.com/paigejusti-stack/orthoma">View on GitHub</a>
@@ -160,7 +160,7 @@ footer a{color:var(--muted)}
       <div class="stat"><b>220,979</b><span>Visits</span></div>
       <div class="stat"><b>$51M</b><span>Net revenue</span></div>
       <div class="stat"><b>83</b><span>DAX measures</span></div>
-      <div class="stat"><b>7</b><span>Report pages</span></div>
+      <div class="stat"><b>8</b><span>Report pages</span></div>
       <div class="stat"><b>3</b><span>Locations</span></div>
     </div>
   </div>
@@ -203,7 +203,7 @@ footer a{color:var(--muted)}
       <div class="node"><b>Warehouse</b>dim.* / fact.*</div><span class="arrow">→</span>
       <div class="node"><b>Contract</b>rpt.* views</div><span class="arrow">→</span>
       <div class="node"><b>Semantic model</b>TMDL · 83 measures</div><span class="arrow">→</span>
-      <div class="node"><b>Report</b>PBIR · 7 pages</div>
+      <div class="node"><b>Report</b>PBIR · 8 pages</div>
     </div>
 
     <div class="grid2">
@@ -291,7 +291,11 @@ footer a{color:var(--muted)}
     <div class="kicker">Recommendations</div>
     <h2>What to do about it</h2>
     <p class="sub">Findings are only worth the decisions they change. Each one names the action,
-      the number that justifies it, and how you would know it worked.</p>
+      the number that justifies it, and how you would know it worked — and they ship
+      <strong>inside the report</strong>, not just on this page.</p>
+    <figure>
+      <img src="artifacts/08-recommendations.png" alt="Recommendations page in the report: four recommendations, each with the action, the evidence and the metric that would prove it worked">
+    </figure>
 
     <div class="rec">
       <h3><span class="rn">1</span> Fix intake throughput, not provider behaviour</h3>
