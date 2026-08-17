@@ -1,0 +1,177 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 3058.0920565043243,
+            "y": 702.596161038711
+          },
+          "nodeIndex": "_Measures",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 273.57972752786588
+          },
+          "nodeIndex": "Claim Status",
+          "nodeLineageTag": "f2de6e75-6fe6-479f-b12a-822adf39b2df",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 316.84622219403985,
+            "y": 476.38170153893481
+          },
+          "nodeIndex": "Claims",
+          "nodeLineageTag": "c8f5fa5f-29c2-46d6-b7be-ef492efbae55",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 603.81036564864348,
+            "y": 243.96057007751813
+          },
+          "nodeIndex": "Date",
+          "nodeLineageTag": "13631041-2733-43f4-9cca-b01b788cc7b0",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 890.73994574864889,
+            "y": 145.77572529757686
+          },
+          "nodeIndex": "Location",
+          "nodeLineageTag": "29cb15a3-7743-4b9f-99ad-12fc49a0d4eb",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 603.87024890157431,
+            "y": 761.61893249408865
+          },
+          "nodeIndex": "Payer Class",
+          "nodeLineageTag": "cf41b9ca-72dd-4143-8249-6e3d4f3f02a5",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1177.7934897879845,
+            "y": -50
+          },
+          "nodeIndex": "Provider",
+          "nodeLineageTag": "4243a6ec-2e9a-4783-95ef-2690e6e5cab9",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 319.0408550165759,
+            "y": -22.271871897420169
+          },
+          "nodeIndex": "Provider Days",
+          "nodeLineageTag": "4a32f32e-c258-4b7d-a134-89a48d92097a",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1124.2157633057222,
+            "y": 824.596161038711
+          },
+          "nodeIndex": "Service Line",
+          "nodeLineageTag": "5fec328c-c9e4-4f37-b17a-9f1e3e9de51e",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 7.3023782541749824
+          },
+          "nodeIndex": "Time Intelligence",
+          "nodeLineageTag": "7ddbbca7-2376-4a50-8a70-1b8365394fbb",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1178.0460282521622,
+            "y": 528.10761998050873
+          },
+          "nodeIndex": "Visit Type",
+          "nodeLineageTag": "5225111a-4ad4-4275-90a6-0e7a0160f0de",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 890.92916872937371,
+            "y": 471.7553581652582
+          },
+          "nodeIndex": "Visits",
+          "nodeLineageTag": "9354afde-ddf0-44ae-b50b-0593f0367d36",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 57.014129030786286,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

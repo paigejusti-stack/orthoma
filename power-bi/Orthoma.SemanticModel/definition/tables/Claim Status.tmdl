@@ -1,0 +1,36 @@
+table 'Claim Status'
+	lineageTag: f2de6e75-6fe6-479f-b12a-822adf39b2df
+
+	column ClaimStatusKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 75119e72-0dad-4d11-a0ac-474cd575cc11
+		summarizeBy: none
+		sourceColumn: ClaimStatusKey
+
+	column 'Claim Status'
+		dataType: string
+		lineageTag: bf11032d-3f7a-4be0-aef1-9d38f3427064
+		summarizeBy: none
+		sourceColumn: ClaimStatusName
+
+	column Unresolved
+		dataType: boolean
+		lineageTag: 9d5eb64f-39df-4f29-973b-54e18044c210
+		summarizeBy: none
+		sourceColumn: IsUnresolved
+
+	partition 'Claim Status' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(SqlServer, SqlDatabase),
+				    rpt_DimClaimStatus = Source{[Schema="rpt",Item="DimClaimStatus"]}[Data]
+				in
+				    rpt_DimClaimStatus
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

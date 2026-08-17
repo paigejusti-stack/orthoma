@@ -1,0 +1,62 @@
+relationship rel_Visit_Date
+	fromColumn: Visits.VisitDateKey
+	toColumn: Date.DateKey
+
+relationship rel_Visit_Location
+	fromColumn: Visits.LocationKey
+	toColumn: Location.LocationKey
+
+relationship rel_Visit_Provider
+	fromColumn: Visits.ProviderKey
+	toColumn: Provider.ProviderKey
+
+relationship rel_Visit_PayerClass
+	fromColumn: Visits.PayerClassKey
+	toColumn: 'Payer Class'.PayerClassKey
+
+relationship rel_Visit_ServiceLine
+	fromColumn: Visits.ServiceLineKey
+	toColumn: 'Service Line'.ServiceLineKey
+
+relationship rel_Visit_VisitType
+	fromColumn: Visits.VisitTypeKey
+	toColumn: 'Visit Type'.VisitTypeKey
+
+relationship rel_Claim_ServiceDate
+	fromColumn: Claims.ServiceDateKey
+	toColumn: Date.DateKey
+
+relationship rel_Claim_SubmitDate
+	isActive: false
+	fromColumn: Claims.SubmitDateKey
+	toColumn: Date.DateKey
+
+relationship rel_Claim_PaidDate
+	isActive: false
+	fromColumn: Claims.PaidDateKey
+	toColumn: Date.DateKey
+
+relationship rel_Claim_Location
+	fromColumn: Claims.LocationKey
+	toColumn: Location.LocationKey
+
+relationship rel_Claim_PayerClass
+	fromColumn: Claims.PayerClassKey
+	toColumn: 'Payer Class'.PayerClassKey
+
+relationship rel_Claim_ClaimStatus
+	fromColumn: Claims.ClaimStatusKey
+	toColumn: 'Claim Status'.ClaimStatusKey
+
+relationship rel_ProviderDay_Date
+	fromColumn: 'Provider Days'.WorkDateKey
+	toColumn: Date.DateKey
+
+relationship rel_ProviderDay_Location
+	fromColumn: 'Provider Days'.LocationKey
+	toColumn: Location.LocationKey
+
+relationship rel_ProviderDay_Provider
+	fromColumn: 'Provider Days'.ProviderKey
+	toColumn: Provider.ProviderKey
+

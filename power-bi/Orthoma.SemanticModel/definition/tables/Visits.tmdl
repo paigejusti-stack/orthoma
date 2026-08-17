@@ -1,0 +1,188 @@
+table Visits
+	lineageTag: 9354afde-ddf0-44ae-b50b-0593f0367d36
+
+	column VisitKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d4d732b0-f48c-4301-a96f-f795d31f2c1d
+		summarizeBy: none
+		sourceColumn: VisitKey
+
+	column VisitID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2b7012eb-6d1f-4e6b-9b1b-d97cb60ccc36
+		summarizeBy: none
+		sourceColumn: VisitID
+
+	column VisitDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 92089d11-ee45-42d4-a9a1-99117143af62
+		summarizeBy: none
+		sourceColumn: VisitDateKey
+
+	column LocationKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d7537303-248e-42b9-b2ef-db9cddad62af
+		summarizeBy: none
+		sourceColumn: LocationKey
+
+	column ProviderKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 108398de-5164-40e4-9452-8a5524c95f29
+		summarizeBy: none
+		sourceColumn: ProviderKey
+
+	column PayerClassKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 70ad5c5d-d878-4f0e-ad3c-af0c0574da37
+		summarizeBy: none
+		sourceColumn: PayerClassKey
+
+	column ServiceLineKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 237f0cf4-90c2-4e44-907a-344302553eeb
+		summarizeBy: none
+		sourceColumn: ServiceLineKey
+
+	column VisitTypeKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2ef8f8eb-954a-4c99-ab17-509a32749b23
+		summarizeBy: none
+		sourceColumn: VisitTypeKey
+
+	column 'Payer Name'
+		dataType: string
+		lineageTag: 24d65ff6-7d1d-4ae3-9014-1d726fda9c54
+		summarizeBy: none
+		sourceColumn: PayerName
+
+	column 'Body Part'
+		dataType: string
+		lineageTag: 67a6a0e1-6f5a-4753-bc34-49ae7b66ea85
+		summarizeBy: none
+		sourceColumn: BodyPart
+
+	column 'Referral Source'
+		dataType: string
+		lineageTag: 8a585b4d-c969-4455-8f6c-8142e678a87a
+		summarizeBy: none
+		sourceColumn: ReferralSource
+
+	column 'Arrival Time'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: d6307f4c-1fa4-4d20-9cf6-3a980339493d
+		summarizeBy: none
+		sourceColumn: ArrivalTime
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Arrival Hour'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b1ea21a-5759-4b42-a768-e37080bd5756
+		summarizeBy: none
+		sourceColumn: ArrivalHour
+
+	column 'Minutes to Room'
+		dataType: int64
+		formatString: 0
+		lineageTag: abcc77f3-5403-44ea-976a-a70102e09651
+		summarizeBy: none
+		sourceColumn: MinutesToRoom
+
+	column 'Minutes to Provider'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d2bda6f-8fd8-47a6-ac89-538b290906af
+		summarizeBy: none
+		sourceColumn: MinutesToProvider
+
+	column 'Visit Duration (min)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 28242270-0b14-4abc-8be9-e1dfcf069d6e
+		summarizeBy: none
+		sourceColumn: VisitDurationMinutes
+
+	column 'X-ray Performed'
+		dataType: boolean
+		lineageTag: 523d319f-115d-4c67-8738-d2a4dfbf4c1b
+		summarizeBy: none
+		sourceColumn: XrayPerformed
+
+	column 'MRI Ordered'
+		dataType: boolean
+		lineageTag: c48d6abc-6712-482c-8eb3-ef6854379a16
+		summarizeBy: none
+		sourceColumn: MRIOrdered
+
+	column 'MRI Location'
+		dataType: string
+		lineageTag: 3fa3ca42-8109-452c-b66c-367b5fdca17c
+		summarizeBy: none
+		sourceColumn: MRILocation
+
+	column 'Injection Performed'
+		dataType: boolean
+		lineageTag: 54e9168b-9be2-4092-ae00-100aa6f18aed
+		summarizeBy: none
+		sourceColumn: InjectionPerformed
+
+	column 'Charge Amount'
+		dataType: double
+		formatString: \$#,##0
+		lineageTag: 1c9db15c-c26b-40b1-9262-c925f50b782c
+		summarizeBy: sum
+		sourceColumn: ChargeAmount
+
+	column 'Allowed Amount'
+		dataType: double
+		formatString: \$#,##0
+		lineageTag: 511c1d04-4f68-473e-8a46-e8c2af5a7525
+		summarizeBy: sum
+		sourceColumn: AllowedAmount
+
+	column 'X-ray Performed YN' = IF ( Visits[X-ray Performed], "Yes", "No" )
+		dataType: string
+		lineageTag: d733a83d-ebf0-472c-bd63-264418c7a1c6
+		summarizeBy: none
+
+	column 'MRI Ordered YN' = IF ( Visits[MRI Ordered], "Yes", "No" )
+		dataType: string
+		lineageTag: 478877cf-a3c6-4532-918b-2ce55c7ae6a3
+		summarizeBy: none
+
+	column 'Injection Performed YN' = IF ( Visits[Injection Performed], "Yes", "No" )
+		dataType: string
+		lineageTag: 7df5521a-6f50-4183-89b0-47eacbf90acc
+		summarizeBy: none
+
+	partition Visits = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(SqlServer, SqlDatabase),
+				    rpt_FactVisit = Source{[Schema="rpt",Item="FactVisit"]}[Data]
+				in
+				    rpt_FactVisit
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

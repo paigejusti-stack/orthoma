@@ -1,0 +1,30 @@
+table 'Service Line'
+	lineageTag: 5fec328c-c9e4-4f37-b17a-9f1e3e9de51e
+
+	column ServiceLineKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: db84fa16-de38-4065-a8e0-da7369786bd1
+		summarizeBy: none
+		sourceColumn: ServiceLineKey
+
+	column 'Service Line'
+		dataType: string
+		lineageTag: 35be4cba-527c-443a-8f0c-f99f661b6e61
+		summarizeBy: none
+		sourceColumn: ServiceLineName
+
+	partition 'Service Line' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(SqlServer, SqlDatabase),
+				    rpt_DimServiceLine = Source{[Schema="rpt",Item="DimServiceLine"]}[Data]
+				in
+				    rpt_DimServiceLine
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

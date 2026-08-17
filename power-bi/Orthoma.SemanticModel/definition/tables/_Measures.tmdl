@@ -1,0 +1,611 @@
+table _Measures
+	lineageTag: 8be07b62-19c9-49fa-9115-0bc21b7f7f3b
+
+	/// Count of visit rows in the current filter context.
+	measure Visits = COUNTROWS ( Visits )
+		formatString: #,##0
+		displayFolder: 01 Volume & Access
+		lineageTag: 16f5f16d-badd-44ea-828b-dd375df4c70a
+
+	/// Count of provider working days.
+	measure 'Provider Days' = COUNTROWS ( 'Provider Days' )
+		formatString: #,##0
+		displayFolder: 01 Volume & Access
+		lineageTag: e968f888-b153-4343-9d00-5bdfcbaa8743
+
+	/// Visits per provider working day (load).
+	measure 'Patients per Provider Day' = DIVIDE ( [Visits], [Provider Days] )
+		formatString: #,##0.0
+		displayFolder: 01 Volume & Access
+		lineageTag: 69991352-f770-4d5b-9a01-c5d14bcb2efe
+
+	/// Visits with a valid, non-negative door-to-provider interval.
+	measure 'D2P Eligible Visits' =
+			COUNTROWS (
+			    FILTER (
+			        Visits,
+			        NOT ISBLANK ( Visits[Minutes to Provider] )
+			            && Visits[Minutes to Provider] >= 0
+			    )
+			)
+		formatString: #,##0
+		displayFolder: 01 Volume & Access
+		lineageTag: e370d921-d6fd-4447-a1e3-f28760440bd7
+
+	/// Median door-to-provider minutes over eligible visits.
+	measure 'Median Door-to-Provider Minutes' =
+			MEDIANX (
+			    FILTER (
+			        Visits,
+			        NOT ISBLANK ( Visits[Minutes to Provider] )
+			            && Visits[Minutes to Provider] >= 0
+			    ),
+			    Visits[Minutes to Provider]
+			)
+		formatString: 0 "min"
+		displayFolder: 01 Volume & Access
+		lineageTag: 5cd879d3-0561-4dcb-bbbb-4ac8ff74c275
+
+	/// Inclusive 90th percentile of door-to-provider minutes.
+	measure 'P90 Door-to-Provider Minutes' =
+			PERCENTILEX.INC (
+			    FILTER (
+			        Visits,
+			        NOT ISBLANK ( Visits[Minutes to Provider] )
+			            && Visits[Minutes to Provider] >= 0
+			    ),
+			    Visits[Minutes to Provider],
+			    0.90
+			)
+		formatString: 0 "min"
+		displayFolder: 01 Volume & Access
+		lineageTag: 95a16a34-872a-4fe3-b4e9-9fca65ecdfcd
+
+	/// Access target for median door-to-provider.
+	measure 'Median D2P Target' = 30
+		formatString: 0 "min"
+		displayFolder: 01 Volume & Access
+		lineageTag: 88a0337e-dc45-4e98-8840-a4987b061c93
+
+	/// Access target for P90 door-to-provider.
+	measure 'P90 D2P Target' = 60
+		formatString: 0 "min"
+		displayFolder: 01 Volume & Access
+		lineageTag: c4fcac5a-8e94-45f2-b105-b360c5e8a854
+
+	/// Eligible visits waiting more than 30 minutes.
+	measure 'Visits Over 30 Minutes' =
+			COUNTROWS (
+			    FILTER (
+			        Visits,
+			        NOT ISBLANK ( Visits[Minutes to Provider] )
+			            && Visits[Minutes to Provider] > 30
+			    )
+			)
+		formatString: #,##0
+		displayFolder: 01 Volume & Access
+		lineageTag: c20848e1-8ed9-4e6d-a50f-38ac83804d2c
+
+	/// Share of eligible visits waiting more than 30 minutes.
+	measure 'Visits Over 30 Minutes %' = DIVIDE ( [Visits Over 30 Minutes], [D2P Eligible Visits] )
+		formatString: 0.0%
+		displayFolder: 01 Volume & Access
+		lineageTag: 4ba7ff01-9138-4450-9907-ac39dcd24ab0
+
+	/// Eligible visits waiting more than 60 minutes.
+	measure 'Visits Over 60 Minutes' =
+			COUNTROWS (
+			    FILTER (
+			        Visits,
+			        NOT ISBLANK ( Visits[Minutes to Provider] )
+			            && Visits[Minutes to Provider] > 60
+			    )
+			)
+		formatString: #,##0
+		displayFolder: 01 Volume & Access
+		lineageTag: f616dc75-b3a3-4104-b72c-3cae035f25e2
+
+	/// Share of eligible visits waiting more than 60 minutes.
+	measure 'Visits Over 60 Minutes %' = DIVIDE ( [Visits Over 60 Minutes], [D2P Eligible Visits] )
+		formatString: 0.0%
+		displayFolder: 01 Volume & Access
+		lineageTag: 2a751a95-cf11-49e1-a535-d96a42d47933
+
+	/// Expected allowed revenue by date of service (not cash received).
+	measure 'Net Revenue' = SUM ( Visits[Allowed Amount] )
+		formatString: \$#,##0
+		displayFolder: 02 Revenue
+		lineageTag: 8c57431c-a46b-4a49-a0aa-f3a93769a51c
+
+	/// Gross charges before contractual adjustment.
+	measure 'Gross Charges' = SUM ( Visits[Charge Amount] )
+		formatString: \$#,##0
+		displayFolder: 02 Revenue
+		lineageTag: f8f7edff-50e0-406b-9d6e-815baffb028f
+
+	/// Expected allowed revenue per visit.
+	measure 'Net Revenue per Visit' = DIVIDE ( [Net Revenue], [Visits] )
+		formatString: \$#,##0
+		displayFolder: 02 Revenue
+		lineageTag: ee6dca0b-d3b7-4fe1-a51c-69cf77c302ee
+
+	/// Share of gross charges written off as contractual adjustment.
+	measure 'Contractual Adjustment %' = DIVIDE ( [Gross Charges] - [Net Revenue], [Gross Charges] )
+		formatString: 0.0%
+		displayFolder: 02 Revenue
+		lineageTag: f50e8c21-537d-48a5-8117-cccab97c616c
+
+	/// Visit share of the payer class within all payers.
+	measure 'Payer Mix %' = DIVIDE ( [Visits], CALCULATE ( [Visits], REMOVEFILTERS ( 'Payer Class' ) ) )
+		formatString: 0.0%
+		displayFolder: 03 Payer Mix
+		lineageTag: b6ac6166-8599-4c5d-a30a-3e74f69048ff
+
+	/// Revenue share of the payer class within all payers.
+	measure 'Revenue Mix %' = DIVIDE ( [Net Revenue], CALCULATE ( [Net Revenue], REMOVEFILTERS ( 'Payer Class' ) ) )
+		formatString: 0.0%
+		displayFolder: 03 Payer Mix
+		lineageTag: cb6d5d25-220d-427b-b331-64651ad4bbb6
+
+	/// Revenue share minus visit share, in percentage points.
+	measure 'Revenue Share Gap pp' = ( [Revenue Mix %] - [Payer Mix %] ) * 100
+		formatString: +0.0 "pp";-0.0 "pp";0.0 "pp"
+		displayFolder: 03 Payer Mix
+		lineageTag: 7d93a4bf-88f6-492d-bd7b-747289a0582d
+
+	/// Visits in the immediately preceding equal-length date span.
+	measure 'Visits Prior Period' =
+			VAR __Start = MIN ( 'Date'[Date] )
+			VAR __End = MAX ( 'Date'[Date] )
+			VAR __Days = DATEDIFF ( __Start, __End, DAY ) + 1
+			VAR __PriorStart = __Start - __Days
+			VAR __PriorEnd = __Start - 1
+			RETURN
+			    CALCULATE (
+			        [Visits],
+			        REMOVEFILTERS ( 'Date' ),
+			        DATESBETWEEN ( 'Date'[Date], __PriorStart, __PriorEnd )
+			    )
+		formatString: #,##0
+		displayFolder: 04 Comparisons
+		lineageTag: a5f67bc6-d0a1-4708-929c-ec9042241701
+
+	/// Visit change versus the prior equal-length period.
+	measure 'Visits Change % vs Prior Period' = DIVIDE ( [Visits] - [Visits Prior Period], [Visits Prior Period] )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 04 Comparisons
+		lineageTag: bd34d6b0-c56b-4891-b190-006d347bd5a2
+
+	/// Net revenue in the immediately preceding equal-length date span.
+	measure 'Net Revenue Prior Period' =
+			VAR __Start = MIN ( 'Date'[Date] )
+			VAR __End = MAX ( 'Date'[Date] )
+			VAR __Days = DATEDIFF ( __Start, __End, DAY ) + 1
+			VAR __PriorStart = __Start - __Days
+			VAR __PriorEnd = __Start - 1
+			RETURN
+			    CALCULATE (
+			        [Net Revenue],
+			        REMOVEFILTERS ( 'Date' ),
+			        DATESBETWEEN ( 'Date'[Date], __PriorStart, __PriorEnd )
+			    )
+		formatString: \$#,##0
+		displayFolder: 04 Comparisons
+		lineageTag: 908bb24e-f670-4c8c-b1c8-9d7ee4a008f2
+
+	/// Net revenue change versus the prior equal-length period.
+	measure 'Net Revenue Change % vs Prior Period' = DIVIDE ( [Net Revenue] - [Net Revenue Prior Period], [Net Revenue Prior Period] )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 04 Comparisons
+		lineageTag: 981faa30-f641-4f83-aa44-5b6d370d5cec
+
+	/// Distinct count of claims (cash/self-pay generate no claim).
+	measure Claims = DISTINCTCOUNT ( Claims[ClaimID] )
+		formatString: #,##0
+		displayFolder: 05 Claims & Collection
+		lineageTag: d9a8de2a-5b39-4c68-86ec-e8451d0f4652
+
+	/// Total paid amount received on claims.
+	measure 'Payments Received' = SUM ( Claims[Paid Amount] )
+		formatString: \$#,##0
+		displayFolder: 05 Claims & Collection
+		lineageTag: ea7d19e6-505c-4fd7-9a13-b43d04e02857
+
+	/// Allowed amount on claims (denominator for collection).
+	measure 'Claim Allowed' = SUM ( Claims[Allowed Amount] )
+		formatString: \$#,##0
+		isHidden
+		displayFolder: 05 Claims & Collection
+		lineageTag: 92514da5-7fb5-4cc6-a72d-ea323e4d0b4a
+
+	/// Realized collection: payments received over claim allowed.
+	measure 'Collection Rate' = DIVIDE ( [Payments Received], [Claim Allowed] )
+		formatString: 0.0%
+		displayFolder: 05 Claims & Collection
+		lineageTag: 0a1823f8-825d-4330-8f9f-d9b21031a437
+
+	/// Outstanding A/R proxy = Allowed less Paid on all claims.
+	measure 'Outstanding A/R' = SUM ( Claims[Outstanding A/R] )
+		formatString: \$#,##0
+		displayFolder: 05 Claims & Collection
+		lineageTag: 5cd802dd-8ba7-408b-a383-c6596f4325db
+
+	/// Latest date in the calendar; anchor for as-of logic.
+	measure 'Data Through Date' = CALCULATE ( MAX ( 'Date'[Date] ), REMOVEFILTERS ( 'Date' ) )
+		formatString: m/d/yyyy
+		isHidden
+		displayFolder: 05 Claims & Collection
+		lineageTag: 32482ff3-9ae5-4c24-8ed6-6b61a36bb96e
+
+	/// Unresolved (Open or Denied) MVA A/R proxy, non-negative age.
+	measure 'MVA Outstanding A/R' =
+			CALCULATE (
+			    SUM ( Claims[Outstanding A/R] ),
+			    KEEPFILTERS ( 'Payer Class'[Payer Class] = "Motor Vehicle Accident" ),
+			    KEEPFILTERS ( 'Claim Status'[Unresolved] = TRUE () ),
+			    KEEPFILTERS ( Claims[Claim Age (days)] >= 0 )
+			)
+		formatString: \$#,##0
+		displayFolder: 06 MVA Aging & Follow-Up
+		lineageTag: 8aed8750-7d2e-4489-9ed0-0df165f390c2
+
+	/// Count of unresolved MVA claims (Open or Denied), non-negative age.
+	measure 'MVA Open Claims' =
+			CALCULATE (
+			    DISTINCTCOUNT ( Claims[ClaimID] ),
+			    KEEPFILTERS ( 'Payer Class'[Payer Class] = "Motor Vehicle Accident" ),
+			    KEEPFILTERS ( 'Claim Status'[Unresolved] = TRUE () ),
+			    KEEPFILTERS ( Claims[Claim Age (days)] >= 0 )
+			)
+		formatString: #,##0
+		displayFolder: 06 MVA Aging & Follow-Up
+		lineageTag: 25bc0c24-cc53-48c6-beb3-373d4747c9dc
+
+	/// Average outstanding A/R per unresolved MVA claim.
+	measure 'MVA Avg Outstanding per Open Claim' = DIVIDE ( [MVA Outstanding A/R], [MVA Open Claims] )
+		formatString: \$#,##0
+		displayFolder: 06 MVA Aging & Follow-Up
+		lineageTag: 78403b7f-7d9b-4c59-bbf7-f7da507ce8ce
+
+	/// Unresolved MVA A/R on claims older than 90 days.
+	measure 'MVA 90+ A/R' = CALCULATE ( [MVA Outstanding A/R], KEEPFILTERS ( Claims[Claim Age (days)] > 90 ) )
+		formatString: \$#,##0
+		displayFolder: 06 MVA Aging & Follow-Up
+		lineageTag: fa9350ab-17ba-45ff-b023-69df0a171753
+
+	/// Share of unresolved MVA A/R older than 90 days.
+	measure 'MVA 90+ A/R %' = DIVIDE ( [MVA 90+ A/R], [MVA Outstanding A/R] )
+		formatString: 0.0%
+		displayFolder: 06 MVA Aging & Follow-Up
+		lineageTag: e70d275d-1bfc-448b-8ecf-5326915187f4
+
+	/// Unresolved MVA A/R on claims older than 120 days.
+	measure 'MVA 120+ A/R' = CALCULATE ( [MVA Outstanding A/R], KEEPFILTERS ( Claims[Claim Age (days)] > 120 ) )
+		formatString: \$#,##0
+		displayFolder: 06 MVA Aging & Follow-Up
+		lineageTag: d8dca531-f748-4269-a2b5-3dd9c148ad50
+
+	/// Share of unresolved MVA A/R older than 120 days.
+	measure 'MVA 120+ A/R %' = DIVIDE ( [MVA 120+ A/R], [MVA Outstanding A/R] )
+		formatString: 0.0%
+		displayFolder: 06 MVA Aging & Follow-Up
+		lineageTag: 6884db37-211e-4cec-af63-561f68699cc5
+
+	/// Median days outstanding for unresolved MVA claims.
+	measure 'MVA Median Days Outstanding' =
+			CALCULATE (
+			    MEDIAN ( Claims[Claim Age (days)] ),
+			    KEEPFILTERS ( 'Payer Class'[Payer Class] = "Motor Vehicle Accident" ),
+			    KEEPFILTERS ( 'Claim Status'[Unresolved] = TRUE () ),
+			    KEEPFILTERS ( Claims[Claim Age (days)] >= 0 )
+			)
+		formatString: 0 "days"
+		displayFolder: 06 MVA Aging & Follow-Up
+		lineageTag: e8c9372c-9760-4d51-9fd1-264fefccf543
+
+	/// This bucket's share of total unresolved MVA A/R.
+	measure 'MVA % of Total A/R' =
+			VAR __Total =
+			    CALCULATE (
+			        [MVA Outstanding A/R],
+			        REMOVEFILTERS ( 'Claim Status' ),
+			        REMOVEFILTERS ( Claims[Aging Bucket] ),
+			        REMOVEFILTERS ( Claims[AgingBucketSort] )
+			    )
+			RETURN
+			    DIVIDE ( [MVA Outstanding A/R], __Total )
+		formatString: 0.0%
+		displayFolder: 06 MVA Aging & Follow-Up
+		lineageTag: 964feb24-7ede-47d6-925b-90a1dfdf38f4
+
+	/// Visits where an MRI was ordered.
+	measure 'MRI Ordered' = CALCULATE ( COUNTROWS ( Visits ), Visits[MRI Ordered] = TRUE () )
+		formatString: #,##0
+		displayFolder: 07 Imaging & Procedures
+		lineageTag: 4d6a898c-b58b-454e-9bb2-2fecd11dd576
+
+	/// MRI orders imaged in-house.
+	measure 'MRI In-House' = CALCULATE ( COUNTROWS ( Visits ), Visits[MRI Location] = "In-House" )
+		formatString: #,##0
+		displayFolder: 07 Imaging & Procedures
+		lineageTag: 2b2b0a74-3cd4-44f2-b60d-0c1dbf814b07
+
+	/// MRI orders sent to an outside facility.
+	measure 'MRI Referred Out' = CALCULATE ( COUNTROWS ( Visits ), Visits[MRI Location] = "Referred Out" )
+		formatString: #,##0
+		displayFolder: 07 Imaging & Procedures
+		lineageTag: 690215d7-b2f6-47fc-89d3-47d90dad54da
+
+	/// Share of MRI orders imaged in-house (capture rate).
+	measure 'MRI In-House Capture %' = DIVIDE ( [MRI In-House], [MRI In-House] + [MRI Referred Out] )
+		formatString: 0.0%
+		displayFolder: 07 Imaging & Procedures
+		lineageTag: c2c1555f-5949-4b9c-93f4-cb34312c0d87
+
+	/// Share of visits with an MRI ordered.
+	measure 'MRI Order Rate' = DIVIDE ( [MRI Ordered], [Visits] )
+		formatString: 0.0%
+		displayFolder: 07 Imaging & Procedures
+		lineageTag: 746979de-fa7c-416e-b334-33d43327186c
+
+	/// Share of visits with an X-ray performed.
+	measure 'X-ray Rate' = DIVIDE ( CALCULATE ( COUNTROWS ( Visits ), Visits[X-ray Performed] = TRUE () ), [Visits] )
+		formatString: 0.0%
+		displayFolder: 07 Imaging & Procedures
+		lineageTag: eecb6da5-cae2-46e4-8255-30f323a63102
+
+	/// Share of visits with an injection performed.
+	measure 'Injection Rate' = DIVIDE ( CALCULATE ( COUNTROWS ( Visits ), Visits[Injection Performed] = TRUE () ), [Visits] )
+		formatString: 0.0%
+		displayFolder: 07 Imaging & Procedures
+		lineageTag: da560c27-71b7-4bd3-8c11-391cdd465c4d
+
+	/// Reference label: median door-to-provider minutes above/below the 30-min target.
+	measure 'Median D2P vs Target' = [Median Door-to-Provider Minutes] - [Median D2P Target]
+		formatString: +0 "min vs target";-0 "min vs target";"on target"
+		displayFolder: 08 Reference Labels
+		lineageTag: db8e1d3a-2537-4835-b4b1-5980c2c4b1f9
+
+	/// Reference label: P90 door-to-provider minutes above/below the 60-min target.
+	measure 'P90 D2P vs Target' = [P90 Door-to-Provider Minutes] - [P90 D2P Target]
+		formatString: +0 "min vs target";-0 "min vs target";"on target"
+		displayFolder: 08 Reference Labels
+		lineageTag: 7a36815a-5748-44cb-9624-1fb593027a97
+
+	/// Reference label: visits in the last 30 days of data vs the prior 30 days.
+	measure 'Visits vs Prior' =
+			VAR __e = CALCULATE ( MAX ( 'Date'[Date] ), FILTER ( ALLSELECTED ( 'Date'[Date] ), [Visits] > 0 ) )
+			VAR __cur = CALCULATE ( [Visits], DATESINPERIOD ( 'Date'[Date], __e, -30, DAY ) )
+			VAR __prev = CALCULATE ( [Visits], DATESINPERIOD ( 'Date'[Date], __e - 30, -30, DAY ) )
+			RETURN DIVIDE ( __cur - __prev, __prev )
+		formatString: +0.0% "vs prior 30d";-0.0% "vs prior 30d";"flat vs prior 30d"
+		displayFolder: 08 Reference Labels
+		lineageTag: 9f0f4a95-2815-4c85-8752-198021932c25
+
+	/// Reference label: net revenue in the last 30 days of data vs the prior 30 days.
+	measure 'Net Revenue vs Prior' =
+			VAR __e = CALCULATE ( MAX ( 'Date'[Date] ), FILTER ( ALLSELECTED ( 'Date'[Date] ), [Visits] > 0 ) )
+			VAR __cur = CALCULATE ( [Net Revenue], DATESINPERIOD ( 'Date'[Date], __e, -30, DAY ) )
+			VAR __prev = CALCULATE ( [Net Revenue], DATESINPERIOD ( 'Date'[Date], __e - 30, -30, DAY ) )
+			RETURN DIVIDE ( __cur - __prev, __prev )
+		formatString: +0.0% "vs prior 30d";-0.0% "vs prior 30d";"flat vs prior 30d"
+		displayFolder: 08 Reference Labels
+		lineageTag: 6668440d-2224-4710-9b42-498cdd46e0a8
+
+	/// Reference label: collection rate for MVA versus all payers (context for A/R).
+	measure 'MVA 90+ Share Label' = [MVA 90+ A/R %]
+		formatString: 0.0% "is 90+ days"
+		displayFolder: 08 Reference Labels
+		lineageTag: 5cf7424e-b8c0-4c69-85cf-c02041b72f1f
+
+	/// Reference: net revenue per visit, last 30 days of data vs prior 30 days.
+	measure 'Net Rev per Visit vs Prior' =
+			VAR __e = CALCULATE ( MAX ( 'Date'[Date] ), FILTER ( ALLSELECTED ( 'Date'[Date] ), [Visits] > 0 ) )
+			VAR __cur = DIVIDE ( CALCULATE ( [Net Revenue], DATESINPERIOD ( 'Date'[Date], __e, -30, DAY ) ), CALCULATE ( [Visits], DATESINPERIOD ( 'Date'[Date], __e, -30, DAY ) ) )
+			VAR __prev = DIVIDE ( CALCULATE ( [Net Revenue], DATESINPERIOD ( 'Date'[Date], __e - 30, -30, DAY ) ), CALCULATE ( [Visits], DATESINPERIOD ( 'Date'[Date], __e - 30, -30, DAY ) ) )
+			RETURN DIVIDE ( __cur - __prev, __prev )
+		formatString: +0.0% "vs prior 30d";-0.0% "vs prior 30d";"flat vs prior 30d"
+		displayFolder: 08 Reference Labels
+		lineageTag: 1690ee65-12a8-4f1d-8036-b3244bcc5c05
+
+	measure 'Visits Over 30 Minutes % Prior' =
+			VAR s = MIN ( 'Date'[Date] ) VAR e = MAX ( 'Date'[Date] ) VAR n = DATEDIFF ( s, e, DAY ) + 1
+			RETURN CALCULATE ( [Visits Over 30 Minutes %], REMOVEFILTERS ( 'Date' ), DATESBETWEEN ( 'Date'[Date], s - n, s - 1 ) )
+		formatString: 0.0%
+		isHidden
+		displayFolder: 08 Reference Labels
+		lineageTag: 228b0ae2-598f-4e4f-93bf-417fc4dceaaa
+
+	measure 'Visits Over 60 Minutes % Prior' =
+			VAR s = MIN ( 'Date'[Date] ) VAR e = MAX ( 'Date'[Date] ) VAR n = DATEDIFF ( s, e, DAY ) + 1
+			RETURN CALCULATE ( [Visits Over 60 Minutes %], REMOVEFILTERS ( 'Date' ), DATESBETWEEN ( 'Date'[Date], s - n, s - 1 ) )
+		formatString: 0.0%
+		isHidden
+		displayFolder: 08 Reference Labels
+		lineageTag: 7e344e1e-2915-4507-a990-705dc735d465
+
+	/// Reference: share of visits over 30 min vs prior period.
+	measure 'Over 30 vs Prior' =
+			VAR __e = CALCULATE ( MAX ( 'Date'[Date] ), FILTER ( ALLSELECTED ( 'Date'[Date] ), [Visits] > 0 ) )
+			VAR __cur = CALCULATE ( [Visits Over 30 Minutes %], DATESINPERIOD ( 'Date'[Date], __e, -30, DAY ) )
+			VAR __prev = CALCULATE ( [Visits Over 30 Minutes %], DATESINPERIOD ( 'Date'[Date], __e - 30, -30, DAY ) )
+			RETURN __cur - __prev
+		formatString: +0.0% "vs prior 30d";-0.0% "vs prior 30d";"flat vs prior 30d"
+		displayFolder: 08 Reference Labels
+		lineageTag: 92d27cb2-0aa5-4d6a-8beb-db38d45160ab
+
+	/// Reference: share of visits over 60 min, last 30 days of data vs prior 30 days.
+	measure 'Over 60 vs Prior' =
+			VAR __e = CALCULATE ( MAX ( 'Date'[Date] ), FILTER ( ALLSELECTED ( 'Date'[Date] ), [Visits] > 0 ) )
+			VAR __cur = CALCULATE ( [Visits Over 60 Minutes %], DATESINPERIOD ( 'Date'[Date], __e, -30, DAY ) )
+			VAR __prev = CALCULATE ( [Visits Over 60 Minutes %], DATESINPERIOD ( 'Date'[Date], __e - 30, -30, DAY ) )
+			RETURN __cur - __prev
+		formatString: +0.0% "vs prior 30d";-0.0% "vs prior 30d";"flat vs prior 30d"
+		displayFolder: 08 Reference Labels
+		lineageTag: fd40ce3d-64bd-4cca-b1dc-bcfd630ded62
+
+	/// Reference: collection rate vs a 50% goal.
+	measure 'Collection vs Goal' = [Collection Rate] - 0.5
+		formatString: +0.0% "vs 50% goal";-0.0% "vs 50% goal";"at goal"
+		displayFolder: 08 Reference Labels
+		lineageTag: f54a757f-fb76-4cae-8b92-fb08976cb73f
+
+	/// Reference: gross charges context for contractual adjustment.
+	measure 'Gross Label' = [Gross Charges]
+		formatString: \$#,##0 "billed"
+		displayFolder: 08 Reference Labels
+		lineageTag: 2df3478e-a7c9-48e0-906e-c5cff82a0da2
+
+	/// Reference: share of MRI orders sent to an outside facility.
+	measure 'MRI Referred Out %' = DIVIDE ( [MRI Referred Out], [MRI In-House] + [MRI Referred Out] )
+		formatString: 0.0% "referred out"
+		displayFolder: 08 Reference Labels
+		lineageTag: 6ce81022-f9ea-4038-962b-9d875b0529b8
+
+	/// Reference: MVA open claims as a share of all claims.
+	measure 'MVA Open Claims Share' = DIVIDE ( [MVA Open Claims], [Claims] )
+		formatString: 0.0% "of all claims"
+		displayFolder: 08 Reference Labels
+		lineageTag: 7fc39515-78e0-47cf-8be5-8d96e67f228d
+
+	/// Reference: avg outstanding per open MVA claim, last 30 days of data vs prior 30 days.
+	measure 'MVA Avg vs Prior' =
+			VAR __e = CALCULATE ( MAX ( 'Date'[Date] ), FILTER ( ALLSELECTED ( 'Date'[Date] ), [Visits] > 0 ) )
+			VAR __cur = CALCULATE ( [MVA Avg Outstanding per Open Claim], DATESINPERIOD ( 'Date'[Date], __e, -30, DAY ) )
+			VAR __prev = CALCULATE ( [MVA Avg Outstanding per Open Claim], DATESINPERIOD ( 'Date'[Date], __e - 30, -30, DAY ) )
+			RETURN DIVIDE ( __cur - __prev, __prev )
+		formatString: +0.0% "vs prior 30d";-0.0% "vs prior 30d";"flat vs prior 30d"
+		displayFolder: 08 Reference Labels
+		lineageTag: 682c032e-f992-4a22-84e7-db82935b4ad5
+
+	/// Reference: MVA 90+ day A/R share versus a 40% cap.
+	measure 'MVA 90+ vs Cap' = [MVA 90+ A/R %] - 0.4
+		formatString: +0.0% "vs 40% cap";-0.0% "vs 40% cap";"at 40% cap"
+		displayFolder: 08 Reference Labels
+		lineageTag: d1ea9a96-5005-4ebd-9615-e883c156f526
+
+	/// Reference: 120+ day A/R as a share of MVA outstanding A/R.
+	measure 'MVA 120+ Share' = DIVIDE ( [MVA 120+ A/R], [MVA Outstanding A/R] )
+		formatString: 0.0% "of MVA A/R"
+		displayFolder: 08 Reference Labels
+		lineageTag: 801ce236-be0f-47b4-a607-821e2f888017
+
+	/// Reference: median days outstanding versus a 90-day target.
+	measure 'MVA Median vs Target' = [MVA Median Days Outstanding] - 90
+		formatString: +0 "days vs 90d";-0 "days vs 90d";"at 90d target"
+		displayFolder: 08 Reference Labels
+		lineageTag: 261ce13f-c07d-4717-899c-fba2b2bba457
+
+	/// Reference: MRI order rate, last 30 days of data vs prior 30 days.
+	measure 'MRI Order Rate vs Prior' =
+			VAR __e = CALCULATE ( MAX ( 'Date'[Date] ), FILTER ( ALLSELECTED ( 'Date'[Date] ), [Visits] > 0 ) )
+			VAR __cur = CALCULATE ( [MRI Order Rate], DATESINPERIOD ( 'Date'[Date], __e, -30, DAY ) )
+			VAR __prev = CALCULATE ( [MRI Order Rate], DATESINPERIOD ( 'Date'[Date], __e - 30, -30, DAY ) )
+			RETURN __cur - __prev
+		formatString: +0.0% "vs prior 30d";-0.0% "vs prior 30d";"flat vs prior 30d"
+		displayFolder: 08 Reference Labels
+		lineageTag: 1d669b01-47ec-46e8-b8c5-0e195923be57
+
+	/// Reference: x-ray rate, last 30 days of data vs prior 30 days.
+	measure 'X-ray Rate vs Prior' =
+			VAR __e = CALCULATE ( MAX ( 'Date'[Date] ), FILTER ( ALLSELECTED ( 'Date'[Date] ), [Visits] > 0 ) )
+			VAR __cur = CALCULATE ( [X-ray Rate], DATESINPERIOD ( 'Date'[Date], __e, -30, DAY ) )
+			VAR __prev = CALCULATE ( [X-ray Rate], DATESINPERIOD ( 'Date'[Date], __e - 30, -30, DAY ) )
+			RETURN __cur - __prev
+		formatString: +0.0% "vs prior 30d";-0.0% "vs prior 30d";"flat vs prior 30d"
+		displayFolder: 08 Reference Labels
+		lineageTag: d2b3a489-a90f-480c-935c-0ae44dbfa0d5
+
+	/// Reference: injection rate, last 30 days of data vs prior 30 days.
+	measure 'Injection Rate vs Prior' =
+			VAR __e = CALCULATE ( MAX ( 'Date'[Date] ), FILTER ( ALLSELECTED ( 'Date'[Date] ), [Visits] > 0 ) )
+			VAR __cur = CALCULATE ( [Injection Rate], DATESINPERIOD ( 'Date'[Date], __e, -30, DAY ) )
+			VAR __prev = CALCULATE ( [Injection Rate], DATESINPERIOD ( 'Date'[Date], __e - 30, -30, DAY ) )
+			RETURN __cur - __prev
+		formatString: +0.0% "vs prior 30d";-0.0% "vs prior 30d";"flat vs prior 30d"
+		displayFolder: 08 Reference Labels
+		lineageTag: a1a4e42a-4dc7-4b74-925b-013ae9f73f15
+
+	/// Chip color: favorable green, unfavorable red.
+	measure 'Visits vs Prior Color' = SWITCH ( TRUE (), [Visits vs Prior] >= 0.01, "#4CD787", [Visits vs Prior] <= -0.01, "#F2705B", "#A3B7AB" )
+		displayFolder: 09 Chip Colors
+		lineageTag: dfc967e9-5fda-41ab-922f-448c2db83bbe
+
+	measure 'Median vs Target Color' = SWITCH ( TRUE (), [Median D2P vs Target] >= 1, "#F2705B", [Median D2P vs Target] <= -1, "#4CD787", "#A3B7AB" )
+		displayFolder: 09 Chip Colors
+		lineageTag: 6328b420-cf02-41e7-9c0f-1b4f84597a9f
+
+	measure 'P90 vs Target Color' = SWITCH ( TRUE (), [P90 D2P vs Target] >= 1, "#F2705B", [P90 D2P vs Target] <= -1, "#4CD787", "#A3B7AB" )
+		displayFolder: 09 Chip Colors
+		lineageTag: 5765d274-f55c-4972-8e4e-7ef7026d0ff0
+
+	measure 'Net Rev per Visit Color' = SWITCH ( TRUE (), [Net Rev per Visit vs Prior] >= 0.01, "#4CD787", [Net Rev per Visit vs Prior] <= -0.01, "#F2705B", "#A3B7AB" )
+		displayFolder: 09 Chip Colors
+		lineageTag: a046e4ad-0c08-423a-aac1-828bc2a697c2
+
+	measure 'Net Revenue vs Prior Color' = SWITCH ( TRUE (), [Net Revenue vs Prior] >= 0.01, "#4CD787", [Net Revenue vs Prior] <= -0.01, "#F2705B", "#A3B7AB" )
+		displayFolder: 09 Chip Colors
+		lineageTag: 9f5bec23-4cda-4920-8d55-18eb18a54a35
+
+	measure 'Over 30 Color' = SWITCH ( TRUE (), [Over 30 vs Prior] >= 0.01, "#F2705B", [Over 30 vs Prior] <= -0.01, "#4CD787", "#A3B7AB" )
+		displayFolder: 09 Chip Colors
+		lineageTag: ad91b54d-ad1e-4e04-a83c-ca89d07175c5
+
+	measure 'Over 60 Color' = SWITCH ( TRUE (), [Over 60 vs Prior] >= 0.01, "#F2705B", [Over 60 vs Prior] <= -0.01, "#4CD787", "#A3B7AB" )
+		displayFolder: 09 Chip Colors
+		lineageTag: 0ef9427b-97ba-4727-bc12-826a3a5073c5
+
+	measure 'Collection Color' = SWITCH ( TRUE (), [Collection vs Goal] >= 0.01, "#4CD787", [Collection vs Goal] <= -0.01, "#F2705B", "#A3B7AB" )
+		displayFolder: 09 Chip Colors
+		lineageTag: 8ca6456a-298e-4d45-8d76-08586104e9cd
+
+	measure 'MVA 90+ Color' = SWITCH ( TRUE (), [MVA 90+ A/R %] > 0.4, "#F2705B", [MVA 90+ A/R %] >= 0.25, "#F0A93B", "#4CD787" )
+		displayFolder: 09 Chip Colors
+		lineageTag: 900600ef-022f-4a05-9e41-ee17a508a9d0
+
+	measure 'MRI Capture Color' = SWITCH ( TRUE (), [MRI In-House Capture %] >= 0.7, "#4CD787", [MRI In-House Capture %] >= 0.5, "#F0A93B", "#F2705B" )
+		displayFolder: 09 Chip Colors
+		lineageTag: 8b2058f5-262a-4b77-8cf5-c89e36ff257b
+
+	measure 'Neutral Color' = "#A3B7AB"
+		displayFolder: 09 Chip Colors
+		lineageTag: ca1d7e76-ece1-42f1-917e-8fb87c1950a1
+
+	measure 'MVA Avg Color' = SWITCH ( TRUE (), [MVA Avg vs Prior] >= 0.01, "#F2705B", [MVA Avg vs Prior] <= -0.01, "#4CD787", "#A3B7AB" )
+		displayFolder: 09 Chip Colors
+		lineageTag: 0598c95b-c9e8-4ab6-ac13-d23900792f2c
+
+	measure 'MVA 90+ Cap Color' = SWITCH ( TRUE (), [MVA 90+ vs Cap] >= 0.01, "#F2705B", [MVA 90+ vs Cap] <= -0.01, "#4CD787", "#A3B7AB" )
+		displayFolder: 09 Chip Colors
+		lineageTag: 1ab444f0-4aa5-486c-a065-dcb98a81997d
+
+	measure 'MVA 120+ Share Color' = SWITCH ( TRUE (), [MVA 120+ Share] > 0.3, "#F2705B", [MVA 120+ Share] >= 0.1, "#F0A93B", "#4CD787" )
+		displayFolder: 09 Chip Colors
+		lineageTag: 252dc6ab-b838-4465-a413-a59ec38d4af7
+
+	measure 'MVA Median Target Color' = SWITCH ( TRUE (), [MVA Median vs Target] >= 5, "#F2705B", [MVA Median vs Target] <= -5, "#4CD787", "#A3B7AB" )
+		displayFolder: 09 Chip Colors
+		lineageTag: 78120c18-011c-4eee-829c-966cbd0dcbb1
+
+	/// Most recent date that actually has visits. Respects slicers other than Date.
+	measure 'Last Visit Date' = CALCULATE ( MAX ( 'Date'[Date] ), FILTER ( ALL ( 'Date'[Date] ), [Visits] > 0 ) )
+		formatString: m/d/yyyy
+		displayFolder: 10 Report Meta
+		lineageTag: c9a4b831-492a-4ecc-a279-8f0d5cb575dd
+
+	/// Display string for the footer stamp.
+	measure 'Latest Visit Date Label' = "Latest Visit Date: " & FORMAT ( [Last Visit Date], "Short Date" )
+		displayFolder: 10 Report Meta
+		lineageTag: a0a0b2bb-23a7-41ef-9f64-f28c8e967544
+
+	column Dummy
+		dataType: string
+		isHidden
+		lineageTag: ac7f1c16-7493-45ed-9910-171c88fb5ac9
+		summarizeBy: none
+		sourceColumn: [Dummy]
+
+	partition _Measures = calculated
+		mode: import
+		source = ROW("Dummy", BLANK())
+

@@ -1,0 +1,36 @@
+table Provider
+	lineageTag: 4243a6ec-2e9a-4783-95ef-2690e6e5cab9
+
+	column ProviderKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ca3bcfba-5ec7-4fec-9834-829ea59cef62
+		summarizeBy: none
+		sourceColumn: ProviderKey
+
+	column Provider
+		dataType: string
+		lineageTag: 25ec27e2-ccdc-41ff-9670-25e6b916f5e8
+		summarizeBy: none
+		sourceColumn: ProviderName
+
+	column 'Provider Type'
+		dataType: string
+		lineageTag: 593eeced-6607-4a3a-8ba0-b40e6fae656a
+		summarizeBy: none
+		sourceColumn: ProviderType
+
+	partition Provider = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(SqlServer, SqlDatabase),
+				    rpt_DimProvider = Source{[Schema="rpt",Item="DimProvider"]}[Data]
+				in
+				    rpt_DimProvider
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

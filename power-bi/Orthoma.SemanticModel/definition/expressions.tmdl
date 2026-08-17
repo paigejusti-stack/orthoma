@@ -1,0 +1,16 @@
+/// Azure SQL server hosting the Orthoma warehouse. Set this to your own instance.
+expression SqlServer = "your-server.database.windows.net" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 5b56b857-835d-478e-b0e1-f730e5722540
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navigation
+
+/// Database name on the server above.
+expression SqlDatabase = "ortho" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: b53c6745-c0c2-4698-80f7-a1bed59ffe3c
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = Text
+

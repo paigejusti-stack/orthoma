@@ -1,0 +1,36 @@
+table 'Payer Class'
+	lineageTag: cf41b9ca-72dd-4143-8249-6e3d4f3f02a5
+
+	column PayerClassKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6660e29e-910b-4e39-a43c-957c022d1286
+		summarizeBy: none
+		sourceColumn: PayerClassKey
+
+	column 'Payer Class'
+		dataType: string
+		lineageTag: 1169bff7-1063-473a-9f69-116ed3abdd3d
+		summarizeBy: none
+		sourceColumn: PayerClassName
+
+	column 'Payer Group'
+		dataType: string
+		lineageTag: b4bca3b8-2f8f-4861-8575-312d6facfa1c
+		summarizeBy: none
+		sourceColumn: OverviewPayerGroup
+
+	partition 'Payer Class' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(SqlServer, SqlDatabase),
+				    rpt_DimPayerClass = Source{[Schema="rpt",Item="DimPayerClass"]}[Data]
+				in
+				    rpt_DimPayerClass
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

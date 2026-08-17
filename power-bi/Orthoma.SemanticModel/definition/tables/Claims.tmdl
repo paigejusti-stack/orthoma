@@ -1,0 +1,158 @@
+table Claims
+	lineageTag: c8f5fa5f-29c2-46d6-b7be-ef492efbae55
+
+	column ClaimKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f689b4ad-d567-43f5-9a05-b6fcf41a1087
+		summarizeBy: none
+		sourceColumn: ClaimKey
+
+	column ClaimID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e6293bb4-dee7-48c2-a3e3-55b28bb87b08
+		summarizeBy: none
+		sourceColumn: ClaimID
+
+	column VisitID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1be1c60d-084f-4645-97a6-578706942be7
+		summarizeBy: none
+		sourceColumn: VisitID
+
+	column VisitKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ab42b518-de3b-45d6-a415-5b6366294da0
+		summarizeBy: none
+		sourceColumn: VisitKey
+
+	column ServiceDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4ae9c74b-1aa2-40e6-bdf1-89b049fbda90
+		summarizeBy: none
+		sourceColumn: ServiceDateKey
+
+	column SubmitDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d50df0a9-0369-4435-8675-05e55bea6ddd
+		summarizeBy: none
+		sourceColumn: SubmitDateKey
+
+	column PaidDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3ace322c-7dde-4d7a-a7d2-d8dad0ff4d93
+		summarizeBy: none
+		sourceColumn: PaidDateKey
+
+	column LocationKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b965cfd0-76b3-4b3f-8932-52894cbee1a4
+		summarizeBy: none
+		sourceColumn: LocationKey
+
+	column PayerClassKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: bfe2673f-ba9e-47f9-bd8f-9450ae768bd7
+		summarizeBy: none
+		sourceColumn: PayerClassKey
+
+	column ClaimStatusKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 11f7e24a-70c6-4883-94b8-6dfff1c3b4eb
+		summarizeBy: none
+		sourceColumn: ClaimStatusKey
+
+	column 'Payer Name'
+		dataType: string
+		lineageTag: 01c26296-c15a-4d17-96f4-1868fe14617f
+		summarizeBy: none
+		sourceColumn: PayerName
+
+	column 'Billed Amount'
+		dataType: double
+		formatString: \$#,##0
+		lineageTag: 28dd6cfb-61fb-456c-97cf-2e512110563e
+		summarizeBy: sum
+		sourceColumn: BilledAmount
+
+	column 'Allowed Amount'
+		dataType: double
+		formatString: \$#,##0
+		lineageTag: 67b51a00-b1c8-45d5-8974-3892026b3623
+		summarizeBy: sum
+		sourceColumn: AllowedAmount
+
+	column 'Paid Amount'
+		dataType: double
+		formatString: \$#,##0
+		lineageTag: 975848b2-8d72-41cf-a2b5-1889efe90506
+		summarizeBy: sum
+		sourceColumn: PaidAmount
+
+	column 'Outstanding A/R'
+		dataType: double
+		formatString: \$#,##0
+		lineageTag: 96892031-4aae-4045-bf51-7e0344b8d41c
+		summarizeBy: sum
+		sourceColumn: OutstandingAR
+
+	column 'Claim Age (days)'
+		dataType: int64
+		formatString: 0
+		lineageTag: da1008fa-ee18-4fe5-b91d-61bf75ff4d65
+		summarizeBy: none
+		sourceColumn: ClaimAgeDays
+
+	column 'Age Band'
+		dataType: string
+		lineageTag: c1dfecc6-a033-4c37-bc40-60f8c8b473c8
+		summarizeBy: none
+		sourceColumn: AgeBand
+
+	column 'Aging Bucket'
+		dataType: string
+		lineageTag: e8509148-daa3-4df3-ae80-b8b6239056b3
+		summarizeBy: none
+		sourceColumn: AgingBucket
+		sortByColumn: AgingBucketSort
+
+	column AgingBucketSort
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 80701501-ad8f-4966-9b4b-be60268ad9e2
+		summarizeBy: none
+		sourceColumn: AgingBucketSort
+
+	partition Claims = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(SqlServer, SqlDatabase),
+				    rpt_FactClaim = Source{[Schema="rpt",Item="FactClaim"]}[Data]
+				in
+				    rpt_FactClaim
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

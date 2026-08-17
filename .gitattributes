@@ -1,0 +1,19 @@
+* text=auto
+
+*.md text eol=lf
+*.json text eol=lf
+*.tmdl text eol=lf
+*.pbip text eol=lf
+*.pbir text eol=lf
+*.pbism text eol=lf
+*.js text eol=lf
+*.py text eol=lf
+*.sql text eol=lf
+*.csv text eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.docx binary
+*.xlsx binary
+*.abf binary

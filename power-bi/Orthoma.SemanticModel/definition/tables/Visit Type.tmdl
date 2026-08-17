@@ -1,0 +1,30 @@
+table 'Visit Type'
+	lineageTag: 5225111a-4ad4-4275-90a6-0e7a0160f0de
+
+	column VisitTypeKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3d63a7a2-65f9-4868-b5f1-b5feb2c2ec77
+		summarizeBy: none
+		sourceColumn: VisitTypeKey
+
+	column 'Visit Type'
+		dataType: string
+		lineageTag: 1d13ae3a-6385-435a-a0a1-92ceb3a2887e
+		summarizeBy: none
+		sourceColumn: VisitTypeName
+
+	partition 'Visit Type' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(SqlServer, SqlDatabase),
+				    rpt_DimVisitType = Source{[Schema="rpt",Item="DimVisitType"]}[Data]
+				in
+				    rpt_DimVisitType
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

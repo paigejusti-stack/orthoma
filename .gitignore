@@ -1,0 +1,17 @@
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.pbi/editorSettings.json
+
+# Local Power BI and database artifacts
+*.pbix
+*.pbit
+*.bacpac
+*.bak
+
+# Operating-system and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.temp
+*.swp

@@ -1,0 +1,30 @@
+table Location
+	lineageTag: 29cb15a3-7743-4b9f-99ad-12fc49a0d4eb
+
+	column LocationKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 263aa792-a0be-4c99-834a-b216d14ac0d0
+		summarizeBy: none
+		sourceColumn: LocationKey
+
+	column Location
+		dataType: string
+		lineageTag: 0ba751b6-6a60-492b-bb41-7eb4de6c66a3
+		summarizeBy: none
+		sourceColumn: LocationName
+
+	partition Location = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(SqlServer, SqlDatabase),
+				    rpt_DimLocation = Source{[Schema="rpt",Item="DimLocation"]}[Data]
+				in
+				    rpt_DimLocation
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

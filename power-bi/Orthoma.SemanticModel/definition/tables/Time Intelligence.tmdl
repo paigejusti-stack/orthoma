@@ -1,0 +1,36 @@
+table 'Time Intelligence'
+	lineageTag: 7ddbbca7-2376-4a50-8a70-1b8365394fbb
+
+	calculationGroup
+
+		calculationItem Current = SELECTEDMEASURE ()
+
+		calculationItem MTD = CALCULATE ( SELECTEDMEASURE (), DATESMTD ( 'Date'[Date] ) )
+
+		calculationItem QTD = CALCULATE ( SELECTEDMEASURE (), DATESQTD ( 'Date'[Date] ) )
+
+		calculationItem YTD = CALCULATE ( SELECTEDMEASURE (), DATESYTD ( 'Date'[Date] ) )
+
+		calculationItem 'Prior Year' = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+
+		calculationItem YoY =
+				VAR __Cur = SELECTEDMEASURE ()
+				VAR __Prior = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+				RETURN
+				    __Cur - __Prior
+
+		calculationItem 'YoY %' =
+				VAR __Cur = SELECTEDMEASURE ()
+				VAR __Prior = CALCULATE ( SELECTEDMEASURE (), SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+				RETURN
+				    DIVIDE ( __Cur - __Prior, __Prior )
+
+			formatStringDefinition = "+0.0%;-0.0%;0.0%"
+
+	column 'Time Calculation'
+		dataType: string
+		lineageTag: eeb73c5b-726c-42ac-aac3-aebb6395f96d
+		summarizeBy: none
+
+	partition 'Time Intelligence' = calculationGroup
+

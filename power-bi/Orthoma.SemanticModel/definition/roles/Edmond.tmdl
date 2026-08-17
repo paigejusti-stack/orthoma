@@ -1,0 +1,7 @@
+role Edmond
+	modelPermission: read
+
+	tablePermission Location = [Location] == "Edmond"
+
+	annotation PBI_Id = e9cd5fba791c4d31b86d003e348e6948
+

@@ -1,0 +1,7 @@
+role 'Oklahoma City'
+	modelPermission: read
+
+	tablePermission Location = [Location] == "Oklahoma City"
+
+	annotation PBI_Id = a3c1bc8291584acd9bc50bc048c0ef3a
+

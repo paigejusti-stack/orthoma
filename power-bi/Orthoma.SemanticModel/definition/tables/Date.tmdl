@@ -1,0 +1,153 @@
+table Date
+	lineageTag: 13631041-2733-43f4-9cca-b01b788cc7b0
+	dataCategory: Time
+
+	column DateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5404aa36-c8a1-425d-a3b7-c382ef25dcd8
+		summarizeBy: none
+		sourceColumn: DateKey
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		lineageTag: 4665f86d-2b93-44d8-a8a8-4bffbdc26404
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 00d04cb7-8596-4793-b3dd-c16a3e1c0e9b
+		summarizeBy: none
+		sourceColumn: Year
+
+	column 'Quarter Number'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 183ad99f-371d-426d-a2e6-06b3a614301f
+		summarizeBy: none
+		sourceColumn: Quarter
+
+	column Quarter
+		dataType: string
+		lineageTag: cbd7ec80-0c3a-498a-a0c3-0f4a81aedfc8
+		summarizeBy: none
+		sourceColumn: QuarterName
+		sortByColumn: 'Quarter Number'
+
+	column 'Month Number'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c91d54cf-40d5-4c99-9e9a-0a1b16365945
+		summarizeBy: none
+		sourceColumn: Month
+
+	column Month
+		dataType: string
+		lineageTag: 601badf9-5c87-4322-8cf4-a769b115a643
+		summarizeBy: none
+		sourceColumn: MonthName
+		sortByColumn: 'Month Number'
+
+	column 'Month Abbr'
+		dataType: string
+		lineageTag: 0a3bc91d-2073-4960-9a94-0d04af26293c
+		summarizeBy: none
+		sourceColumn: MonthShort
+		sortByColumn: 'Month Number'
+
+	column 'Month Start'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: baca4144-787b-4a65-babb-c518a904918b
+		summarizeBy: none
+		sourceColumn: MonthStart
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Month Year'
+		dataType: string
+		lineageTag: d4e91b72-e53b-4092-bf9a-6418d6cdbcb2
+		summarizeBy: none
+		sourceColumn: MonthYear
+		sortByColumn: 'Month Year Sort'
+
+	column 'Month Year Sort'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9c7279f2-95cd-4d2f-9a32-21f2b4d52cee
+		summarizeBy: none
+		sourceColumn: MonthYearSort
+
+	column Day
+		dataType: int64
+		formatString: 0
+		lineageTag: f743e3da-6957-42a6-8e67-2ab06683b955
+		summarizeBy: none
+		sourceColumn: Day
+
+	column 'Day Number'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 84d36213-5d2e-4eff-bc31-55241d9cbe67
+		summarizeBy: none
+		sourceColumn: DayOfWeekIso
+
+	column Weekday
+		dataType: string
+		lineageTag: 869c5398-6139-40f4-b8c9-f0d0ba72ff7f
+		summarizeBy: none
+		sourceColumn: DayName
+		sortByColumn: 'Day Number'
+
+	column 'Weekday Abbr'
+		dataType: string
+		lineageTag: cc1ae0f7-1c56-4664-833b-fdf4371f1983
+		summarizeBy: none
+		sourceColumn: DayShort
+		sortByColumn: 'Day Number'
+
+	column 'Week Start'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 13ed4398-2541-4f5c-905f-f1089eb52bcd
+		summarizeBy: none
+		sourceColumn: WeekStart
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Weekend
+		dataType: boolean
+		lineageTag: e40879b0-5f34-4fb7-bf6f-76b0fda6b93a
+		summarizeBy: none
+		sourceColumn: IsWeekend
+
+	column 'Clinic Open'
+		dataType: boolean
+		lineageTag: 00cee45f-efc6-4ab2-ba20-7db5e97431f3
+		summarizeBy: none
+		sourceColumn: IsClinicOpen
+
+	partition Date = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(SqlServer, SqlDatabase),
+				    rpt_DimDate = Source{[Schema="rpt",Item="DimDate"]}[Data]
+				in
+				    rpt_DimDate
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

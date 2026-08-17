@@ -1,0 +1,133 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "Fluent2-CY26SU07",
+      "reportVersionAtImport": {
+        "visual": "2.11.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Orthoma_Dark_v2.json",
+      "reportVersionAtImport": {
+        "visual": "2.11.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "Fluent2-CY26SU07",
+          "path": "BaseThemes/Fluent2-CY26SU07.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "CanvasBackgroundDark.png",
+          "path": "CanvasBackgroundDark.png",
+          "type": "Image"
+        },
+        {
+          "name": "filter_header06448807315898208.png",
+          "path": "filter_header06448807315898208.png",
+          "type": "Image"
+        },
+        {
+          "name": "HdrAccessWaitTimes01.png",
+          "path": "HdrAccessWaitTimes01.png",
+          "type": "Image"
+        },
+        {
+          "name": "HdrClinicalServices01.png",
+          "path": "HdrClinicalServices01.png",
+          "type": "Image"
+        },
+        {
+          "name": "HdrClinicOverview01.png",
+          "path": "HdrClinicOverview01.png",
+          "type": "Image"
+        },
+        {
+          "name": "HdrMvaAging01.png",
+          "path": "HdrMvaAging01.png",
+          "type": "Image"
+        },
+        {
+          "name": "HdrPayerMixRevenue01.png",
+          "path": "HdrPayerMixRevenue01.png",
+          "type": "Image"
+        },
+        {
+          "name": "icon_only7701575962664561.png",
+          "path": "icon_only7701575962664561.png",
+          "type": "Image"
+        },
+        {
+          "name": "logo8009072167429595.png",
+          "path": "logo8009072167429595.png",
+          "type": "Image"
+        },
+        {
+          "name": "Orthoma_Dark_v2.json",
+          "path": "Orthoma_Dark_v2.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "WallpaperDark.png",
+          "path": "WallpaperDark.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  }
+}

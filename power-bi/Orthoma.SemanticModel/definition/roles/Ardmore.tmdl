@@ -1,0 +1,7 @@
+role Ardmore
+	modelPermission: read
+
+	tablePermission Location = [Location] == "Ardmore"
+
+	annotation PBI_Id = 8d287576449748feb7edc1437f9f1376
+

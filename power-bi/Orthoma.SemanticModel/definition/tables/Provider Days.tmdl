@@ -1,0 +1,62 @@
+table 'Provider Days'
+	lineageTag: 4a32f32e-c258-4b7d-a134-89a48d92097a
+
+	column ProviderDayKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 67123a52-fc76-40a5-88a5-8e76ce49bcea
+		summarizeBy: none
+		sourceColumn: ProviderDayKey
+
+	column WorkDateKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 10fc0f9b-9ad2-4e15-9647-c85a7828a834
+		summarizeBy: none
+		sourceColumn: WorkDateKey
+
+	column LocationKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9672d2c1-6e0a-49a4-a121-f81d98208f7e
+		summarizeBy: none
+		sourceColumn: LocationKey
+
+	column ProviderKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 45e30c34-b652-4844-b626-5f12ce3ee3f7
+		summarizeBy: none
+		sourceColumn: ProviderKey
+
+	column 'Scheduled Hours'
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: 9b32215e-1785-49c3-8000-59871e194418
+		summarizeBy: sum
+		sourceColumn: ScheduledHours
+
+	column 'Worked Hours'
+		dataType: double
+		formatString: #,##0.0
+		lineageTag: d9024a2b-ec13-4d34-ae76-17269a76f961
+		summarizeBy: sum
+		sourceColumn: WorkedHours
+
+	partition 'Provider Days' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(SqlServer, SqlDatabase),
+				    rpt_FactProviderDay = Source{[Schema="rpt",Item="FactProviderDay"]}[Data]
+				in
+				    rpt_FactProviderDay
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
