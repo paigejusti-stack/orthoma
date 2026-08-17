@@ -106,6 +106,46 @@ That is a concrete, quantified capital question — the kind a volume-only dashb
 
 ---
 
+## What to do about it
+
+Findings are only worth the decisions they change. Each recommendation below names the action, the number that justifies it, and how you would know it worked.
+
+### 1. Fix intake throughput, not provider behaviour
+
+**Do:** Re-sequence rooming and intake rather than coaching individual clinicians. Staff Saturday like a weekday.
+
+**Because:** P90 runs **48–53 minutes Monday to Friday and 80 minutes on Saturday** — a 60% jump on one day. Meanwhile the gap between the slowest and fastest provider is only 76 vs 48 minutes, and 96.8% of all visits breach the 30-minute target. When nearly every visit is late but no provider is an outlier, the constraint is the process every patient passes through, not the person they eventually see.
+
+**Measure:** Median door-to-provider back under 30, and Saturday P90 within 10 minutes of the weekday figure.
+
+### 2. Keep MVA — but collect it on a clock
+
+**Do:** Stand up a dedicated MVA follow-up track with a hard escalation point before day 90.
+
+**Because:** MVA is the **best** payer on unit economics — **$303** net revenue per visit against a $232 book average, and **+5.5 pp** more revenue share than visit share. It is also the worst on cash: **29.5%** collection where every other payer clears ~90%, and **70.8%** of all unpaid A/R. Dropping MVA would remove the most profitable visit in the practice. The problem is the collection process, not the payer.
+
+**Measure:** Share of MVA balance aged 90+ days, currently **91.5%**. That single number tells you whether the escalation is working.
+
+### 3. Treat the receivable as one process, not three sites
+
+**Do:** Run one central follow-up workflow. Sequence the work by dollars — Oklahoma City **$3.5M**, Edmond **$3.0M**, Ardmore **$1.9M**.
+
+**Because:** The 90+ share is **91.4% / 91.5% / 91.6%** across the three locations. Identical to within two-tenths of a point. Nothing about a site explains the aging, so site-specific interventions would be effort spent on noise. **$8.45M** is outstanding and **88%** of it already sits past 120 days, where recovery rates fall off hardest — so speed matters more than volume of effort.
+
+**Measure:** Median days outstanding, currently **595**.
+
+### 4. Put a scanner in Ardmore — or find out why not
+
+**Do:** Model in-house MRI capacity at Ardmore against lease, staffing and read costs.
+
+**Because:** Ardmore refers out **5,995 of 5,995** MRI orders because it has no scanner. Edmond captures **84.7%** and Oklahoma City **84.9%**. Matching its sister sites would retain roughly **5,100 studies a year** that currently walk out the door — along with the follow-up visit that often accompanies them.
+
+**Measure:** Ardmore in-house capture rate, currently **0%**, against the ~85% the other sites already achieve.
+
+> **On honesty:** these are directional recommendations grounded in the model. Turning them into a business case needs cost inputs this dataset does not contain — imaging lease and read costs, collections staffing, the true value of a retained referral. The analysis says where to look and how much is at stake; it does not claim to have priced the answer.
+
+---
+
 ## How the model is built
 
 ### Two facts that deliberately do not touch

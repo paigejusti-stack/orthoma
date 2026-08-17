@@ -117,6 +117,21 @@ td:first-child{color:var(--text); font-weight:600; white-space:nowrap}
 .note{border-left:3px solid var(--amber); background:rgba(240,169,59,.07); padding:16px 20px; border-radius:0 8px 8px 0; margin-top:24px}
 .note p{margin:0; color:var(--muted); font-size:15.5px}
 
+.rec{background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--mint);
+     border-radius:0 10px 10px 0; padding:22px 26px; margin-top:18px}
+.rec h3{display:flex; align-items:center; gap:12px; font-size:19px; margin-bottom:14px}
+.rec .rn{
+  flex:0 0 auto; width:26px; height:26px; border-radius:50%;
+  display:grid; place-items:center; background:var(--mint); color:#0d1a13;
+  font-size:13px; font-weight:800;
+}
+.rec p{color:var(--muted); font-size:15.5px; margin-bottom:12px}
+.rec p:last-child{margin-bottom:0}
+.rec .meas{
+  color:var(--dim); font-size:14px; border-top:1px solid rgba(51,70,60,.7);
+  padding-top:11px; margin-top:14px;
+}
+
 .embed{margin-top:26px; border:1px dashed var(--line); border-radius:10px; padding:26px; text-align:center; color:var(--dim)}
 .embed iframe{width:100%; aspect-ratio:16/9; height:auto; border:0; border-radius:8px; display:block}
 
@@ -267,6 +282,74 @@ footer a{color:var(--muted)}
       <figure>
         <img src="artifacts/05-clinical-services-imaging.png" alt="Clinical Services and Imaging page: in-house versus referred-out MRI by location">
       </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Recommendations</div>
+    <h2>What to do about it</h2>
+    <p class="sub">Findings are only worth the decisions they change. Each one names the action,
+      the number that justifies it, and how you would know it worked.</p>
+
+    <div class="rec">
+      <h3><span class="rn">1</span> Fix intake throughput, not provider behaviour</h3>
+      <p><strong>Do:</strong> Re-sequence rooming and intake rather than coaching individual
+        clinicians. Staff Saturday like a weekday.</p>
+      <p><strong>Because:</strong> P90 runs <span class="num">48–53 minutes</span> Monday to Friday
+        and <span class="num bad">80 minutes</span> on Saturday — a 60% jump on one day. The gap
+        between the slowest and fastest provider is only 76 vs 48 minutes, yet
+        <span class="num bad">96.8%</span> of visits breach target. When nearly every visit is late
+        but no provider is an outlier, the constraint is the process every patient passes through.</p>
+      <p class="meas">Measure — median door-to-provider back under 30, and Saturday P90 within
+        10 minutes of the weekday figure.</p>
+    </div>
+
+    <div class="rec">
+      <h3><span class="rn">2</span> Keep MVA — but collect it on a clock</h3>
+      <p><strong>Do:</strong> Stand up a dedicated MVA follow-up track with a hard escalation point
+        before day 90.</p>
+      <p><strong>Because:</strong> MVA is the <em>best</em> payer on unit economics —
+        <span class="num">$303</span> per visit against a $232 average, and
+        <span class="num">+5.5 pp</span> more revenue share than visit share. It is also the worst
+        on cash: <span class="num bad">29.5%</span> collection where others clear ~90%, holding
+        <span class="num bad">70.8%</span> of unpaid A/R. Dropping MVA would remove the most
+        profitable visit in the practice. The problem is the process, not the payer.</p>
+      <p class="meas">Measure — share of MVA balance aged 90+ days, currently 91.5%.</p>
+    </div>
+
+    <div class="rec">
+      <h3><span class="rn">3</span> Treat the receivable as one process, not three sites</h3>
+      <p><strong>Do:</strong> Run one central follow-up workflow, sequenced by dollars — Oklahoma
+        City $3.5M, Edmond $3.0M, Ardmore $1.9M.</p>
+      <p><strong>Because:</strong> The 90+ share is
+        <span class="num">91.4% / 91.5% / 91.6%</span> across the three sites — identical to within
+        two-tenths of a point. Nothing about a location explains the aging, so site-specific
+        interventions would be effort spent on noise. <span class="num bad">88%</span> of the
+        $8.45M already sits past 120 days, where recovery falls off hardest, so speed matters more
+        than volume of effort.</p>
+      <p class="meas">Measure — median days outstanding, currently 595.</p>
+    </div>
+
+    <div class="rec">
+      <h3><span class="rn">4</span> Put a scanner in Ardmore — or find out why not</h3>
+      <p><strong>Do:</strong> Model in-house MRI capacity at Ardmore against lease, staffing and
+        read costs.</p>
+      <p><strong>Because:</strong> Ardmore refers out <span class="num bad">5,995 of 5,995</span>
+        MRI orders because it has no scanner. Edmond captures 84.7%, Oklahoma City 84.9%. Matching
+        its sister sites would retain roughly <span class="num">5,100 studies a year</span> that
+        currently walk out the door — along with the follow-up visit that often comes with them.</p>
+      <p class="meas">Measure — Ardmore in-house capture, currently 0%, against the ~85% its
+        sister sites already achieve.</p>
+    </div>
+
+    <div class="note">
+      <p><strong>On honesty:</strong> these are directional recommendations grounded in the model.
+        Turning them into a business case needs cost inputs this dataset does not contain — imaging
+        lease and read costs, collections staffing, the true value of a retained referral. The
+        analysis says where to look and how much is at stake; it does not claim to have priced
+        the answer.</p>
     </div>
   </div>
 </section>
