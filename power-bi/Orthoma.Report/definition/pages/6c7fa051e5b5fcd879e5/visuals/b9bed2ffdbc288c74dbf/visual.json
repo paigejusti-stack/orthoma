@@ -28,7 +28,7 @@
                     }
                   },
                   {
-                    "value": "Keep MVA \u2014 but collect it on a clock",
+                    "value": "Keep MVA — but collect it on a clock",
                     "textStyle": {
                       "fontSize": "13pt",
                       "fontFamily": "Segoe UI Semibold",
@@ -98,7 +98,7 @@
                     }
                   },
                   {
-                    "value": "MVA is the best payer on unit economics \u2014 ",
+                    "value": "MVA is the best payer on unit economics — ",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "fontFamily": "Segoe UI",
