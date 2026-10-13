@@ -382,3 +382,5 @@ pre{font-size:15px;line-height:1.8;padding:25px;white-space:pre}
  .footer-note{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.hero-project-preview:hover{transform:none}}
+@media(min-width:851px){.impact-label{grid-column:auto}}
+@media(max-width:380px){.brand{font-size:17px;gap:8px}.nav-links .nav-contact{padding:10px;font-size:14px}.nav-links .nav-contact span{margin-left:6px}}
