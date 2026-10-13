@@ -1,38 +1,285 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Paige Justice | Power BI &amp; SQL Portfolio</title>
-<meta name="description" content="Power BI and SQL portfolio by Paige Justice. Explore clinic revenue analytics and service operations projects with report screenshots, SQL, DAX, semantic models, and documentation.">
-<link rel="canonical" href="https://paigejusti-stack.github.io/orthoma/portfolio/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Paige Justice | Power BI &amp; SQL Portfolio">
-<meta property="og:description" content="From business questions to governed analytics. Explore Power BI reports, SQL models, DAX, and documentation across two independent portfolio projects.">
-<meta property="og:url" content="https://paigejusti-stack.github.io/orthoma/portfolio/">
-<meta property="og:image" content="https://paigejusti-stack.github.io/orthoma/artifacts/01-clinic-overview.png">
-<meta property="og:image:alt" content="Orthoma clinic operations dashboard, a synthetic-data portfolio project by Paige Justice">
-<meta name="twitter:card" content="summary_large_image">
-<style>
-:root{--ink:#172b44;--teal:#076d75;--muted:#536273;--paper:#fafbf9;--line:#dce4e7;--soft:#edf3f3}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;font-size:17px;line-height:1.65}a{color:var(--teal);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}a:focus-visible{outline:3px solid #dc9700;outline-offset:5px}img{max-width:100%;display:block}h1,h2,h3,p{margin:0}h1,h2,h3{line-height:1.12;letter-spacing:-.035em}.wrap{max-width:1160px;padding:0 32px;margin:auto}.skip{position:absolute;top:-60px;background:white;padding:10px}.skip:focus{top:0;z-index:5}
-nav{border-bottom:1px solid var(--line);background:var(--paper)}nav .wrap{min-height:78px;display:flex;justify-content:space-between;align-items:center;gap:24px}.brand{font-size:18px;font-weight:700;letter-spacing:-.03em;text-decoration:none;color:var(--ink)}.navlinks{display:flex;gap:25px;font-size:14px}.navlinks a{text-decoration:none}.eyebrow{font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--teal)}.hero{padding:80px 0 56px}.hero-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:65px;align-items:start}h1{font-size:clamp(42px,5.3vw,67px);max-width:740px;margin:17px 0 23px}.intro{font-size:20px;line-height:1.65;max-width:680px;color:var(--muted)}.byline{margin:0 0 18px;font-size:17px;font-weight:700}.hero-aside{margin-top:36px;border-left:3px solid var(--teal);padding:8px 0 8px 26px}.hero-aside strong{font-size:36px;display:block;line-height:1.1;letter-spacing:-.04em}.hero-aside p{color:var(--muted);margin-top:11px;font-size:15px}.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:27px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border:1px solid var(--line);border-radius:5px;text-decoration:none;font-weight:700;font-size:14px;background:white}.btn.primary{background:var(--teal);color:white;border-color:var(--teal)}.skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:32px}.skills span{font-size:12px;padding:5px 11px;border:1px solid var(--line);border-radius:3px;background:white}.notice{padding:15px 18px;background:var(--soft);border-radius:5px;font-size:14px;color:#3e5360;margin-top:33px}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}.section-heading h2{font-size:32px;margin-top:8px}.section-heading p{font-size:14px;color:var(--muted)}.projects{padding:30px 0 64px}.project{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:28px}.project-top{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:29px 32px 25px}.project h3{font-size:27px;margin-top:7px}.project-top .domain{font-size:14px;color:var(--muted);margin-top:9px}.number{font-size:13px;font-weight:700;color:var(--teal)}.project-grid{display:grid;grid-template-columns:1.45fr 1fr;border-top:1px solid var(--line)}figure{margin:0;padding:28px;background:#f2f5f6;align-self:stretch;display:flex;flex-direction:column;justify-content:center}figure a{display:block}figure img{width:100%;height:auto;border-radius:4px;border:1px solid #d0dade}figcaption{font-size:12px;color:var(--muted);margin-top:11px}.project-copy{padding:26px 30px 31px}.project-copy>p{font-size:15px;line-height:1.65}.details{margin:22px 0 0;padding:0;list-style:none;font-size:14px;line-height:1.6}.details li{padding:10px 0;border-top:1px solid var(--line)}.details strong{display:block;font-size:12px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px;color:var(--teal)}.project-copy .buttons{gap:8px;margin-top:19px}.project-copy .btn{font-size:12px;padding:8px 12px}.approach{padding:50px 0 58px;border-top:1px solid var(--line)}.approach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:31px}.approach-grid h3{font-size:18px;letter-spacing:-.02em;margin-bottom:11px}.approach-grid p{font-size:14px;color:var(--muted)}.contact{padding:39px;border-radius:10px;background:var(--ink);color:white;display:flex;justify-content:space-between;gap:28px;align-items:center}.contact h2{font-size:29px}.contact p{font-size:15px;color:#dae3ec;max-width:670px;margin-top:12px}.contact .btn{flex-shrink:0}footer{padding:34px 0 30px;color:var(--muted);font-size:12px}footer p{max-width:950px}footer .bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:19px}
-@media(max-width:850px){.hero-grid{grid-template-columns:1fr;gap:20px}.hero-aside{margin-top:12px}.project-grid{grid-template-columns:1fr}.approach-grid{grid-template-columns:1fr 1fr}.contact{display:block}.contact .btn{margin-top:23px}.hero{padding-top:45px}}
-@media(max-width:540px){.wrap{padding:0 20px}.navlinks{gap:15px;font-size:12px}nav .wrap{min-height:70px;gap:12px}.brand{font-size:16px}.hero{padding-top:35px}.intro{font-size:18px}.section-heading{display:block}.section-heading p{margin-top:12px}.project-top{padding:24px 22px}.project-top .btn{display:none}.project h3{font-size:25px}figure{padding:16px}.project-copy{padding:23px}.approach-grid{grid-template-columns:1fr;gap:25px}.contact{padding:28px}.contact h2{font-size:26px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#122e35">
+  <title>Paige Justice | Senior BI &amp; Power BI Portfolio</title>
+  <meta name="description" content="Paige Justice: 15+ years in business intelligence, SQL Server, Power BI, and reporting automation. Explore complete analytics projects, dashboard previews, semantic models, and source code.">
+  <link rel="canonical" href="https://paigejusti-stack.github.io/orthoma/portfolio/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Paige Justice | Senior BI &amp; Power BI Portfolio">
+  <meta property="og:description" content="Business intelligence that moves work forward. Explore SQL, Power BI, semantic modeling, and documented analytics projects by Paige Justice.">
+  <meta property="og:url" content="https://paigejusti-stack.github.io/orthoma/portfolio/">
+  <meta property="og:image" content="https://paigejusti-stack.github.io/orthoma/artifacts/01-clinic-overview.png">
+  <meta property="og:image:alt" content="Orthoma clinic operations report, an independent synthetic-data project by Paige Justice">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root{--ink:#172f38;--muted:#53686e;--teal:#126964;--teal-dark:#0d524e;--mint:#b6e1cf;--paper:#f5f6f2;--white:#fff;--line:#dce4df;--soft:#e9efea;--night:#122e35;--gold:#ebcf91;--radius:18px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:110px}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,p,figure{margin:0}
+    h1,h2,h3,h4{line-height:1.13;letter-spacing:-.045em}
+    h2{font-size:clamp(30px,3.4vw,43px);font-weight:650}
+    h3{font-size:29px;font-weight:650}
+    a{color:var(--teal);text-underline-offset:5px}
+    a:hover{text-decoration-thickness:2px}
+    a,button,summary{-webkit-tap-highlight-color:transparent}
+    :focus-visible{outline:3px solid #bc7813;outline-offset:5px}
+    button{font:inherit}
+    img{display:block;max-width:100%;height:auto}
+    [hidden]{display:none!important}
+    .wrap{width:min(1184px,100% - 80px);margin-inline:auto}
+    .eyebrow{font-size:11px;font-weight:750;letter-spacing:.17em;text-transform:uppercase;color:var(--teal)}
+    .skip{position:fixed;top:-100px;left:20px;padding:12px 20px;background:white;z-index:20;border:2px solid var(--teal)}
+    .skip:focus{top:12px}
+    .site-header{position:sticky;top:0;z-index:10;background:rgba(245,246,242,.97);border-bottom:1px solid var(--line)}
+    .nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-size:17px;font-weight:700;white-space:nowrap;letter-spacing:-.025em}
+    .monogram{display:grid;place-items:center;width:37px;height:37px;background:var(--night);color:var(--mint);border-radius:50%;font-size:12px;letter-spacing:-.04em}
+    .nav-links{display:flex;gap:28px;align-items:center;font-size:13px;font-weight:600}
+    .nav-links a{color:var(--ink);text-decoration:none;white-space:nowrap}
+    .nav-links a:hover{color:var(--teal);text-decoration:underline}
+    .nav-links .nav-contact{border:1px solid #b8cac1;padding:8px 17px;border-radius:6px}
+    .hero{background:var(--night);color:white;position:relative;overflow:hidden}
+    .hero::after{content:"";position:absolute;pointer-events:none;inset:0;background:radial-gradient(ellipse at 85% 35%,rgba(115,170,150,.14),transparent 57%)}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-block:74px 72px;position:relative;z-index:1}
+    .hero .eyebrow{color:var(--mint)}
+    h1{font-size:clamp(44px,4.9vw,65px);font-weight:600;line-height:1.08;margin:22px 0}
+    h1 span{color:var(--mint)}
+    .hero-copy{max-width:520px;font-size:18px;line-height:1.7;color:#d2dedc}
+    .hero-copy strong{color:white;font-weight:550}
+    .button-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:15px;padding:12px 19px;border:1px solid var(--line);border-radius:6px;font-weight:650;font-size:13px;text-decoration:none;line-height:1.4;background:white;color:var(--ink);transition:background .15s,transform .15s}
+    .button:hover{transform:translateY(-2px);background:#edf3ef}
+    .button.primary{background:var(--teal);border-color:var(--teal);color:white}
+    .button.primary:hover{background:var(--teal-dark)}
+    .hero .button.primary{background:var(--mint);border-color:var(--mint);color:var(--night)}
+    .hero .button.primary:hover{background:#d2eddf}
+    .hero .button.secondary{background:transparent;color:white;border-color:#637e80}
+    .hero .button.secondary:hover{background:#224047}
+    .location{font-size:12px;color:#b6cbc7;margin-top:23px;display:flex;align-items:center;gap:9px}
+    .location::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mint);flex-shrink:0}
+    .feature{background:#244047;border:1px solid #4c6264;border-radius:12px;overflow:hidden;box-shadow:0 22px 55px #00161f55;position:relative}
+    .feature-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 19px;font-size:11px;color:#d4e2de}
+    .feature-header span:first-child{font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+    .feature-image{display:block;background:#0a1f2b;margin:0 12px;border:1px solid #597071;border-radius:4px;overflow:hidden}
+    .feature-image img{width:100%}
+    .feature-footer{padding:19px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .feature-footer strong{display:block;font-size:17px;font-weight:550}
+    .feature-footer p{font-size:12px;color:#c0d0cd;margin-top:2px}
+    .feature-footer>a{color:var(--mint);text-decoration:none;font-size:22px;width:38px;height:38px;display:grid;place-items:center;border:1px solid #5a7372;border-radius:50%;flex-shrink:0}
+    .feature-caption{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;color:#a9c0bb;font-size:11px}
+    .feature-caption span+span::before{content:"/";margin-right:10px;color:#7c9992}
+    .career{border-bottom:1px solid var(--line);background:#fff}
+    .career-inner{display:grid;grid-template-columns:1.05fr 3fr;gap:38px;padding-block:32px;align-items:center}
+    .career-label p:last-child{font-size:12px;color:var(--muted);max-width:190px;margin-top:6px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .stat{border-left:1px solid var(--line);padding-left:27px}
+    .stat strong{font-size:37px;letter-spacing:-.05em;line-height:1.15;font-weight:650;display:block}
+    .stat span{font-size:12px;color:var(--muted);display:block;margin-top:6px;max-width:190px;line-height:1.5}
+    .section{padding-block:76px}
+    .section-top{display:flex;justify-content:space-between;align-items:end;gap:36px;margin-bottom:32px}
+    .section-top h2{margin-top:11px}
+    .section-intro{max-width:345px;font-size:14px;color:var(--muted);line-height:1.6}
+    .project{background:white;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:26px}
+    .project-heading{padding:29px 32px 26px;display:flex;justify-content:space-between;align-items:center;gap:24px;border-bottom:1px solid var(--line)}
+    .project-name{display:flex;gap:19px;align-items:center}
+    .project-number{display:grid;place-items:center;width:43px;height:43px;flex-shrink:0;border:1px solid var(--line);border-radius:50%;font-size:12px;color:var(--muted)}
+    .project h3{font-size:27px;margin:6px 0 3px}
+    .project-heading p:last-child{font-size:13px;color:var(--muted)}
+    .badge{font-size:10px;letter-spacing:.055em;text-transform:uppercase;white-space:nowrap;background:#edf3ed;color:#436258;padding:6px 10px;border-radius:4px}
+    .project-grid{display:grid;grid-template-columns:1.28fr 1fr}
+    .gallery{background:#edf1ee;padding:28px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line);min-width:0}
+    .gallery-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:13px}
+    .gallery-toolbar p{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+    .gallery-toolbar a{font-size:11px;white-space:nowrap;font-weight:600}
+    .report-image{display:block;border-radius:5px;border:1px solid #bac7c0;overflow:hidden;background:#122734;box-shadow:0 10px 25px #183c3410;aspect-ratio:2.151/1}
+    .report-image img{width:100%;height:100%;object-fit:contain}
+    .gallery-buttons{display:flex;gap:7px;margin-top:16px;flex-wrap:wrap}
+    .gallery-buttons button{border:1px solid #cad6cd;background:transparent;color:#426056;padding:8px 12px;min-height:38px;font-size:11px;font-weight:650;cursor:pointer;border-radius:5px;line-height:1.2}
+    .gallery-buttons button[aria-pressed="true"]{background:white;color:var(--ink);border-color:#789c8b;box-shadow:0 2px 4px #183c3409}
+    .gallery-buttons button:hover{background:white}
+    .gallery figcaption{font-size:11px;color:var(--muted);margin-top:13px}
+    .project-copy{padding:31px 32px}
+    .question{font-size:21px;line-height:1.35;letter-spacing:-.025em;font-weight:600;margin-bottom:12px}
+    .project-copy>p:not(.question){font-size:14px;line-height:1.7;color:var(--muted)}
+    .project-facts{display:flex;gap:24px;margin:21px 0 20px;padding:16px 0;border-block:1px solid var(--line)}
+    .project-facts strong{font-size:19px;letter-spacing:-.02em;font-weight:650;display:block;line-height:1.2}
+    .project-facts span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.065em;display:block;margin-top:5px}
+    .project-copy .proof{font-size:13px;color:var(--ink)}
+    .project-copy .proof strong{color:var(--teal);font-weight:650}
+    .project-copy .button-row{gap:10px;margin-top:22px}
+    .project-copy .button{padding:10px 14px;font-size:12px}
+    .technical{border-top:1px solid var(--line)}
+    .technical summary{padding:17px 31px;cursor:pointer;font-size:12px;font-weight:650;color:var(--teal)}
+    .technical summary:hover{background:#f7faf7}
+    .technical-body{padding:6px 32px 25px;display:grid;grid-template-columns:1.3fr 1fr;gap:38px;font-size:13px}
+    .technical-body p{color:var(--muted);margin-bottom:9px}
+    .technical-body a{font-size:12px;font-weight:600}
+    .source-links{display:flex;align-content:start;align-items:start;flex-wrap:wrap;column-gap:20px;row-gap:10px}
+    .scope-note{font-size:12px;color:var(--muted);margin-top:20px;max-width:880px}
+    .capabilities{border-block:1px solid var(--line);background:#ecf1ed}
+    .capability-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+    .capability{border-top:2px solid #94b0a1;padding-top:24px}
+    .capability .index{font-size:11px;color:#557164;margin-bottom:17px;display:block;letter-spacing:.1em}
+    .capability h3{font-size:22px;letter-spacing:-.03em;margin-bottom:12px}
+    .capability p{font-size:14px;color:var(--muted);line-height:1.75}
+    .tags{list-style:none;padding:0;margin:23px 0 0;display:flex;flex-wrap:wrap;gap:7px}
+    .tags li{font-size:10px;font-weight:600;border:1px solid #cbd9ce;border-radius:4px;padding:5px 8px;color:#345448}
+    .about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:100px;align-items:start}
+    .about-grid h2{margin:12px 0 21px;max-width:460px}
+    .about-copy{font-size:16px;color:var(--muted);max-width:500px}
+    .about-copy+p{margin-top:17px}
+    .experience-list{margin-top:8px}
+    .experience-item{padding:19px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:32px 1fr;gap:14px}
+    .experience-item:first-child{padding-top:0}
+    .experience-item>span{font-size:11px;color:var(--teal);font-weight:650;padding-top:3px}
+    .experience-item h3{font-size:17px;letter-spacing:-.02em;margin-bottom:8px;line-height:1.4}
+    .experience-item p{font-size:13px;color:var(--muted)}
+    .contact-panel{padding:46px 50px;background:var(--night);color:white;border-radius:var(--radius);display:flex;align-items:center;justify-content:space-between;gap:50px}
+    .contact-panel .eyebrow{color:var(--mint)}
+    .contact-panel h2{font-size:35px;margin:11px 0 15px}
+    .contact-panel p:not(.eyebrow){font-size:14px;color:#c4d6d0;max-width:610px}
+    .contact-actions{flex-shrink:0;display:flex;flex-direction:column;align-items:stretch;gap:13px}
+    .contact-actions .button{background:var(--mint);border-color:var(--mint);color:var(--night)}
+    .contact-actions .text-link{color:#d0e0db;text-align:center;font-size:12px}
+    footer{padding-block:31px 24px;color:var(--muted);font-size:11px}
+    .footer-top{display:flex;align-items:center;justify-content:space-between;gap:25px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+    .footer-top strong{font-weight:650;color:var(--ink);font-size:13px}
+    .footer-links{display:flex;gap:22px;flex-wrap:wrap}
+    .footer-note{padding-top:20px;font-size:10px;max-width:920px;line-height:1.7}
+    @media(min-width:1500px){.hero-grid{padding-block:90px}}
+    @media(max-width:1050px){.hero-grid{gap:35px}.wrap{width:calc(100% - 56px)}.hero-copy{font-size:16px}.career-inner{grid-template-columns:1fr 3fr;gap:20px}.stat{padding-left:20px}.stats{gap:17px}.project-grid{grid-template-columns:1.15fr 1fr}.project-copy{padding:26px}.gallery{padding:22px}.about-grid{gap:55px}}
+    @media(max-width:800px){.nav{min-height:74px}.nav-links{gap:18px}.hero-grid{grid-template-columns:1fr;gap:38px;padding-block:48px}.hero-text{max-width:630px}h1{font-size:clamp(43px,8vw,61px);max-width:650px}.hero-copy{max-width:600px;font-size:18px}.hero-preview{max-width:650px;width:100%}.career-inner{grid-template-columns:1fr;gap:22px}.career-label{display:flex;align-items:center;gap:14px}.career-label p:last-child{max-width:none;margin:0}.stat:first-child{border:0;padding-left:0}.section{padding-block:55px}.section-top{display:block}.section-intro{max-width:580px;margin-top:17px}.project-grid{grid-template-columns:1fr}.gallery{border-right:0;border-bottom:1px solid var(--line);padding:26px}.project-copy{padding:28px}.project-facts{gap:40px}.capability-grid{gap:22px}.capability h3{font-size:19px}.about-grid{grid-template-columns:1fr;gap:35px}.about-copy{max-width:650px}.contact-panel{padding:36px;display:block}.contact-actions{margin-top:25px;flex-direction:row;align-items:center;gap:23px}.technical-body{grid-template-columns:1fr;gap:12px}.badge{font-size:9px}}
+    @media(max-width:560px){html{scroll-padding-top:115px}.wrap{width:calc(100% - 36px)}.nav{flex-wrap:wrap;gap:8px;padding-block:13px}.brand{font-size:15px}.monogram{width:29px;height:29px;font-size:10px}.nav-links{width:100%;justify-content:space-between;gap:12px;font-size:11px}.nav-links .nav-contact{padding:3px 11px}.hero-grid{padding-block:37px;gap:30px}h1{font-size:43px;max-width:410px;margin-top:17px}.hero-copy{font-size:16px}.hero .eyebrow{font-size:10px;letter-spacing:.12em}.button{font-size:12px;padding:12px 15px;gap:11px}.hero .button-row{margin-top:23px}.location{font-size:11px}.feature-header{padding:12px;font-size:9px}.feature-footer{padding:14px}.feature-footer strong{font-size:16px}.feature-footer p{font-size:10px}.feature-caption{font-size:10px;margin-top:12px}.career-inner{padding-block:26px}.career-label{display:block}.career-label p:last-child{margin-top:4px;font-size:11px}.stats{gap:12px}.stat{padding-left:12px}.stat strong{font-size:29px}.stat span{font-size:10px}.section{padding-block:43px}.section-top{margin-bottom:25px}.section-top h2{font-size:31px}.section-intro{font-size:13px}.project{border-radius:12px;margin-top:20px}.project-heading{padding:22px;display:block}.project-name{gap:12px;align-items:start}.project-number{width:31px;height:31px;font-size:10px;margin-top:4px}.project h3{font-size:24px}.project-heading .eyebrow{font-size:9px;letter-spacing:.1em}.project-heading p:last-child{font-size:12px}.badge{display:inline-block;margin:14px 0 0 43px}.gallery{padding:18px}.gallery-toolbar p{font-size:9px}.gallery-toolbar a{font-size:10px}.gallery-buttons button{padding:9px 10px;font-size:10px}.gallery figcaption{font-size:10px}.project-copy{padding:23px}.question{font-size:22px}.project-facts{gap:26px}.project-copy .button-row{gap:8px}.project-copy .button{font-size:11px}.technical summary{padding:17px 22px;font-size:11px}.technical-body{padding:4px 22px 23px}.capability-grid{grid-template-columns:1fr;gap:29px}.capability{padding-top:18px}.capability .index{margin-bottom:10px}.capability h3{font-size:22px}.tags{margin-top:15px}.about-grid{gap:28px}.about-grid h2{font-size:33px}.about-copy{font-size:15px}.contact-panel{padding:29px 25px;border-radius:12px}.contact-panel h2{font-size:30px}.contact-actions{flex-wrap:wrap;gap:20px}.footer-top{align-items:start;flex-direction:column;gap:14px}.footer-links{gap:20px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:hover{transform:none}}
+    @media print{.site-header{position:static}.hero,.contact-panel{background:white;color:var(--ink)}.hero-copy,.hero-copy strong,.hero .eyebrow,h1 span,.contact-panel p:not(.eyebrow),.contact-panel .eyebrow{color:var(--ink)}.hero::after,.hero-preview,.gallery-buttons,.skip{display:none}.hero-grid{display:block;padding-block:25px}.hero .button.secondary{color:var(--ink)}.section{padding-block:25px}.project{break-inside:avoid}.contact-panel{border:1px solid var(--line);padding:20px}.wrap{width:100%}.site-header,.footer-note{font-size:10px}details:not([open]){display:none}}
+  </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<nav aria-label="Main navigation"><div class="wrap"><a class="brand" href="#main">Paige Justice<span style="color:var(--teal)">.</span></a><div class="navlinks"><a href="#projects">Projects</a><a href="#approach">Approach</a><a href="https://www.linkedin.com/in/paige-justice/">LinkedIn ↗</a></div></div></nav>
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Main navigation">
+    <a class="brand" href="#main"><span class="monogram" aria-hidden="true">PJ</span>Paige Justice</a>
+    <div class="nav-links"><a href="#projects">Selected work</a><a href="#expertise">Expertise</a><a href="#about">About</a><a class="nav-contact" href="#contact">Let's connect <span aria-hidden="true">↗</span></a></div>
+  </nav>
+</header>
 <main id="main">
-<header class="hero"><div class="wrap"><div class="hero-grid"><div><p class="eyebrow">Power BI &amp; SQL Portfolio</p><h1>Business questions.<br>Reliable analytics.</h1><p class="intro">I build SQL Server and Power BI solutions that replace manual reporting with reliable, governed analytics.</p><div class="buttons"><a class="btn primary" href="#projects">Explore the projects ↓</a><a class="btn" href="https://github.com/paigejusti-stack">View GitHub ↗</a></div></div><aside class="hero-aside"><p class="byline">Paige Justice</p><strong>15+ years</strong><p>Enterprise BI and analytics experience, with a deep background in mortgage and financial services.</p><p>SQL data preparation, semantic models, KPI definitions, report development, and the documentation that connects them.</p></aside></div><div class="skills" aria-label="Core skills"><span>SQL Server / T-SQL</span><span>Power BI</span><span>DAX &amp; Power Query</span><span>Semantic modeling</span><span>Reporting automation</span><span>Data governance</span></div><p class="notice"><strong>About the work:</strong> These are independent portfolio projects using synthetic data. Financial and operating figures shown in the dashboards are sample results, not production client outcomes.</p></div></header>
-<section class="projects wrap" id="projects" aria-labelledby="projects-title"><div class="section-heading"><div><p class="eyebrow">Selected work</p><h2 id="projects-title">Two industries. One disciplined approach.</h2></div><p>SQL → Semantic model → Power BI → Documentation</p></div>
-<article class="project"><div class="project-top"><div><p class="number">01 / HEALTHCARE ANALYTICS</p><h3>Orthoma</h3><p class="domain">Clinic Operations &amp; Revenue Analytics</p></div><a class="btn" href="https://github.com/paigejusti-stack/orthoma">View source ↗</a></div><div class="project-grid"><figure><a href="../artifacts/01-clinic-overview.png" aria-label="Open full-size Orthoma report screenshot"><img src="../artifacts/01-clinic-overview.png" alt="Orthoma clinic overview with visit volume, wait times, revenue, location performance, and payer mix. Synthetic data." width="2000" height="930"></a><figcaption>Clinic Overview · Actual report screenshot · Click to enlarge</figcaption></figure><div class="project-copy"><p>How do access, payer mix, and unresolved receivables vary across locations? Eight report pages connect those questions with visit and claim detail.</p><ul class="details"><li><strong>Data foundation</strong>Azure SQL warehouse with curated reporting views.</li><li><strong>Model &amp; analysis</strong>83 DAX measures, separate visit and claim facts, and grain-specific drillthrough.</li><li><strong>Documentation &amp; controls</strong>Data dictionary, parameterized connections, and location security role definitions.</li></ul><div class="buttons"><a class="btn primary" href="../">Read case study</a><a class="btn" href="https://github.com/paigejusti-stack/orthoma/releases/tag/v1.0">Download PBIX</a><a class="btn" href="https://github.com/paigejusti-stack/orthoma/blob/main/docs/reference/orthoma-portfolio-data-dictionary.xlsx">Data dictionary</a></div></div></div></article>
-<article class="project"><div class="project-top"><div><p class="number">02 / SERVICE OPERATIONS</p><h3>Justice Installations</h3><p class="domain">Operations &amp; Pipeline Analytics</p></div><a class="btn" href="https://github.com/paigejusti-stack/justice-installations">View source ↗</a></div><div class="project-grid"><figure><a href="https://raw.githubusercontent.com/paigejusti-stack/justice-installations/main/artifacts/01-executive-overview.png" aria-label="Open full-size Justice Installations report screenshot"><img src="https://raw.githubusercontent.com/paigejusti-stack/justice-installations/main/artifacts/01-executive-overview.png" alt="Justice Installations executive overview showing revenue, completed jobs, average ticket, and revenue by city and service. Synthetic data." width="2048" height="933" loading="lazy"></a><figcaption>Executive Overview · Actual report screenshot · Click to enlarge</figcaption></figure><div class="project-copy"><p>Where do requests convert into jobs, and which services drive revenue? Five report pages cover pipeline conversion, service mix, geography, and operations.</p><ul class="details"><li><strong>Data foundation</strong>SQL Server star schema with job, invoice-line, and lead facts.</li><li><strong>Model &amp; analysis</strong>106 DAX measures and a reusable time-intelligence calculation group.</li><li><strong>Documentation &amp; controls</strong>Data dictionary, parameterized connections, and a read-only reporting access script.</li></ul><div class="buttons"><a class="btn primary" href="https://github.com/paigejusti-stack/justice-installations">Read case study</a><a class="btn" href="https://github.com/paigejusti-stack/justice-installations/tree/main/artifacts">View screenshots</a><a class="btn" href="https://github.com/paigejusti-stack/justice-installations/blob/main/docs/data-dictionary/Data_Dictionary.xlsx">Data dictionary</a></div></div></div></article>
-</section>
-<section class="approach" id="approach"><div class="wrap"><p class="eyebrow">How I work</p><h2 style="font-size:32px;margin-top:9px">The work behind the dashboard.</h2><div class="approach-grid"><div><h3>01. Define the decision</h3><p>Start with the business question, the audience, and the action the analysis should support.</p></div><div><h3>02. Establish the model</h3><p>Make data grain, relationships, and KPI definitions explicit before building the report.</p></div><div><h3>03. Make it reviewable</h3><p>Keep SQL, DAX, PBIP, PBIR, and TMDL source available for technical inspection.</p></div><div><h3>04. Document the logic</h3><p>Connect definitions and data dictionaries with clear assumptions and limitations.</p></div></div></div></section>
-<section class="wrap" aria-labelledby="contact-title"><div class="contact"><div><h2 id="contact-title">Let's talk about useful analytics.</h2><p>For Power BI development, senior BI, and analytics opportunities, connect with me on LinkedIn.</p></div><a class="btn" href="https://www.linkedin.com/in/paige-justice/">Connect with Paige ↗</a></div></section>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid wrap">
+      <div class="hero-text">
+        <p class="eyebrow">Senior business intelligence &amp; analytics</p>
+        <h1 id="hero-title">Less manual work.<br><span>More trusted<br>decisions.</span></h1>
+        <p class="hero-copy">I'm Paige. I build <strong>SQL Server and Power BI solutions</strong> that turn fragmented data and recurring reports into reliable, governed analytics.</p>
+        <div class="button-row"><a class="button primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://www.linkedin.com/in/paige-justice/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a></div>
+        <p class="location">Oklahoma City, OK · Open to remote opportunities</p>
+      </div>
+      <div class="hero-preview">
+        <div class="feature">
+          <div class="feature-header"><span>From the portfolio</span><span>Power BI / Azure SQL</span></div>
+          <a class="feature-image" href="#orthoma" aria-label="Explore the Orthoma clinic analytics project"><img src="../artifacts/01-clinic-overview.png" alt="Orthoma Power BI dashboard showing clinic visits, wait times, revenue trends, and location performance using synthetic data." width="2000" height="930" fetchpriority="high"></a>
+          <div class="feature-footer"><div><strong>Orthoma</strong><p>Clinic operations &amp; revenue analytics</p></div><a href="#orthoma" aria-label="Explore Orthoma">↗</a></div>
+        </div>
+        <div class="feature-caption"><span>Actual report screenshot</span><span>Synthetic data</span><span>Source available</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="career" aria-label="Career highlights">
+    <div class="career-inner wrap">
+      <div class="career-label"><p class="eyebrow">Experience with impact</p><p>Career highlights from enterprise BI and analytics.</p></div>
+      <div class="stats">
+        <div class="stat"><strong>15+ years</strong><span>Enterprise BI, reporting, and business analytics</span></div>
+        <div class="stat"><strong>~90%</strong><span>Of recurring reporting automated in prior work</span></div>
+        <div class="stat"><strong>~$14M</strong><span>In recoveries supported through analytics</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="section wrap" id="projects" aria-labelledby="projects-title">
+    <div class="section-top"><div><p class="eyebrow">01 / Selected work</p><h2 id="projects-title">See the work.<br>Follow the thinking.</h2></div><p class="section-intro">Two complete portfolio projects, from SQL foundations to decision-ready reports. Preview the dashboards here, then explore the reasoning and source.</p></div>
+    <article class="project" id="orthoma" aria-labelledby="orthoma-title">
+      <header class="project-heading"><div class="project-name"><span class="project-number" aria-hidden="true">01</span><div><p class="eyebrow">Healthcare analytics</p><h3 id="orthoma-title">Orthoma</h3><p>Clinic Operations &amp; Revenue Analytics</p></div></div><span class="badge">Independent portfolio project</span></header>
+      <div class="project-grid">
+        <figure class="gallery" data-gallery="orthoma">
+          <div class="gallery-toolbar"><p>Report preview</p><a data-fullsize href="../artifacts/01-clinic-overview.png" target="_blank" rel="noopener noreferrer">Open full size <span aria-hidden="true">↗</span></a></div>
+          <a class="report-image" data-fullsize href="../artifacts/01-clinic-overview.png" target="_blank" rel="noopener noreferrer" aria-label="Open the selected Orthoma report screenshot at full size"><img src="../artifacts/01-clinic-overview.png" alt="Orthoma Clinic Overview report with visit volume, wait times, revenue, location performance, and payer mix. Synthetic data." width="2000" height="930" loading="lazy"></a>
+          <div class="gallery-buttons" role="group" aria-label="Choose an Orthoma report preview" hidden>
+            <button type="button" aria-pressed="true" data-src="../artifacts/01-clinic-overview.png" data-title="Clinic Overview" data-alt="Orthoma Clinic Overview report with visit volume, wait times, revenue, location performance, and payer mix. Synthetic data.">Clinic overview</button>
+            <button type="button" aria-pressed="false" data-src="../artifacts/02-access-wait-times.png" data-title="Access &amp; Wait Times" data-alt="Orthoma Access and Wait Times report showing patient wait-time analysis by location, provider, and time. Synthetic data.">Access &amp; wait times</button>
+            <button type="button" aria-pressed="false" data-src="../artifacts/04-mva-aging-follow-up.png" data-title="MVA Aging &amp; Follow-Up" data-alt="Orthoma MVA Aging and Follow-Up report showing unresolved receivables and claim aging. Synthetic data.">Receivable aging</button>
+          </div>
+          <figcaption aria-live="polite"><span data-caption>Clinic Overview</span> · Static report preview · Synthetic data</figcaption>
+        </figure>
+        <div class="project-copy"><p class="question">Where are patients waiting, and where is revenue getting stuck?</p><p>An eight-page report connects clinic access, payer mix, imaging activity, and unresolved claims across three locations.</p><div class="project-facts"><div><strong>8</strong><span>Report pages</span></div><div><strong>83</strong><span>DAX measures</span></div><div><strong>Azure SQL</strong><span>Data platform</span></div></div><p class="proof"><strong>Design decision:</strong> Separate visit and claim facts preserve the correct grain. Each has its own drillthrough path, so the detail matches the question.</p><div class="button-row"><a class="button primary" href="../">Explore the case study <span aria-hidden="true">↗</span></a><a class="button" href="https://github.com/paigejusti-stack/orthoma" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a></div></div>
+      </div>
+      <details class="technical"><summary>Technical review: SQL, semantic model, data dictionary &amp; PBIX</summary><div class="technical-body"><div><p>Azure SQL staging, dimensions and facts feed curated reporting views and a TMDL semantic model. Documentation covers definitions, lineage, and model limitations.</p><p>Three location security roles are defined. Production role assignments, enforcement, and scheduled refresh require separate validation.</p></div><div class="source-links"><a href="https://github.com/paigejusti-stack/orthoma/tree/main/database" target="_blank" rel="noopener noreferrer">SQL warehouse ↗</a><a href="https://github.com/paigejusti-stack/orthoma/tree/main/power-bi/Orthoma.SemanticModel" target="_blank" rel="noopener noreferrer">Semantic model ↗</a><a href="../docs/reference/orthoma-portfolio-data-dictionary.xlsx" download>Data dictionary ↓</a><a href="https://github.com/paigejusti-stack/orthoma/releases/tag/v1.0" target="_blank" rel="noopener noreferrer">PBIX release ↗</a></div></div></details>
+    </article>
+    <article class="project" id="justice-installations" aria-labelledby="justice-title">
+      <header class="project-heading"><div class="project-name"><span class="project-number" aria-hidden="true">02</span><div><p class="eyebrow">Service operations analytics</p><h3 id="justice-title">Justice Installations</h3><p>Operations &amp; Pipeline Analytics</p></div></div><span class="badge">Independent portfolio project</span></header>
+      <div class="project-grid">
+        <figure class="gallery" data-gallery="justice">
+          <div class="gallery-toolbar"><p>Report preview</p><a data-fullsize href="https://raw.githubusercontent.com/paigejusti-stack/justice-installations/main/artifacts/01-executive-overview.png" target="_blank" rel="noopener noreferrer">Open full size <span aria-hidden="true">↗</span></a></div>
+          <a class="report-image" data-fullsize href="https://raw.githubusercontent.com/paigejusti-stack/justice-installations/main/artifacts/01-executive-overview.png" target="_blank" rel="noopener noreferrer" aria-label="Open the selected Justice Installations report screenshot at full size"><img src="https://raw.githubusercontent.com/paigejusti-stack/justice-installations/main/artifacts/01-executive-overview.png" alt="Justice Installations Executive Overview showing revenue, completed jobs, average ticket, and revenue by city and service. Synthetic data." width="2048" height="933" loading="lazy"></a>
+          <div class="gallery-buttons" role="group" aria-label="Choose a Justice Installations report preview" hidden>
+            <button type="button" aria-pressed="true" data-src="https://raw.githubusercontent.com/paigejusti-stack/justice-installations/main/artifacts/01-executive-overview.png" data-title="Executive Overview" data-alt="Justice Installations Executive Overview showing revenue, completed jobs, average ticket, and revenue by city and service. Synthetic data.">Executive overview</button>
+            <button type="button" aria-pressed="false" data-src="https://raw.githubusercontent.com/paigejusti-stack/justice-installations/main/artifacts/04-customer-and-pipeline.png" data-title="Customer &amp; Pipeline" data-alt="Justice Installations Customer and Pipeline report showing the lead funnel, conversion by source, and customer metrics. Synthetic data.">Customer &amp; pipeline</button>
+            <button type="button" aria-pressed="false" data-src="https://raw.githubusercontent.com/paigejusti-stack/justice-installations/main/artifacts/02-service-line-performance.png" data-title="Service Line Performance" data-alt="Justice Installations Service Line Performance report showing revenue and average pricing across services. Synthetic data.">Service performance</button>
+          </div>
+          <figcaption aria-live="polite"><span data-caption>Executive Overview</span> · Static report preview · Synthetic data</figcaption>
+        </figure>
+        <div class="project-copy"><p class="question">Which leads become jobs, and which services drive revenue?</p><p>A five-page report brings lead conversion, job operations, service mix, and geographic performance into one consistent view.</p><div class="project-facts"><div><strong>5</strong><span>Report pages</span></div><div><strong>106</strong><span>DAX measures</span></div><div><strong>SQL Server</strong><span>Data platform</span></div></div><p class="proof"><strong>Design decision:</strong> Model jobs, invoice lines, and leads at their own grains. Reuse a time-intelligence calculation group to keep period comparisons consistent.</p><div class="button-row"><a class="button primary" href="https://github.com/paigejusti-stack/justice-installations#the-problem" target="_blank" rel="noopener noreferrer">Read the case study <span aria-hidden="true">↗</span></a><a class="button" href="https://github.com/paigejusti-stack/justice-installations/tree/main/pbi" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a></div></div>
+      </div>
+      <details class="technical"><summary>Technical review: SQL, DAX, report guide &amp; data dictionary</summary><div class="technical-body"><div><p>A SQL Server star schema supports three fact grains. The model includes 106 measures, parameterized connections, and a seven-item time-intelligence calculation group.</p><p>The project includes a read-only reporting access script. The Operations page shows historical trends; a predictive forecast is not implemented.</p></div><div class="source-links"><a href="https://github.com/paigejusti-stack/justice-installations/tree/main/sql" target="_blank" rel="noopener noreferrer">SQL warehouse ↗</a><a href="https://github.com/paigejusti-stack/justice-installations/blob/main/pbi/Justice%20Installations.SemanticModel/definition/tables/_Measures.tmdl" target="_blank" rel="noopener noreferrer">DAX measures ↗</a><a href="https://github.com/paigejusti-stack/justice-installations/blob/main/docs/report-guide.md" target="_blank" rel="noopener noreferrer">Report guide ↗</a><a href="https://github.com/paigejusti-stack/justice-installations/blob/main/docs/data-dictionary/Data_Dictionary.xlsx" target="_blank" rel="noopener noreferrer">Data dictionary ↗</a></div></div></details>
+    </article>
+    <p class="scope-note">Both projects use synthetic data. Dashboard figures are demonstration results, separate from the career highlights above. Screenshots preview the reports; source files and documentation are available for technical review.</p>
+  </section>
+  <section class="section capabilities" id="expertise" aria-labelledby="expertise-title"><div class="wrap">
+    <div class="section-top"><div><p class="eyebrow">02 / What I bring</p><h2 id="expertise-title">From the business question<br>to the finished solution.</h2></div><p class="section-intro">Hands-on development, clear definitions, and the operational context to make the result useful.</p></div>
+    <div class="capability-grid">
+      <article class="capability"><span class="index">01 / BUILD THE FOUNDATION</span><h3>Data that holds together.</h3><p>Translate business requirements into SQL, repeatable data preparation, and models with explicit grain and relationships.</p><ul class="tags" aria-label="Data foundation skills"><li>SQL Server / T-SQL</li><li>SSIS</li><li>Power Query</li><li>Dimensional modeling</li></ul></article>
+      <article class="capability"><span class="index">02 / MAKE IT USEFUL</span><h3>Reporting people can use.</h3><p>Build Power BI reports, DAX measures, and semantic models that connect operational detail with the decisions leaders need to make.</p><ul class="tags" aria-label="Reporting skills"><li>Power BI</li><li>DAX</li><li>Semantic models</li><li>Reporting automation</li></ul></article>
+      <article class="capability"><span class="index">03 / MAKE IT TRUSTWORTHY</span><h3>Logic people can follow.</h3><p>Define KPIs, document lineage and business rules, and connect requirements to validation, UAT, and a maintainable handoff.</p><ul class="tags" aria-label="Governance skills"><li>KPI standardization</li><li>Data dictionaries</li><li>BRDs / SOPs / UAT</li><li>Azure DevOps</li></ul></article>
+    </div>
+  </div></section>
+  <section class="section wrap" id="about" aria-labelledby="about-title"><div class="about-grid">
+    <div><p class="eyebrow">03 / Behind the work</p><h2 id="about-title">A developer's depth.<br>A business analyst's perspective.</h2><p class="about-copy">I'm a hands-on BI and analytics professional with more than 15 years of experience, including a deep background in mortgage and financial services.</p><p class="about-copy">My work connects the people who need answers with the data, definitions, and systems behind those answers. I bring SQL and Power BI development together with process discovery, reporting automation, and practical data governance.</p></div>
+    <div class="experience-list"><div class="experience-item"><span>01</span><div><h3>Experience across the operation</h3><p>Contract recovery, repurchase, loss analysis, financial controls, and quality controls. Analytics grounded in how the work actually gets done.</p></div></div><div class="experience-item"><span>02</span><div><h3>Ownership beyond the dashboard</h3><p>Business requirements, SQL data preparation, KPI definitions, report development, validation, and documentation.</p></div></div><div class="experience-item"><span>03</span><div><h3>Modern, reviewable development</h3><p>PBIP, PBIR, and TMDL keep report and model definitions inspectable in source control. The portfolio shows the implementation and the reasoning behind it.</p></div></div></div>
+  </div></section>
+  <section class="wrap" id="contact" aria-labelledby="contact-title"><div class="contact-panel"><div><p class="eyebrow">Let's connect</p><h2 id="contact-title">Looking for someone who can<br>build it and explain it?</h2><p>Let's talk about Senior Power BI Developer, BI Developer, or Senior Data Analyst opportunities. I'm based in Oklahoma City and interested in remote roles.</p></div><div class="contact-actions"><a class="button" href="https://www.linkedin.com/in/paige-justice/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/paigejusti-stack" target="_blank" rel="noopener noreferrer">Explore my GitHub ↗</a></div></div></section>
 </main>
-<footer class="wrap"><p>All project data is synthetic. DAX development and final assembly used AI assistance, as documented in the repositories. Included security definitions do not constitute a claim of validated production enforcement.</p><div class="bottom"><span>Paige Justice · Power BI &amp; SQL Portfolio</span><a href="https://github.com/paigejusti-stack/orthoma/blob/main/PORTFOLIO.md">Read the portfolio on GitHub ↗</a></div></footer>
-</body></html>
+<footer class="wrap"><div class="footer-top"><strong>Paige Justice <span style="font-weight:400;color:var(--muted)">/ Business Intelligence &amp; Analytics</span></strong><div class="footer-links"><a href="#projects">Selected work</a><a href="https://www.linkedin.com/in/paige-justice/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/paigejusti-stack" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#main">Back to top ↑</a></div></div><p class="footer-note">Project transparency: these are independent demonstrations using synthetic data. DAX development and final assembly used AI assistance, as documented in the repositories. Project-specific limitations and security-validation scope are included in the technical review and source documentation.</p></footer>
+<script>
+  // Progressive enhancement: previews and source links remain usable without JavaScript.
+  document.querySelectorAll('[data-gallery]').forEach(function (gallery) {
+    var controls = gallery.querySelector('.gallery-buttons');
+    var buttons = Array.from(controls.querySelectorAll('button'));
+    var image = gallery.querySelector('img');
+    var caption = gallery.querySelector('[data-caption]');
+    var fullsizeLinks = gallery.querySelectorAll('[data-fullsize]');
+    var latestRequest = 0;
+    controls.hidden = false;
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var request = ++latestRequest;
+        var next = new Image();
+        caption.textContent = 'Loading ' + button.dataset.title + '…';
+        next.onload = function () {
+          if (request !== latestRequest) return;
+          image.src = button.dataset.src;
+          image.alt = button.dataset.alt;
+          fullsizeLinks.forEach(function (link) { link.href = button.dataset.src; });
+          buttons.forEach(function (item) { item.setAttribute('aria-pressed', String(item === button)); });
+          caption.textContent = button.dataset.title;
+        };
+        next.onerror = function () {
+          if (request !== latestRequest) return;
+          caption.textContent = 'Preview unavailable. Use the case study or source links to view this report.';
+        };
+        next.src = button.dataset.src;
+      });
+    });
+  });
+</script>
+</body>
+</html>
