@@ -1,10 +1,12 @@
-# Orthoma — Clinic Operations & Revenue Analytics
+# Orthoma | Clinic Operations & Revenue Analytics
 
-**A source-controlled Power BI solution for a three-site orthopedic walk-in practice — from an Azure SQL warehouse, through a TMDL semantic model, to an eight-page executive report.**
+**An independent Power BI portfolio project demonstrating an Azure SQL warehouse, a TMDL semantic model, and eight report pages covering clinic access, payer mix, receivable aging, and imaging activity.**
+
+**[View Paige Justice's complete portfolio](https://paigejusti-stack.github.io/orthoma/portfolio/)** | [LinkedIn](https://www.linkedin.com/in/paige-justice/)
+
+> All data is synthetic. Displayed metrics describe the sample dataset, not real clinic performance or implemented business outcomes.
 
 ![Orthoma Clinic Overview — KPI strip, visits and door-to-provider trend, location scorecard and payer mix](artifacts/01-clinic-overview.png)
-
-> All data is synthetic. Every figure below is computed by the model in this repository — none of it is illustrative.
 
 ---
 
@@ -71,7 +73,9 @@ Power BI binds **only** to the `rpt.*` view layer. Renaming a physical column or
 
 ---
 
-## Findings
+## Findings from the synthetic dataset
+
+Interpretations below are hypotheses to investigate. The sample patterns alone do not establish operational causes or realized business value.
 
 Every finding below is visible in the report.
 
@@ -79,7 +83,7 @@ Every finding below is visible in the report.
 
 Median door-to-provider is **41 minutes** against a 30-minute target; P90 is **59 minutes**. **96.8%** of eligible visits exceed 30 minutes, but only **9.0%** exceed 60. That is a whole distribution shifted right, not a long tail — which points at rooming and scheduling capacity rather than a handful of bad days.
 
-Provider spread is narrow: **76 minutes** at the slowest, **48** at the fastest. With P90 clustered that tightly, individual provider behaviour isn't the lever. Throughput design is.
+Provider P90 ranges from **48 to 76 minutes**. Investigate shared intake constraints and adjust provider comparisons for site, case mix, shift, and workload before assigning cause.
 
 ### Motor Vehicle Accident is the revenue story — in both directions
 
@@ -125,7 +129,7 @@ Findings are only worth the decisions they change. Each recommendation below nam
 
 **Do:** Stand up a dedicated MVA follow-up track with a hard escalation point before day 90.
 
-**Because:** MVA is the **best** payer on unit economics — **$303** net revenue per visit against a $232 book average, and **+5.5 pp** more revenue share than visit share. It is also the worst on cash: **29.5%** collection where every other payer clears ~90%, and **70.8%** of all unpaid A/R. Dropping MVA would remove the most profitable visit in the practice. The problem is the collection process, not the payer.
+**Because:** MVA has the highest modeled net revenue per visit — **$303** net revenue per visit against a $232 book average, and **+5.5 pp** more revenue share than visit share. It is also the worst on cash: **29.5%** collection where every other payer clears ~90%, and **70.8%** of all unpaid A/R. This does not establish profitability. Evaluate costs, payment timing, and realized cash before making a payer strategy decision.
 
 **Measure:** Share of MVA balance aged 90+ days, currently **91.5%**. That single number tells you whether the escalation is working.
 
@@ -141,7 +145,7 @@ Findings are only worth the decisions they change. Each recommendation below nam
 
 **Do:** Model in-house MRI capacity at Ardmore against lease, staffing and read costs.
 
-**Because:** Ardmore refers out **5,995 of 5,995** MRI orders because it has no scanner. Edmond captures **84.7%** and Oklahoma City **84.9%**. Matching its sister sites would retain roughly **5,100 studies a year** that currently walk out the door — along with the follow-up visit that often accompanies them.
+**Because:** Ardmore refers out **5,995 of 5,995** MRI orders because it has no scanner. Edmond captures **84.7%** and Oklahoma City **84.9%**. Matching its sister sites would retain roughly **5,100 studies over the same reporting period** that currently walk out the door — Annualize the volume and evaluate capacity, costs, and referral retention before using it in a capital model.
 
 **Measure:** Ardmore in-house capture rate, currently **0%**, against the ~85% the other sites already achieve.
 
@@ -229,14 +233,15 @@ A new database user starts with no permissions, so that single `GRANT` is the wh
 
 That makes the curated view layer the security boundary as well as the contract boundary: the report reads exactly what it was designed to read, and nothing else. The script ships a verification block that proves it — `rpt.FactVisit` returns rows under `EXECUTE AS USER`, `fact.Visit` and `stg.Visits` fail.
 
-The model also defines **row-level security** — three roles filtering `Location`, so a site manager sees only their own clinic.
+The model includes **row-level security definitions**: three roles filtering `Location`. Service role assignments and production enforcement require separate validation.
 
 ## Limitations
 
 - Refresh requires the Azure SQL warehouse. `database/Orthoma.Database` builds it from scratch, including the synthetic data generator, so the project is reproducible end to end.
 - Collection and aging figures are current-state claim calculations, not a transaction ledger.
-- No production deployment, row-level security or scheduled refresh is claimed.
+- The model includes three location-filtered RLS role definitions. Production deployment, service role assignments, enforcement, and scheduled refresh have not been validated as part of this portfolio review.
 
 ---
 
 *Built with Power BI Desktop, Azure SQL and TMDL. DAX measure development and final assembly were done with AI assistance.*
+

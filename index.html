@@ -292,6 +292,7 @@ footer .frow{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; ma
       </a>
     </div>
 
+    <p class="sub"><strong>Synthetic-data portfolio project.</strong> Financial and operating figures are sample results, not production client outcomes. <a href="https://paigejusti-stack.github.io/orthoma/portfolio/">View Paige Justice's complete portfolio</a>.</p>
     <div class="cta">
       <a class="btn primary" href="https://github.com/paigejusti-stack/orthoma">View on GitHub</a>
       <a class="btn" href="#demo">Get the report</a>
@@ -357,7 +358,7 @@ footer .frow{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; ma
           measure is reviewable as text.</p></div>
       <div class="card"><div class="tag">Security</div>
         <p>The report connects as a read-only principal holding one grant —
-          <code>SELECT</code> on <code>rpt</code>. Row-level security filters by location.</p></div>
+          <code>SELECT</code> on <code>rpt</code>. Location security role definitions are included; production enforcement requires separate validation.</p></div>
       <div class="card"><div class="tag">Source control</div>
         <p>PBIP / PBIR / TMDL. Every visual, measure and relationship is plain text and
           diffable — no binary <code>.pbix</code>.</p></div>
@@ -369,7 +370,7 @@ footer .frow{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; ma
   <div class="wrap">
     <div class="kicker">What the data said</div>
     <h2>Findings</h2>
-    <p class="sub">Every figure below is computed by the model, not illustrative.</p>
+    <p class="sub">Figures below describe the synthetic dataset. Interpretations are hypotheses to investigate, not proven causes or implemented outcomes.</p>
 
     <div class="finding">
       <h3>Access is broadly late, not occasionally catastrophic</h3>
@@ -378,8 +379,7 @@ footer .frow{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; ma
         of eligible visits exceed 30 minutes, but only <span class="num">9.0%</span> exceed 60.
         That is a whole distribution shifted right, not a long tail — which points at rooming and
         scheduling capacity rather than a handful of bad days.</p>
-      <p>Provider spread is narrow: 76 minutes at the slowest, 48 at the fastest. With P90
-        clustered that tightly, individual provider behaviour isn't the lever. Throughput design is.</p>
+      <p>Provider P90 ranges from 48 to 76 minutes. Investigate shared intake constraints and adjust provider comparisons for site, case mix, shift, and workload before assigning cause.</p>
       <figure>
         <img src="artifacts/02-access-wait-times.png" alt="Access and Wait Times page: median and P90 door-to-provider, weekday breach pattern, and provider ranking">
       </figure>
@@ -456,12 +456,11 @@ footer .frow{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; ma
       <h3><span class="rn">2</span> Keep MVA — but collect it on a clock</h3>
       <p><strong>Do:</strong> Stand up a dedicated MVA follow-up track with a hard escalation point
         before day 90.</p>
-      <p><strong>Because:</strong> MVA is the <em>best</em> payer on unit economics —
+      <p><strong>Because:</strong> MVA has the highest modeled net revenue per visit —
         <span class="num">$303</span> per visit against a $232 average, and
         <span class="num">+5.5 pp</span> more revenue share than visit share. It is also the worst
         on cash: <span class="num bad">29.5%</span> collection where others clear ~90%, holding
-        <span class="num bad">70.8%</span> of unpaid A/R. Dropping MVA would remove the most
-        profitable visit in the practice. The problem is the process, not the payer.</p>
+        <span class="num bad">70.8%</span> of unpaid A/R. Profitability is not established: evaluate costs, payment timing, and realized cash before making a payer strategy decision.</p>
       <p class="meas">Measure — share of MVA balance aged 90+ days, currently 91.5%.</p>
     </div>
 
@@ -484,8 +483,8 @@ footer .frow{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; ma
         read costs.</p>
       <p><strong>Because:</strong> Ardmore refers out <span class="num bad">5,995 of 5,995</span>
         MRI orders because it has no scanner. Edmond captures 84.7%, Oklahoma City 84.9%. Matching
-        its sister sites would retain roughly <span class="num">5,100 studies a year</span> that
-        currently walk out the door — along with the follow-up visit that often comes with them.</p>
+        its sister sites would retain roughly <span class="num">5,100 studies over the same reporting period</span> that
+        are referred out. Annualize volume and evaluate costs and capacity before using this assumption in a capital model.</p>
       <p class="meas">Measure — Ardmore in-house capture, currently 0%, against the ~85% its
         sister sites already achieve.</p>
     </div>
@@ -537,10 +536,7 @@ footer .frow{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; ma
   <div class="wrap">
     <div class="kicker">Try it</div>
     <h2>Explore the report</h2>
-    <p class="sub">All data is synthetic — no real patient, provider or payer information. The dataset
-      carries row-level security across three location roles, and the tenant it is published to does not
-      permit anonymous embedding, so rather than a cut-down public iframe the full report is here to
-      download and open yourself.</p>
+    <p class="sub">All data is synthetic. Download the released PBIX or inspect the screenshots and source. The model includes three location security role definitions; production role assignments and enforcement have not been validated in this portfolio review.</p>
 
     <div class="cta">
       <a class="btn primary" href="https://github.com/paigejusti-stack/orthoma/releases/latest">Download the report (.pbix)</a>
@@ -631,3 +627,4 @@ footer .frow{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; ma
 
 </body>
 </html>
+
