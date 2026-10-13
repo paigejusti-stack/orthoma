@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#122e35">
+  <meta name="theme-color" content="#202943">
   <title>Paige Justice | Senior BI &amp; Power BI Portfolio</title>
   <meta name="description" content="Paige Justice: 15+ years in business intelligence, SQL Server, Power BI, and reporting automation. Explore complete analytics projects, dashboard previews, semantic models, and source code.">
   <link rel="canonical" href="https://paigejusti-stack.github.io/orthoma/portfolio/">
@@ -14,155 +14,114 @@
   <meta property="og:image" content="https://paigejusti-stack.github.io/orthoma/artifacts/01-clinic-overview.png">
   <meta property="og:image:alt" content="Orthoma clinic operations report, an independent synthetic-data project by Paige Justice">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <style>
-    :root{--ink:#172f38;--muted:#53686e;--teal:#126964;--teal-dark:#0d524e;--mint:#b6e1cf;--paper:#f5f6f2;--white:#fff;--line:#dce4df;--soft:#e9efea;--night:#122e35;--gold:#ebcf91;--radius:18px}
+
+    :root{--ink:#202943;--muted:#5d6276;--teal:#006d77;--teal-dark:#00565e;--mint:#a3e4df;--plum:#814f7c;--rose:#e5a9be;--lavender:#ddd0ed;--paper:#f8f6fa;--white:#fff;--line:#dfdce7;--night:#202943;--radius:24px;--serif:"DM Serif Display",Georgia,serif;--sans:Manrope,"Segoe UI",Arial,sans-serif}
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:110px}
-    body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
-    h1,h2,h3,h4,p,figure{margin:0}
-    h1,h2,h3,h4{line-height:1.13;letter-spacing:-.045em}
-    h2{font-size:clamp(30px,3.4vw,43px);font-weight:650}
-    h3{font-size:29px;font-weight:650}
-    a{color:var(--teal);text-underline-offset:5px}
-    a:hover{text-decoration-thickness:2px}
-    a,button,summary{-webkit-tap-highlight-color:transparent}
-    :focus-visible{outline:3px solid #bc7813;outline-offset:5px}
-    button{font:inherit}
-    img{display:block;max-width:100%;height:auto}
-    [hidden]{display:none!important}
-    .wrap{width:min(1184px,100% - 80px);margin-inline:auto}
-    .eyebrow{font-size:11px;font-weight:750;letter-spacing:.17em;text-transform:uppercase;color:var(--teal)}
-    .skip{position:fixed;top:-100px;left:20px;padding:12px 20px;background:white;z-index:20;border:2px solid var(--teal)}
-    .skip:focus{top:12px}
-    .site-header{position:sticky;top:0;z-index:10;background:rgba(245,246,242,.97);border-bottom:1px solid var(--line)}
-    .nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:30px}
-    .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-size:17px;font-weight:700;white-space:nowrap;letter-spacing:-.025em}
-    .monogram{display:grid;place-items:center;width:37px;height:37px;background:var(--night);color:var(--mint);border-radius:50%;font-size:12px;letter-spacing:-.04em}
-    .nav-links{display:flex;gap:28px;align-items:center;font-size:13px;font-weight:600}
-    .nav-links a{color:var(--ink);text-decoration:none;white-space:nowrap}
-    .nav-links a:hover{color:var(--teal);text-decoration:underline}
-    .nav-links .nav-contact{border:1px solid #b8cac1;padding:8px 17px;border-radius:6px}
-    .hero{background:var(--night);color:white;position:relative;overflow:hidden}
-    .hero::after{content:"";position:absolute;pointer-events:none;inset:0;background:radial-gradient(ellipse at 85% 35%,rgba(115,170,150,.14),transparent 57%)}
-    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-block:74px 72px;position:relative;z-index:1}
-    .hero .eyebrow{color:var(--mint)}
-    h1{font-size:clamp(44px,4.9vw,65px);font-weight:600;line-height:1.08;margin:22px 0}
-    h1 span{color:var(--mint)}
-    .hero-copy{max-width:520px;font-size:18px;line-height:1.7;color:#d2dedc}
-    .hero-copy strong{color:white;font-weight:550}
-    .button-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-    .button{display:inline-flex;align-items:center;justify-content:center;gap:15px;padding:12px 19px;border:1px solid var(--line);border-radius:6px;font-weight:650;font-size:13px;text-decoration:none;line-height:1.4;background:white;color:var(--ink);transition:background .15s,transform .15s}
-    .button:hover{transform:translateY(-2px);background:#edf3ef}
-    .button.primary{background:var(--teal);border-color:var(--teal);color:white}
-    .button.primary:hover{background:var(--teal-dark)}
-    .hero .button.primary{background:var(--mint);border-color:var(--mint);color:var(--night)}
-    .hero .button.primary:hover{background:#d2eddf}
-    .hero .button.secondary{background:transparent;color:white;border-color:#637e80}
-    .hero .button.secondary:hover{background:#224047}
-    .location{font-size:12px;color:#b6cbc7;margin-top:23px;display:flex;align-items:center;gap:9px}
-    .location::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mint);flex-shrink:0}
-    .feature{background:#244047;border:1px solid #4c6264;border-radius:12px;overflow:hidden;box-shadow:0 22px 55px #00161f55;position:relative}
-    .feature-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 19px;font-size:11px;color:#d4e2de}
-    .feature-header span:first-child{font-weight:700;letter-spacing:.13em;text-transform:uppercase}
-    .feature-image{display:block;background:#0a1f2b;margin:0 12px;border:1px solid #597071;border-radius:4px;overflow:hidden}
-    .feature-image img{width:100%}
-    .feature-footer{padding:19px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-    .feature-footer strong{display:block;font-size:17px;font-weight:550}
-    .feature-footer p{font-size:12px;color:#c0d0cd;margin-top:2px}
-    .feature-footer>a{color:var(--mint);text-decoration:none;font-size:22px;width:38px;height:38px;display:grid;place-items:center;border:1px solid #5a7372;border-radius:50%;flex-shrink:0}
-    .feature-caption{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;color:#a9c0bb;font-size:11px}
-    .feature-caption span+span::before{content:"/";margin-right:10px;color:#7c9992}
-    .career{border-bottom:1px solid var(--line);background:#fff}
-    .career-inner{display:grid;grid-template-columns:1.05fr 3fr;gap:38px;padding-block:32px;align-items:center}
-    .career-label p:last-child{font-size:12px;color:var(--muted);max-width:190px;margin-top:6px}
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-    .stat{border-left:1px solid var(--line);padding-left:27px}
-    .stat strong{font-size:37px;letter-spacing:-.05em;line-height:1.15;font-weight:650;display:block}
-    .stat span{font-size:12px;color:var(--muted);display:block;margin-top:6px;max-width:190px;line-height:1.5}
-    .section{padding-block:76px}
-    .section-top{display:flex;justify-content:space-between;align-items:end;gap:36px;margin-bottom:32px}
-    .section-top h2{margin-top:11px}
-    .section-intro{max-width:345px;font-size:14px;color:var(--muted);line-height:1.6}
-    .project{background:white;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:26px}
-    .project-heading{padding:29px 32px 26px;display:flex;justify-content:space-between;align-items:center;gap:24px;border-bottom:1px solid var(--line)}
-    .project-name{display:flex;gap:19px;align-items:center}
-    .project-number{display:grid;place-items:center;width:43px;height:43px;flex-shrink:0;border:1px solid var(--line);border-radius:50%;font-size:12px;color:var(--muted)}
-    .project h3{font-size:27px;margin:6px 0 3px}
-    .project-heading p:last-child{font-size:13px;color:var(--muted)}
-    .badge{font-size:10px;letter-spacing:.055em;text-transform:uppercase;white-space:nowrap;background:#edf3ed;color:#436258;padding:6px 10px;border-radius:4px}
-    .project-grid{display:grid;grid-template-columns:1.28fr 1fr}
-    .gallery{background:#edf1ee;padding:28px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line);min-width:0}
-    .gallery-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:13px}
-    .gallery-toolbar p{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted)}
-    .gallery-toolbar a{font-size:11px;white-space:nowrap;font-weight:600}
-    .report-image{display:block;border-radius:5px;border:1px solid #bac7c0;overflow:hidden;background:#122734;box-shadow:0 10px 25px #183c3410;aspect-ratio:2.151/1}
-    .report-image img{width:100%;height:100%;object-fit:contain}
-    .gallery-buttons{display:flex;gap:7px;margin-top:16px;flex-wrap:wrap}
-    .gallery-buttons button{border:1px solid #cad6cd;background:transparent;color:#426056;padding:8px 12px;min-height:38px;font-size:11px;font-weight:650;cursor:pointer;border-radius:5px;line-height:1.2}
-    .gallery-buttons button[aria-pressed="true"]{background:white;color:var(--ink);border-color:#789c8b;box-shadow:0 2px 4px #183c3409}
-    .gallery-buttons button:hover{background:white}
-    .gallery figcaption{font-size:11px;color:var(--muted);margin-top:13px}
-    .project-copy{padding:31px 32px}
-    .question{font-size:21px;line-height:1.35;letter-spacing:-.025em;font-weight:600;margin-bottom:12px}
-    .project-copy>p:not(.question){font-size:14px;line-height:1.7;color:var(--muted)}
-    .project-facts{display:flex;gap:24px;margin:21px 0 20px;padding:16px 0;border-block:1px solid var(--line)}
-    .project-facts strong{font-size:19px;letter-spacing:-.02em;font-weight:650;display:block;line-height:1.2}
-    .project-facts span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.065em;display:block;margin-top:5px}
-    .project-copy .proof{font-size:13px;color:var(--ink)}
-    .project-copy .proof strong{color:var(--teal);font-weight:650}
-    .project-copy .button-row{gap:10px;margin-top:22px}
-    .project-copy .button{padding:10px 14px;font-size:12px}
-    .technical{border-top:1px solid var(--line)}
-    .technical summary{padding:17px 31px;cursor:pointer;font-size:12px;font-weight:650;color:var(--teal)}
-    .technical summary:hover{background:#f7faf7}
-    .technical-body{padding:6px 32px 25px;display:grid;grid-template-columns:1.3fr 1fr;gap:38px;font-size:13px}
-    .technical-body p{color:var(--muted);margin-bottom:9px}
-    .technical-body a{font-size:12px;font-weight:600}
-    .source-links{display:flex;align-content:start;align-items:start;flex-wrap:wrap;column-gap:20px;row-gap:10px}
-    .scope-note{font-size:12px;color:var(--muted);margin-top:20px;max-width:880px}
-    .capabilities{border-block:1px solid var(--line);background:#ecf1ed}
-    .capability-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
-    .capability{border-top:2px solid #94b0a1;padding-top:24px}
-    .capability .index{font-size:11px;color:#557164;margin-bottom:17px;display:block;letter-spacing:.1em}
-    .capability h3{font-size:22px;letter-spacing:-.03em;margin-bottom:12px}
-    .capability p{font-size:14px;color:var(--muted);line-height:1.75}
-    .tags{list-style:none;padding:0;margin:23px 0 0;display:flex;flex-wrap:wrap;gap:7px}
-    .tags li{font-size:10px;font-weight:600;border:1px solid #cbd9ce;border-radius:4px;padding:5px 8px;color:#345448}
-    .about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:100px;align-items:start}
-    .about-grid h2{margin:12px 0 21px;max-width:460px}
-    .about-copy{font-size:16px;color:var(--muted);max-width:500px}
-    .about-copy+p{margin-top:17px}
-    .experience-list{margin-top:8px}
-    .experience-item{padding:19px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:32px 1fr;gap:14px}
-    .experience-item:first-child{padding-top:0}
-    .experience-item>span{font-size:11px;color:var(--teal);font-weight:650;padding-top:3px}
-    .experience-item h3{font-size:17px;letter-spacing:-.02em;margin-bottom:8px;line-height:1.4}
-    .experience-item p{font-size:13px;color:var(--muted)}
-    .contact-panel{padding:46px 50px;background:var(--night);color:white;border-radius:var(--radius);display:flex;align-items:center;justify-content:space-between;gap:50px}
-    .contact-panel .eyebrow{color:var(--mint)}
-    .contact-panel h2{font-size:35px;margin:11px 0 15px}
-    .contact-panel p:not(.eyebrow){font-size:14px;color:#c4d6d0;max-width:610px}
-    .contact-actions{flex-shrink:0;display:flex;flex-direction:column;align-items:stretch;gap:13px}
-    .contact-actions .button{background:var(--mint);border-color:var(--mint);color:var(--night)}
-    .contact-actions .text-link{color:#d0e0db;text-align:center;font-size:12px}
-    footer{padding-block:31px 24px;color:var(--muted);font-size:11px}
-    .footer-top{display:flex;align-items:center;justify-content:space-between;gap:25px;padding-bottom:22px;border-bottom:1px solid var(--line)}
-    .footer-top strong{font-weight:650;color:var(--ink);font-size:13px}
-    .footer-links{display:flex;gap:22px;flex-wrap:wrap}
-    .footer-note{padding-top:20px;font-size:10px;max-width:920px;line-height:1.7}
-    @media(min-width:1500px){.hero-grid{padding-block:90px}}
-    @media(max-width:1050px){.hero-grid{gap:35px}.wrap{width:calc(100% - 56px)}.hero-copy{font-size:16px}.career-inner{grid-template-columns:1fr 3fr;gap:20px}.stat{padding-left:20px}.stats{gap:17px}.project-grid{grid-template-columns:1.15fr 1fr}.project-copy{padding:26px}.gallery{padding:22px}.about-grid{gap:55px}}
-    @media(max-width:800px){.nav{min-height:74px}.nav-links{gap:18px}.hero-grid{grid-template-columns:1fr;gap:38px;padding-block:48px}.hero-text{max-width:630px}h1{font-size:clamp(43px,8vw,61px);max-width:650px}.hero-copy{max-width:600px;font-size:18px}.hero-preview{max-width:650px;width:100%}.career-inner{grid-template-columns:1fr;gap:22px}.career-label{display:flex;align-items:center;gap:14px}.career-label p:last-child{max-width:none;margin:0}.stat:first-child{border:0;padding-left:0}.section{padding-block:55px}.section-top{display:block}.section-intro{max-width:580px;margin-top:17px}.project-grid{grid-template-columns:1fr}.gallery{border-right:0;border-bottom:1px solid var(--line);padding:26px}.project-copy{padding:28px}.project-facts{gap:40px}.capability-grid{gap:22px}.capability h3{font-size:19px}.about-grid{grid-template-columns:1fr;gap:35px}.about-copy{max-width:650px}.contact-panel{padding:36px;display:block}.contact-actions{margin-top:25px;flex-direction:row;align-items:center;gap:23px}.technical-body{grid-template-columns:1fr;gap:12px}.badge{font-size:9px}}
-    @media(max-width:560px){html{scroll-padding-top:115px}.wrap{width:calc(100% - 36px)}.nav{flex-wrap:wrap;gap:8px;padding-block:13px}.brand{font-size:15px}.monogram{width:29px;height:29px;font-size:10px}.nav-links{width:100%;justify-content:space-between;gap:12px;font-size:11px}.nav-links .nav-contact{padding:3px 11px}.hero-grid{padding-block:37px;gap:30px}h1{font-size:43px;max-width:410px;margin-top:17px}.hero-copy{font-size:16px}.hero .eyebrow{font-size:10px;letter-spacing:.12em}.button{font-size:12px;padding:12px 15px;gap:11px}.hero .button-row{margin-top:23px}.location{font-size:11px}.feature-header{padding:12px;font-size:9px}.feature-footer{padding:14px}.feature-footer strong{font-size:16px}.feature-footer p{font-size:10px}.feature-caption{font-size:10px;margin-top:12px}.career-inner{padding-block:26px}.career-label{display:block}.career-label p:last-child{margin-top:4px;font-size:11px}.stats{gap:12px}.stat{padding-left:12px}.stat strong{font-size:29px}.stat span{font-size:10px}.section{padding-block:43px}.section-top{margin-bottom:25px}.section-top h2{font-size:31px}.section-intro{font-size:13px}.project{border-radius:12px;margin-top:20px}.project-heading{padding:22px;display:block}.project-name{gap:12px;align-items:start}.project-number{width:31px;height:31px;font-size:10px;margin-top:4px}.project h3{font-size:24px}.project-heading .eyebrow{font-size:9px;letter-spacing:.1em}.project-heading p:last-child{font-size:12px}.badge{display:inline-block;margin:14px 0 0 43px}.gallery{padding:18px}.gallery-toolbar p{font-size:9px}.gallery-toolbar a{font-size:10px}.gallery-buttons button{padding:9px 10px;font-size:10px}.gallery figcaption{font-size:10px}.project-copy{padding:23px}.question{font-size:22px}.project-facts{gap:26px}.project-copy .button-row{gap:8px}.project-copy .button{font-size:11px}.technical summary{padding:17px 22px;font-size:11px}.technical-body{padding:4px 22px 23px}.capability-grid{grid-template-columns:1fr;gap:29px}.capability{padding-top:18px}.capability .index{margin-bottom:10px}.capability h3{font-size:22px}.tags{margin-top:15px}.about-grid{gap:28px}.about-grid h2{font-size:33px}.about-copy{font-size:15px}.contact-panel{padding:29px 25px;border-radius:12px}.contact-panel h2{font-size:30px}.contact-actions{flex-wrap:wrap;gap:20px}.footer-top{align-items:start;flex-direction:column;gap:14px}.footer-links{gap:20px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:hover{transform:none}}
-    @media print{.site-header{position:static}.hero,.contact-panel{background:white;color:var(--ink)}.hero-copy,.hero-copy strong,.hero .eyebrow,h1 span,.contact-panel p:not(.eyebrow),.contact-panel .eyebrow{color:var(--ink)}.hero::after,.hero-preview,.gallery-buttons,.skip{display:none}.hero-grid{display:block;padding-block:25px}.hero .button.secondary{color:var(--ink)}.section{padding-block:25px}.project{break-inside:avoid}.contact-panel{border:1px solid var(--line);padding:20px}.wrap{width:100%}.site-header,.footer-note{font-size:10px}details:not([open]){display:none}}
+    html{scroll-behavior:smooth;scroll-padding-top:115px}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4,p,figure{margin:0}h1,h2,h3,h4{line-height:1.14;letter-spacing:-.05em}
+    h2{font-size:clamp(34px,3.6vw,47px);font-weight:750}h3{font-size:29px;font-weight:750}
+    a{color:var(--teal);text-underline-offset:5px}a:hover{text-decoration-thickness:2px}
+    a,button,summary{-webkit-tap-highlight-color:transparent}:focus-visible{outline:3px solid #9b4284;outline-offset:5px}
+    button{font:inherit}img{display:block;max-width:100%;height:auto}svg{display:block}[hidden]{display:none!important}
+    ::selection{background:#b1e4df;color:#19283a}
+    .wrap{width:min(1200px,100% - 80px);margin-inline:auto}
+    .eyebrow{font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
+    .skip{position:fixed;top:-100px;left:20px;padding:12px 20px;background:white;z-index:30;border:2px solid var(--teal)}.skip:focus{top:12px}
+    .site-header{position:sticky;top:0;z-index:20;background:#f8f6faf5;backdrop-filter:blur(12px);border-bottom:1px solid #ded9e7}
+    .site-header::before{content:"";display:block;height:4px;background:linear-gradient(90deg,var(--teal) 0 40%,var(--plum) 40% 72%,var(--rose) 72% 90%,var(--lavender) 90%)}
+    .nav{min-height:83px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-size:18px;font-weight:800;white-space:nowrap;letter-spacing:-.04em}
+    .brand-copy{display:block;line-height:1.25}.brand-copy small{display:block;margin-top:4px;letter-spacing:.16em;font-size:8px;font-weight:700;color:var(--muted)}
+    .monogram{display:grid;place-items:center;width:44px;height:44px;border:1px solid #007c85;background:var(--teal);color:white;border-radius:14px 14px 14px 3px;font-family:var(--serif);font-size:21px;font-weight:400;letter-spacing:-.09em;box-shadow:4px 4px 0 #dac5df}
+    .nav-links{display:flex;gap:28px;align-items:center;font-size:12px;font-weight:750}
+    .nav-links a{color:var(--ink);text-decoration:none;white-space:nowrap}.nav-links a:hover{color:var(--plum)}
+    .nav-links .nav-contact{border:1px solid var(--ink);background:var(--ink);color:white;padding:10px 18px;border-radius:99px}.nav-links .nav-contact:hover{background:var(--plum);border-color:var(--plum);color:white}
+    .hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 80% 20%,#e9def05e,transparent 55%),var(--paper)}
+    .hero::after{content:"";position:absolute;pointer-events:none;right:-180px;bottom:-260px;width:620px;height:620px;border:1px solid #d3c9df;border-radius:50%}
+    .hero-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:35px;align-items:center;padding-block:67px 53px;position:relative;z-index:1}
+    .hero-text{padding-bottom:20px;animation:arrive .7s ease-out both}
+    .hero .eyebrow{display:inline-flex;align-items:center;gap:10px;background:#ebe6f0;border:1px solid #dfd3e6;color:#6d496f;border-radius:99px;padding:7px 12px;font-size:9px;letter-spacing:.12em}
+    .hero .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--plum)}
+    h1{font-size:clamp(45px,4.8vw,65px);font-weight:800;line-height:1.12;margin:24px 0 18px;letter-spacing:-.065em}
+    h1 span{display:block;color:var(--plum);font-family:var(--serif);font-weight:400;font-style:italic;font-size:1.15em;letter-spacing:-.045em;position:relative;padding-bottom:8px;width:fit-content}
+    h1 span::after{content:"";position:absolute;bottom:0;left:4px;width:95%;height:7px;border-radius:50%;border-top:3px solid var(--rose);transform:rotate(-2deg)}
+    .hero-role{font-size:11px;color:var(--teal);font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin:22px 0 14px}
+    .hero-copy{max-width:510px;font-size:16px;line-height:1.85;color:var(--muted)}.hero-copy strong{color:var(--ink);font-weight:800}
+    .button-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:17px;padding:13px 20px;border:1px solid #d2cbdc;border-radius:99px;font-weight:750;font-size:12px;text-decoration:none;line-height:1.4;background:white;color:var(--ink);transition:background .2s,transform .2s,box-shadow .2s}
+    .button span{font-size:17px;transition:transform .2s}.button:hover{transform:translateY(-3px);background:#f0eaf6;box-shadow:0 7px 16px #35244310}.button:hover span{transform:translate(2px,-2px)}
+    .button.primary{background:var(--teal);border-color:var(--teal);color:white;box-shadow:0 5px 0 #c3d9dc}.button.primary:hover{background:var(--teal-dark);box-shadow:0 8px 0 #c3d9dc}
+    .hero .button.secondary{background:transparent;border-color:#a7a7ba}.hero .button.secondary:hover{background:#ece3f2}
+    .location{font-size:10px;color:var(--muted);margin-top:25px;display:flex;align-items:center;gap:9px}.location::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px #dfedeb;flex-shrink:0}
+    .hero-preview{position:relative;isolation:isolate;min-width:0;padding:65px 14px 76px 15px;animation:arrive .85s .08s ease-out both}
+    .hero-preview::before{content:"";z-index:-2;position:absolute;inset:4px -15px 15px 40px;background:linear-gradient(145deg,#087a83 3%,#226b83 54%,#73618f 100%);border-radius:145px 35px 120px 35px;transform:rotate(8deg)}
+    .hero-preview::after{content:"";z-index:-1;position:absolute;inset:30px -35px 40px 9px;border:1px solid #8fb4b8;border-radius:150px 45px 120px 45px;transform:rotate(-8deg)}
+    .orbit{position:absolute;right:6px;top:17px;width:72px;height:72px;color:#edbacf;transform:rotate(14deg);z-index:2;filter:drop-shadow(0 5px 0 #20374318)}
+    .dot-matrix{position:absolute;left:-10px;top:7px;width:65px;height:65px;background:radial-gradient(#9b7baf 1.5px,transparent 1.8px) 0 0/11px 11px;opacity:.65;z-index:-1}
+    .feature{background:var(--night);color:white;border:1px solid #475371;border-radius:13px;overflow:hidden;box-shadow:0 28px 55px #24315235;position:relative;transform:rotate(-3deg);transition:transform .3s}
+    .feature:hover{transform:rotate(0)}
+    .feature-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 17px;font-size:9px;color:#dce0ef}
+    .feature-header span:first-child{font-weight:800;letter-spacing:.13em;text-transform:uppercase;display:flex;align-items:center;gap:7px}.feature-header span:first-child::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--mint);box-shadow:8px 0 0 #d3bde6,16px 0 0 #e5a9be;margin-right:16px}
+    .feature-image{display:block;background:#13222e;margin:0 10px;border:1px solid #687189;border-radius:5px;overflow:hidden}.feature-image img{width:100%}
+    .feature-footer{padding:17px 19px;display:flex;align-items:center;justify-content:space-between;gap:15px}.feature-footer strong{display:block;font-size:20px;font-weight:700;letter-spacing:-.04em}.feature-footer p{font-size:10px;color:#cbd0e2;margin-top:2px}
+    .feature-footer>a{color:var(--mint);text-decoration:none;font-size:23px;width:36px;height:36px;display:grid;place-items:center;border:1px solid #647289;border-radius:50%;flex-shrink:0}.feature-footer>a:hover{background:#006d77;color:white}
+    .creative-note{position:absolute;right:-10px;bottom:20px;background:#fff;border:1px solid #e0d5e6;border-radius:13px;box-shadow:0 14px 35px #27293e15;padding:15px 20px;display:flex;align-items:center;gap:13px;transform:rotate(2deg);max-width:93%}
+    .note-icon{width:32px;height:32px;flex-shrink:0;color:var(--plum)}.creative-note strong{display:block;font-size:13px;color:var(--ink);letter-spacing:-.02em}.creative-note p{font-size:9px;color:var(--muted);margin-top:3px}
+    .feature-caption{font-size:9px;color:var(--muted);display:flex;justify-content:center;gap:8px;flex-wrap:wrap;position:absolute;bottom:-8px;left:0;right:0}.feature-caption span+span::before{content:"/";margin-right:8px;color:#9e8eaa}
+    .brand-ribbon{position:relative;background:var(--night);color:#f0e8f7;border-block:1px solid #202943;overflow:hidden}
+    .ribbon-inner{display:flex;align-items:center;justify-content:space-between;gap:22px;padding-block:18px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:750}
+    .ribbon-inner .ribbon-star{color:var(--rose);font-size:23px;font-weight:400;line-height:1}.ribbon-inner span:not(.ribbon-star){white-space:nowrap}
+    .career{background:#fff;border-bottom:1px solid var(--line)}.career-inner{display:grid;grid-template-columns:.9fr 3fr;gap:32px;padding-block:38px;align-items:center}
+    .career-label p:last-child{font-size:11px;color:var(--muted);max-width:175px;margin-top:8px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}
+    .stat{border-left:3px solid #78bdbe;padding-left:22px}.stat:nth-child(2){border-color:#c5a1d2}.stat:nth-child(3){border-color:#df98b3}
+    .stat strong{font-size:39px;letter-spacing:-.065em;line-height:1.2;font-weight:800;display:block}.stat:nth-child(1) strong{color:var(--teal)}.stat:nth-child(2) strong{color:var(--plum)}.stat:nth-child(3) strong{color:#a1486b}
+    .stat span{font-size:11px;color:var(--muted);display:block;margin-top:7px;max-width:195px;line-height:1.7}
+    .section{padding-block:79px}.section-top{display:flex;justify-content:space-between;align-items:end;gap:36px;margin-bottom:36px}.section-top h2{margin-top:14px}.section-top h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--plum);letter-spacing:-.035em}.section-intro{max-width:355px;font-size:13px;color:var(--muted);line-height:1.85}
+    .project{--project-accent:var(--teal);--project-light:#e3f0f0;background:white;border:1px solid var(--line);border-top:4px solid var(--project-accent);border-radius:var(--radius);overflow:hidden;margin-top:30px;box-shadow:0 12px 35px #30263f06;transition:box-shadow .25s,border-color .25s}
+    .project:hover{box-shadow:0 18px 45px #30263f12;border-color:var(--project-accent)}
+    #justice-installations{--project-accent:var(--plum);--project-light:#f1e7f1}
+    .project-heading{padding:29px 33px;display:flex;justify-content:space-between;align-items:center;gap:24px;border-bottom:1px solid var(--line)}.project-name{display:flex;gap:21px;align-items:center}
+    .project-number{font-family:var(--serif);font-style:italic;font-size:46px;font-weight:400;line-height:1;color:var(--project-accent);opacity:.8;min-width:48px;letter-spacing:-.06em}
+    .project h3{font-size:28px;margin:6px 0 5px}.project-heading .eyebrow{color:var(--project-accent);font-size:9px}.project-heading p:last-child{font-size:12px;color:var(--muted)}
+    .badge{font-size:8px;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;background:var(--project-light);color:var(--project-accent);padding:8px 12px;border-radius:99px;font-weight:750}
+    .project-grid{display:grid;grid-template-columns:1.28fr 1fr}#justice-installations .project-grid{grid-template-columns:1fr 1.28fr}#justice-installations .gallery{order:2;border-right:0;border-left:1px solid var(--line)}
+    .gallery{background:var(--project-light);background-image:radial-gradient(#a6b3c22e .8px,transparent .8px);background-size:12px 12px;padding:31px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line);min-width:0}
+    .gallery-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:14px}.gallery-toolbar p{font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--project-accent)}.gallery-toolbar a{font-size:10px;white-space:nowrap;font-weight:750;color:var(--project-accent)}
+    .report-image{display:block;border-radius:7px;border:5px solid white;overflow:hidden;background:#172734;box-shadow:0 15px 28px #25274319;aspect-ratio:2.151/1;transition:transform .25s}.report-image:hover{transform:translateY(-4px)}.report-image img{width:100%;height:100%;object-fit:contain}
+    .gallery-buttons{display:flex;gap:7px;margin-top:19px;flex-wrap:wrap}.gallery-buttons button{border:1px solid #c1c3d0;background:#ffffff80;color:#494a61;padding:10px 12px;min-height:40px;font-size:10px;font-weight:750;cursor:pointer;border-radius:99px;line-height:1.2}
+    .gallery-buttons button[aria-pressed="true"]{background:var(--project-accent);color:white;border-color:var(--project-accent);box-shadow:0 3px 8px #28324215}.gallery-buttons button:hover{border-color:var(--project-accent)}.gallery figcaption{font-size:9px;color:#646277;margin-top:13px}
+    .project-copy{padding:33px}.question{font-size:22px;line-height:1.4;letter-spacing:-.04em;font-weight:800;margin-bottom:13px}.project-copy>p:not(.question){font-size:13px;line-height:1.9;color:var(--muted)}
+    .project-facts{display:flex;gap:25px;margin:23px 0 20px;padding:16px 0;border-block:1px solid var(--line)}.project-facts strong{font-size:19px;letter-spacing:-.045em;font-weight:800;display:block;line-height:1.2;color:var(--project-accent)}.project-facts span{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;display:block;margin-top:7px}
+    .project-copy .proof{font-size:12px;color:var(--ink);line-height:1.85}.project-copy .proof strong{color:var(--project-accent);font-weight:800}.project-copy .button-row{gap:9px;margin-top:24px}.project-copy .button{padding:11px 14px;font-size:10px;gap:8px}.project-copy .button.primary{background:var(--project-accent);border-color:var(--project-accent);box-shadow:none}
+    .technical{border-top:1px solid var(--line)}.technical summary{padding:18px 33px;cursor:pointer;font-size:11px;font-weight:750;color:var(--project-accent)}.technical summary:hover{background:var(--project-light)}.technical-body{padding:6px 33px 26px;display:grid;grid-template-columns:1.3fr 1fr;gap:38px;font-size:12px}.technical-body p{color:var(--muted);margin-bottom:9px}.technical-body a{font-size:11px;font-weight:700}.source-links{display:flex;align-content:start;align-items:start;flex-wrap:wrap;column-gap:20px;row-gap:12px}.scope-note{font-size:11px;color:var(--muted);margin-top:22px;max-width:900px;line-height:1.85}
+    .capabilities{background:var(--night);color:white;position:relative;overflow:hidden}.capabilities::before{content:"";width:440px;height:440px;border:1px solid #65719042;border-radius:50%;position:absolute;right:-160px;top:-250px;pointer-events:none}.capabilities .eyebrow{color:var(--mint)}.capabilities .section-top h2 em{color:var(--rose)}.capabilities .section-intro{color:#c6ccdf}
+    .capability-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.capability{--card-accent:var(--mint);border:1px solid #47516c;border-top:3px solid var(--card-accent);border-radius:18px;background:#2a344e;padding:29px 26px;transition:transform .2s,background .2s}.capability:nth-child(2){--card-accent:#d4b7e7}.capability:nth-child(3){--card-accent:var(--rose)}.capability:hover{transform:translateY(-6px);background:#313c57}
+    .capability-icon{width:46px;height:46px;color:var(--card-accent);margin-bottom:25px;border:1px solid #5c637f;border-radius:13px;display:grid;place-items:center;background:#37425a}.capability-icon svg{width:23px;height:23px}
+    .capability .index{font-size:8px;color:var(--card-accent);margin-bottom:12px;display:block;letter-spacing:.13em;font-weight:800}.capability h3{font-size:21px;letter-spacing:-.035em;margin-bottom:13px;line-height:1.35}.capability p{font-size:12px;color:#d0d5e5;line-height:1.9}.tags{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-wrap:wrap;gap:7px}.tags li{font-size:8px;font-weight:650;border:1px solid #5b6580;border-radius:4px;padding:5px 7px;color:#e4e5f1;background:#202b434d}
+    .about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:85px;align-items:start}.about-grid h2{margin:14px 0 23px;max-width:490px;font-size:40px}.about-copy{font-size:14px;color:var(--muted);max-width:510px;line-height:1.9}.about-copy+p{margin-top:16px}
+    .signature{display:flex;align-items:center;gap:16px;margin-top:26px}.signature-mark{font-family:var(--serif);font-size:28px;font-style:italic;color:var(--plum);letter-spacing:-.03em}.palette{display:flex;gap:4px;padding-left:15px;border-left:1px solid #cdbfd8}.palette i{width:13px;height:13px;border-radius:50%;background:var(--teal)}.palette i:nth-child(2){background:var(--night)}.palette i:nth-child(3){background:var(--plum)}.palette i:nth-child(4){background:var(--rose)}
+    .experience-list{margin-top:8px;position:relative}.experience-item{padding:22px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:37px 1fr;gap:15px}.experience-item:first-child{padding-top:0}.experience-item>span{font-size:10px;color:var(--plum);font-weight:800;width:30px;height:30px;background:#e9dff0;display:grid;place-items:center;border-radius:50%}.experience-item h3{font-size:16px;letter-spacing:-.025em;margin-bottom:9px;line-height:1.5}.experience-item p{font-size:12px;color:var(--muted);line-height:1.85}
+    .contact-panel{padding:48px 49px;background:linear-gradient(115deg,#252d4a 0%,#4c395e 65%,#765074 100%);color:white;border-radius:var(--radius);display:flex;align-items:center;justify-content:space-between;gap:44px;position:relative;overflow:hidden;isolation:isolate;box-shadow:0 15px 35px #553d641a}.contact-panel::before{content:"";position:absolute;right:-125px;top:-145px;width:490px;height:490px;border:1px solid #c7aaca66;border-radius:50%;z-index:-1}.contact-panel::after{content:"";position:absolute;right:-76px;top:-90px;width:380px;height:380px;border:1px solid #c7aaca55;border-radius:50%;z-index:-1}.contact-panel .eyebrow{color:var(--rose)}.contact-panel h2{font-size:35px;margin:13px 0 16px;max-width:600px}.contact-panel h2 em{font-family:var(--serif);font-weight:400;color:#edd1e1}.contact-panel p:not(.eyebrow){font-size:12px;color:#e2d8e9;max-width:600px;line-height:1.85}.contact-actions{flex-shrink:0;display:flex;flex-direction:column;align-items:stretch;gap:16px}.contact-actions .button{background:var(--mint);border-color:var(--mint);color:var(--night);box-shadow:0 5px 0 #19233d55}.contact-actions .text-link{color:#f2e9f5;text-align:center;font-size:11px}
+    footer{padding-block:32px 24px;color:var(--muted);font-size:10px}.footer-top{display:flex;align-items:center;justify-content:space-between;gap:25px;padding-bottom:23px;border-bottom:1px solid var(--line)}.footer-top strong{font-weight:800;color:var(--ink);font-size:12px}.footer-links{display:flex;gap:22px;flex-wrap:wrap}.footer-note{padding-top:19px;font-size:9px;max-width:930px;line-height:1.8}
+    @keyframes arrive{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+    @media(min-width:1500px){.hero-grid{padding-block:85px 70px}}
+    @media(max-width:1100px){.wrap{width:calc(100% - 56px)}.hero-grid{gap:28px}.hero-preview{padding:65px 10px 80px}.hero-preview::before{inset:10px 0 17px 15px}.hero-preview::after{inset:34px -10px 40px 0}.creative-note{right:0;padding:13px 15px}.creative-note strong{font-size:11px}.hero-copy{font-size:15px}h1{font-size:54px}.career-inner{gap:23px}.stat{padding-left:17px}.stat strong{font-size:34px}.stats{gap:15px}.project-copy{padding:28px}.gallery{padding:24px}.project-copy .button{font-size:9px;padding:11px 12px}.about-grid{gap:50px}.capability{padding:25px 22px}.contact-panel{padding:40px}.contact-panel h2{font-size:31px}}
+    @media(max-width:850px){.nav-links{gap:19px}.hero-grid{grid-template-columns:1fr;gap:20px;padding-block:43px 46px}.hero-text{max-width:690px;padding-bottom:0}h1{font-size:68px;margin-block:20px}.hero-copy{max-width:590px;font-size:16px}.hero-preview{width:100%;max-width:590px;margin:0 auto;padding:52px 14px 70px}.hero-preview::before{inset:7px 15px 18px 36px}.hero-preview::after{inset:25px 0 40px 18px}.creative-note{right:8px;bottom:12px}.creative-note strong{font-size:13px}.orbit{right:12px;top:4px}.feature-caption{bottom:-14px}.brand-ribbon .wrap{width:calc(100% - 36px)}.ribbon-inner{gap:12px;font-size:8px;letter-spacing:.08em}.ribbon-inner .ribbon-star{font-size:19px}.career-inner{grid-template-columns:1fr;gap:24px}.career-label{display:flex;align-items:center;gap:16px}.career-label p:last-child{max-width:none;margin:0}.stat strong{font-size:38px}.section{padding-block:56px}.section-top{display:block}.section-intro{max-width:650px;margin-top:19px}.project-grid,#justice-installations .project-grid{grid-template-columns:1fr}#justice-installations .gallery{order:0;border-left:0}.gallery{border-right:0;border-bottom:1px solid var(--line);padding:28px}.project-copy{padding:31px}.project-facts{gap:48px}.project-copy .button{font-size:11px;padding:12px 17px}.technical-body{grid-template-columns:1fr;gap:12px}.capability-grid{gap:14px}.capability{padding:22px 17px}.capability h3{font-size:18px}.capability p{font-size:11px}.about-grid{grid-template-columns:1fr;gap:36px}.about-copy{max-width:650px}.contact-panel{display:block}.contact-actions{margin-top:27px;flex-direction:row;align-items:center;gap:24px}}
+    @media(max-width:600px){html{scroll-padding-top:125px}.wrap{width:calc(100% - 36px)}.nav{flex-wrap:wrap;gap:13px;padding-block:13px;min-height:0}.brand{font-size:16px;gap:11px}.monogram{width:34px;height:34px;font-size:18px;border-radius:10px 10px 10px 2px}.brand-copy small{font-size:6px;margin-top:3px}.nav-links{width:100%;justify-content:space-between;gap:10px;font-size:10px}.nav-links .nav-contact{padding:6px 13px}.hero-grid{padding-block:35px 43px;gap:25px}h1{font-size:clamp(39px,8.6vw,54px);line-height:1.2;letter-spacing:-.06em;margin:20px 0 16px}h1 span{font-size:1.2em}.hero .eyebrow{font-size:8px;letter-spacing:.08em;padding:6px 10px}.hero-role{font-size:9px;letter-spacing:.08em;margin:17px 0 13px}.hero-copy{font-size:14px;line-height:1.85}.button-row{gap:10px;margin-top:24px}.button{font-size:10px;padding:12px 14px;gap:11px}.hero .button.secondary{font-size:10px}.location{font-size:9px;margin-top:24px}.hero-preview{padding:39px 8px 64px;max-width:480px}.hero-preview::before{inset:5px 14px 8px 30px;border-radius:100px 24px 85px 24px}.hero-preview::after{inset:18px 3px 30px 13px;border-radius:100px 24px 85px 24px}.feature-header{font-size:7px;padding:12px}.feature-header span:first-child{letter-spacing:.07em}.feature-image{margin-inline:7px}.feature-footer{padding:13px}.feature-footer strong{font-size:18px}.feature-footer p{font-size:9px}.feature-footer>a{width:29px;height:29px;font-size:20px}.orbit{width:52px;height:52px;top:0;right:16px}.dot-matrix{width:44px;height:44px;left:2px;top:2px;background-size:9px 9px}.creative-note{padding:11px 14px;right:6px;bottom:5px;gap:10px;border-radius:10px}.creative-note strong{font-size:11px}.creative-note p{font-size:8px}.note-icon{width:26px;height:26px}.feature-caption{font-size:8px;gap:5px;bottom:-19px}.feature-caption span+span::before{margin-right:5px}.ribbon-inner{display:grid;grid-template-columns:1fr auto 1fr;text-align:center;font-size:8px;gap:8px;padding-block:14px}.ribbon-inner .ribbon-star:nth-of-type(4){display:none}.ribbon-inner span:nth-of-type(5){grid-column:1}.ribbon-inner span:nth-of-type(6){grid-column:2}.ribbon-inner span:nth-of-type(7){grid-column:3}.career-inner{padding-block:27px;gap:22px}.career-label{display:block}.career-label p:last-child{margin-top:5px;font-size:10px}.stats{gap:9px}.stat{padding-left:10px;border-left-width:2px}.stat strong{font-size:28px;letter-spacing:-.075em}.stat span{font-size:9px;line-height:1.65}.section{padding-block:45px}.section-top{margin-bottom:26px}.section-top h2{font-size:34px}.section-intro{font-size:12px}.project{border-radius:16px;margin-top:23px}.project-heading{padding:23px 20px;display:block}.project-name{gap:15px}.project-number{font-size:39px;min-width:38px}.project h3{font-size:23px}.project-heading .eyebrow{font-size:8px;letter-spacing:.1em}.project-heading p:last-child{font-size:11px}.badge{display:inline-block;margin:14px 0 0 53px;font-size:7px;padding:6px 10px}.gallery{padding:19px}.gallery-toolbar{gap:10px}.gallery-toolbar p{font-size:8px}.gallery-toolbar a{font-size:9px}.gallery-buttons{gap:6px;margin-top:16px}.gallery-buttons button{padding:10px;font-size:9px;min-height:38px}.gallery figcaption{font-size:8px}.project-copy{padding:24px}.question{font-size:21px}.project-copy>p:not(.question){font-size:12px}.project-facts{gap:25px}.project-facts strong{font-size:18px}.project-copy .button{font-size:9px;padding:11px 13px}.project-copy .proof{font-size:11px}.technical summary{padding:17px 21px;font-size:10px;line-height:1.8}.technical-body{padding:6px 22px 24px;font-size:11px}.source-links a{font-size:10px}.scope-note{font-size:10px}.capability-grid{grid-template-columns:1fr;gap:18px}.capability{padding:27px}.capability-icon{margin-bottom:20px}.capability h3{font-size:23px}.capability p{font-size:13px}.capability .index{font-size:9px}.tags li{font-size:9px}.about-grid{gap:28px}.about-grid h2{font-size:34px}.about-copy{font-size:13px}.experience-item h3{font-size:15px}.experience-item p{font-size:11px}.contact-panel{padding:32px 26px;border-radius:18px}.contact-panel h2{font-size:31px}.contact-panel p:not(.eyebrow){font-size:11px}.contact-actions{flex-wrap:wrap;gap:21px}.contact-actions .button{font-size:11px}.footer-top{align-items:start;flex-direction:column;gap:16px}.footer-top strong{font-size:11px}.footer-links{gap:18px}.footer-note{font-size:8px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.button:hover,.report-image:hover,.capability:hover{transform:none}.feature:hover{transform:rotate(-3deg)}}
+    @media print{.site-header{position:static}.hero-preview,.brand-ribbon,.gallery-buttons,.skip,.contact-panel::before,.contact-panel::after{display:none}.hero-grid,.career-inner{display:block;padding-block:20px}.stats{margin-top:20px}.hero,.capabilities,.capability,.contact-panel{background:white;color:var(--ink)}.capabilities p,.capability p,.contact-panel p:not(.eyebrow),.contact-panel .eyebrow,.capabilities .eyebrow,.capabilities .section-intro{color:var(--ink)}.capability .tags li{color:var(--ink)}.section{padding-block:25px}.project{break-inside:avoid}.contact-panel{border:1px solid var(--line);padding:20px}.wrap{width:100%}details:not([open]){display:none}.hero-text{animation:none}}
   </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <nav class="nav wrap" aria-label="Main navigation">
-    <a class="brand" href="#main"><span class="monogram" aria-hidden="true">PJ</span>Paige Justice</a>
+    <a class="brand" href="#main"><span class="monogram" aria-hidden="true">PJ</span><span class="brand-copy">Paige Justice<small>DATA + DESIGN + CLARITY</small></span></a>
     <div class="nav-links"><a href="#projects">Selected work</a><a href="#expertise">Expertise</a><a href="#about">About</a><a class="nav-contact" href="#contact">Let's connect <span aria-hidden="true">↗</span></a></div>
   </nav>
 </header>
@@ -170,22 +129,27 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-grid wrap">
       <div class="hero-text">
-        <p class="eyebrow">Senior business intelligence &amp; analytics</p>
-        <h1 id="hero-title">Less manual work.<br><span>More trusted<br>decisions.</span></h1>
+        <p class="eyebrow">The portfolio of Paige Justice</p>
+        <h1 id="hero-title">Analytical mind.<span>Creative edge.</span></h1>
+        <p class="hero-role">Senior BI &amp; Analytics · SQL + Power BI</p>
         <p class="hero-copy">I'm Paige. I build <strong>SQL Server and Power BI solutions</strong> that turn fragmented data and recurring reports into reliable, governed analytics.</p>
         <div class="button-row"><a class="button primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://www.linkedin.com/in/paige-justice/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a></div>
         <p class="location">Oklahoma City, OK · Open to remote opportunities</p>
       </div>
       <div class="hero-preview">
+        <div class="dot-matrix" aria-hidden="true"></div>
+        <svg class="orbit" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 0C54 32 68 46 100 50C68 54 54 68 50 100C46 68 32 54 0 50C32 46 46 32 50 0Z"/><path d="M50 20V80M20 50H80" stroke="#fff" stroke-width="1" opacity=".6"/></svg>
         <div class="feature">
           <div class="feature-header"><span>From the portfolio</span><span>Power BI / Azure SQL</span></div>
           <a class="feature-image" href="#orthoma" aria-label="Explore the Orthoma clinic analytics project"><img src="../artifacts/01-clinic-overview.png" alt="Orthoma Power BI dashboard showing clinic visits, wait times, revenue trends, and location performance using synthetic data." width="2000" height="930" fetchpriority="high"></a>
           <div class="feature-footer"><div><strong>Orthoma</strong><p>Clinic operations &amp; revenue analytics</p></div><a href="#orthoma" aria-label="Explore Orthoma">↗</a></div>
         </div>
+        <div class="creative-note"><svg class="note-icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M7 28V20M17 28V12M27 28V5" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M5 35H35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><strong>From SQL to the story.</strong><p>Thoughtful models. Useful answers.</p></div></div>
         <div class="feature-caption"><span>Actual report screenshot</span><span>Synthetic data</span><span>Source available</span></div>
       </div>
     </div>
   </section>
+  <div class="brand-ribbon" aria-label="Areas of focus"><div class="ribbon-inner wrap"><span>Analytical by nature</span><span class="ribbon-star" aria-hidden="true">✳</span><span>Creative by design</span><span class="ribbon-star" aria-hidden="true">✳</span><span>Grounded in the business</span><span class="ribbon-star" aria-hidden="true">✳</span><span>Driven by clarity</span></div></div>
   <section class="career" aria-label="Career highlights">
     <div class="career-inner wrap">
       <div class="career-label"><p class="eyebrow">Experience with impact</p><p>Career highlights from enterprise BI and analytics.</p></div>
@@ -197,7 +161,7 @@
     </div>
   </section>
   <section class="section wrap" id="projects" aria-labelledby="projects-title">
-    <div class="section-top"><div><p class="eyebrow">01 / Selected work</p><h2 id="projects-title">See the work.<br>Follow the thinking.</h2></div><p class="section-intro">Two complete portfolio projects, from SQL foundations to decision-ready reports. Preview the dashboards here, then explore the reasoning and source.</p></div>
+    <div class="section-top"><div><p class="eyebrow">01 / Selected work</p><h2 id="projects-title">The work.<br><em>And the why.</em></h2></div><p class="section-intro">Two complete portfolio projects, from SQL foundations to decision-ready reports. Preview the dashboards here, then explore the reasoning and source.</p></div>
     <article class="project" id="orthoma" aria-labelledby="orthoma-title">
       <header class="project-heading"><div class="project-name"><span class="project-number" aria-hidden="true">01</span><div><p class="eyebrow">Healthcare analytics</p><h3 id="orthoma-title">Orthoma</h3><p>Clinic Operations &amp; Revenue Analytics</p></div></div><span class="badge">Independent portfolio project</span></header>
       <div class="project-grid">
@@ -235,18 +199,18 @@
     <p class="scope-note">Both projects use synthetic data. Dashboard figures are demonstration results, separate from the career highlights above. Screenshots preview the reports; source files and documentation are available for technical review.</p>
   </section>
   <section class="section capabilities" id="expertise" aria-labelledby="expertise-title"><div class="wrap">
-    <div class="section-top"><div><p class="eyebrow">02 / What I bring</p><h2 id="expertise-title">From the business question<br>to the finished solution.</h2></div><p class="section-intro">Hands-on development, clear definitions, and the operational context to make the result useful.</p></div>
+    <div class="section-top"><div><p class="eyebrow">02 / What I bring</p><h2 id="expertise-title">Technical depth.<br><em>Creative perspective.</em></h2></div><p class="section-intro">Technical depth meets thoughtful design. I connect the business question, the data, and the experience of using the answer.</p></div>
     <div class="capability-grid">
-      <article class="capability"><span class="index">01 / BUILD THE FOUNDATION</span><h3>Data that holds together.</h3><p>Translate business requirements into SQL, repeatable data preparation, and models with explicit grain and relationships.</p><ul class="tags" aria-label="Data foundation skills"><li>SQL Server / T-SQL</li><li>SSIS</li><li>Power Query</li><li>Dimensional modeling</li></ul></article>
-      <article class="capability"><span class="index">02 / MAKE IT USEFUL</span><h3>Reporting people can use.</h3><p>Build Power BI reports, DAX measures, and semantic models that connect operational detail with the decisions leaders need to make.</p><ul class="tags" aria-label="Reporting skills"><li>Power BI</li><li>DAX</li><li>Semantic models</li><li>Reporting automation</li></ul></article>
-      <article class="capability"><span class="index">03 / MAKE IT TRUSTWORTHY</span><h3>Logic people can follow.</h3><p>Define KPIs, document lineage and business rules, and connect requirements to validation, UAT, and a maintainable handoff.</p><ul class="tags" aria-label="Governance skills"><li>KPI standardization</li><li>Data dictionaries</li><li>BRDs / SOPs / UAT</li><li>Azure DevOps</li></ul></article>
+      <article class="capability"><div class="capability-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 4 16 4 16 0V6M4 12c0 4 16 4 16 0"/></svg></div><span class="index">01 / BUILD THE FOUNDATION</span><h3>Data that holds together.</h3><p>Translate business requirements into SQL, repeatable data preparation, and models with explicit grain and relationships.</p><ul class="tags" aria-label="Data foundation skills"><li>SQL Server / T-SQL</li><li>SSIS</li><li>Power Query</li><li>Dimensional modeling</li></ul></article>
+      <article class="capability"><div class="capability-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 16v-4m5 4V8m5 8v-6"/></svg></div><span class="index">02 / MAKE IT USEFUL</span><h3>Reporting people can use.</h3><p>Build Power BI reports, DAX measures, and semantic models that connect operational detail with the decisions leaders need to make.</p><ul class="tags" aria-label="Reporting skills"><li>Power BI</li><li>DAX</li><li>Semantic models</li><li>Reporting automation</li></ul></article>
+      <article class="capability"><div class="capability-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="m4 7 2 2 4-5m3 3h7M4 16l2 2 4-5m3 3h7"/></svg></div><span class="index">03 / MAKE IT TRUSTWORTHY</span><h3>Logic people can follow.</h3><p>Define KPIs, document lineage and business rules, and connect requirements to validation, UAT, and a maintainable handoff.</p><ul class="tags" aria-label="Governance skills"><li>KPI standardization</li><li>Data dictionaries</li><li>BRDs / SOPs / UAT</li><li>Azure DevOps</li></ul></article>
     </div>
   </div></section>
   <section class="section wrap" id="about" aria-labelledby="about-title"><div class="about-grid">
-    <div><p class="eyebrow">03 / Behind the work</p><h2 id="about-title">A developer's depth.<br>A business analyst's perspective.</h2><p class="about-copy">I'm a hands-on BI and analytics professional with more than 15 years of experience, including a deep background in mortgage and financial services.</p><p class="about-copy">My work connects the people who need answers with the data, definitions, and systems behind those answers. I bring SQL and Power BI development together with process discovery, reporting automation, and practical data governance.</p></div>
+    <div><p class="eyebrow">03 / Behind the work</p><h2 id="about-title">A developer's depth.<br>A business analyst's perspective.</h2><p class="about-copy">I'm a hands-on BI and analytics professional with more than 15 years of experience, including a deep background in mortgage and financial services.</p><p class="about-copy">My work connects the people who need answers with the data, definitions, and systems behind those answers. I bring SQL and Power BI development together with process discovery, reporting automation, and practical data governance.</p><div class="signature"><span class="signature-mark">Paige Justice</span><span class="palette" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div></div>
     <div class="experience-list"><div class="experience-item"><span>01</span><div><h3>Experience across the operation</h3><p>Contract recovery, repurchase, loss analysis, financial controls, and quality controls. Analytics grounded in how the work actually gets done.</p></div></div><div class="experience-item"><span>02</span><div><h3>Ownership beyond the dashboard</h3><p>Business requirements, SQL data preparation, KPI definitions, report development, validation, and documentation.</p></div></div><div class="experience-item"><span>03</span><div><h3>Modern, reviewable development</h3><p>PBIP, PBIR, and TMDL keep report and model definitions inspectable in source control. The portfolio shows the implementation and the reasoning behind it.</p></div></div></div>
   </div></section>
-  <section class="wrap" id="contact" aria-labelledby="contact-title"><div class="contact-panel"><div><p class="eyebrow">Let's connect</p><h2 id="contact-title">Looking for someone who can<br>build it and explain it?</h2><p>Let's talk about Senior Power BI Developer, BI Developer, or Senior Data Analyst opportunities. I'm based in Oklahoma City and interested in remote roles.</p></div><div class="contact-actions"><a class="button" href="https://www.linkedin.com/in/paige-justice/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/paigejusti-stack" target="_blank" rel="noopener noreferrer">Explore my GitHub ↗</a></div></div></section>
+  <section class="wrap" id="contact" aria-labelledby="contact-title"><div class="contact-panel"><div><p class="eyebrow">Let's connect</p><h2 id="contact-title">Good data deserves<br><em>a great next chapter.</em></h2><p>Let's talk about Senior Power BI Developer, BI Developer, or Senior Data Analyst opportunities. I'm based in Oklahoma City and interested in remote roles.</p></div><div class="contact-actions"><a class="button" href="https://www.linkedin.com/in/paige-justice/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/paigejusti-stack" target="_blank" rel="noopener noreferrer">Explore my GitHub ↗</a></div></div></section>
 </main>
 <footer class="wrap"><div class="footer-top"><strong>Paige Justice <span style="font-weight:400;color:var(--muted)">/ Business Intelligence &amp; Analytics</span></strong><div class="footer-links"><a href="#projects">Selected work</a><a href="https://www.linkedin.com/in/paige-justice/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/paigejusti-stack" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#main">Back to top ↑</a></div></div><p class="footer-note">Project transparency: these are independent demonstrations using synthetic data. DAX development and final assembly used AI assistance, as documented in the repositories. Project-specific limitations and security-validation scope are included in the technical review and source documentation.</p></footer>
 <script>
